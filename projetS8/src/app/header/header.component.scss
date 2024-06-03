@@ -1,14 +1,16 @@
-$bg : #313131;
+$bg : #16151e;
 
 nav{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     background-color: $bg;
-    height: 50px;
+    height: 60px;
+    padding: 0 20px;
 }
 
-p{
+h4{
     margin: 0;
     color: white;
+    font-family: 'Roboto', sans-serif;
 }
