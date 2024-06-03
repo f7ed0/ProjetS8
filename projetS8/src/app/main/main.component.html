@@ -1,11 +1,9 @@
 <mat-drawer-container class="main-container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-    </mat-drawer>
+    <mat-drawer #drawer class="sidenav" mode="side"></mat-drawer>
   
     <div class="sidenav-content">
-      <button type="button" mat-button (click)="drawer.toggle()">
-        Toggle sidenav
+      <button mat-mini-fab matTooltip="primary" color="primary" class="btn-chats" (click)="toggleDrawer()">
+        <mat-icon>{{ isChevronLeft ? 'chevron_left' : 'chevron_right' }}</mat-icon>
       </button>
     </div>
 </mat-drawer-container>
