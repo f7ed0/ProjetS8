@@ -1,9 +1,9 @@
-//@import '../../styles.scss';
 $bg : #313131;
-
 
 nav{
     display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     background-color: $bg;
     height: 50px;
 }
