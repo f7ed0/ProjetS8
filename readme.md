@@ -1,6 +1,6 @@
 # Projet S8 INSA
 
-Sylvain SAUSSE - Rémi CAULIER - Yann VERKIMPE - Robin LAFONTAINE
+Sylvain SAUSSE - Tristan VERSEL - Ahmed DAOUD
 
 ## Introduction
 
