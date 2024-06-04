@@ -8,11 +8,15 @@ class HistoricBase(BaseModel):
     chat_user: str
     chat_ia: str
 
+class ListHistoricBase(BaseModel):
+    chat : list[HistoricBase]
 class HistoricCreate(HistoricBase):
-    pass
+    chat_id: str
+    chat_user: str
+    chat_ia: str
 
 class HistoricUpdate(HistoricBase):
-    pass
+    chat_ia: str
 
 class Historic(HistoricBase):
     id: int
