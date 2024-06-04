@@ -1,0 +1,30 @@
+$separator : #33304e;
+
+.container-convs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.conv{
+    padding: 25px;
+    height: 30px;
+    overflow: hidden;
+    border: 0px solid $separator;
+    border-bottom-width: 1px;
+    transition: all 0.3s ease-in-out;
+}
+
+.conv:hover{
+    background-color: #2b293c;
+    cursor: pointer;
+}
+
+.conv p{
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    margin: 0;
+}

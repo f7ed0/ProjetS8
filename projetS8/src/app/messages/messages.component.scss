@@ -1,0 +1,76 @@
+$bg-question : #47465d;
+$bg-reponse : #797787;
+$bg : #242331;
+
+*{
+    box-sizing: border-box;
+}
+
+.container-messages{
+    margin: 0 auto;
+    width: 90%;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
+}
+
+.question, .reponse{
+    width: 70%;
+    padding: 20px 22px;
+    border-radius: 30px;
+    color: white;
+}
+
+.question p, .reponse p{
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.reponse{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+p{
+    margin: 0;
+}
+
+.question{
+    background-color: $bg-question;
+    align-self: flex-end;
+}
+
+.reponse{
+    background-color: $bg-reponse;
+    align-self: flex-start;
+}
+
+
+
+
+
+
+.form{
+    width: 90%;
+    margin: 0 auto;
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    background-color: $bg;
+}
+
+.full-width{
+    width: 100%;
+    border-radius: 10px;
+}   
+
+.send-prompt{
+    position: absolute;
+    right: 0px;
+    color: $bg;
+    cursor: pointer;
+}

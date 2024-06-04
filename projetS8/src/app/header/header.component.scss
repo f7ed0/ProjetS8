@@ -1,0 +1,30 @@
+$bg : #16151e;
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $bg;
+    height: 60px;
+    padding: 0 20px;
+}
+
+h4{
+    margin: 0;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo .mat-icon{
+    font-size: 22px;
+    font-weight: 400;
+    color: white;
+}
