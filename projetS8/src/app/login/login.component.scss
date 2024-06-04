@@ -1,3 +1,5 @@
+$bg : #242331;
+
 .form {
     position: relative;
     width: 500px;
@@ -43,5 +45,6 @@
     left: 0px;
     top: 0px;
     font-size: 15px;
+    color: $bg;
 }
   
