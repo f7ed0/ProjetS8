@@ -1,9 +1,13 @@
 <mat-drawer-container class="main-container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side"></mat-drawer>
+    <mat-drawer #drawer class="sidenav" mode="side">
+
+    </mat-drawer>
   
     <div class="sidenav-content">
-      <button mat-mini-fab matTooltip="primary" color="primary" class="btn-chats" (click)="toggleDrawer()">
+      <button mat-mini-fab color="primary" class="btn-chats" (click)="toggleDrawer()">
         <mat-icon>{{ isChevronLeft ? 'chevron_left' : 'chevron_right' }}</mat-icon>
       </button>
+      <app-messages class="app-messages"></app-messages>
+      
     </div>
 </mat-drawer-container>
