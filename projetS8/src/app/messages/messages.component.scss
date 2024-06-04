@@ -1,5 +1,6 @@
 $bg-question : #47465d;
 $bg-reponse : #797787;
+$bg : #242331;
 
 *{
     box-sizing: border-box;
@@ -59,10 +60,17 @@ p{
     position: sticky;
     bottom: 0;
     z-index: 2;
-    background-color: #242331;
+    background-color: $bg;
 }
 
 .full-width{
     width: 100%;
     border-radius: 10px;
 }   
+
+.send-prompt{
+    position: absolute;
+    right: 0px;
+    color: $bg;
+    cursor: pointer;
+}
