@@ -3,13 +3,14 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatSidenavModule, MatDrawer} from '@angular/material/sidenav';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
-import { MessagesComponent } from '../messages/messages.component';
+import {MessagesComponent} from '../messages/messages.component';
+import { ConvsComponent } from '../convs/convs.component';
 
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [MatButtonModule, MatSidenavModule, MatIconModule, MatTooltipModule, MessagesComponent],
+  imports: [MatButtonModule, MatSidenavModule, MatIconModule, MatTooltipModule, MessagesComponent, ConvsComponent],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
