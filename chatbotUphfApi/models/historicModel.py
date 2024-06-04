@@ -1,17 +1,21 @@
+# schemas.py
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from config import DATABASE_URL
+from pydantic import BaseModel
 
-engine = create_engine(DATABASE_URL)
-Base = declarative_base()
-# Supprimer toutes les tables
-Base.metadata.drop_all(engine)
+class HistoricBase(BaseModel):
+    chat_id: str
+    chat_user: str
+    chat_ia: str
 
-class historic(Base):
-    __tablename__ = 'historic'
-    id = Column(Integer, primary_key=True)
-    chat_id = Column(String)
-    chat_user = Column(String)
-    chat_ia= Column(String)
+class HistoricCreate(HistoricBase):
+    pass
 
-Base.metadata.create_all(engine)
+class HistoricUpdate(HistoricBase):
+    pass
+
+class Historic(HistoricBase):
+    id: int
+
+    class Config:
+        orm_mode = True
