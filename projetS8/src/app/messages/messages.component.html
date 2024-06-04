@@ -1,45 +1,21 @@
-<div class="container-messages">
+<div class="container-messages" *ngFor="let message of messages; let i = index">
     <div class="question">
-        <p>Quel est le nom de la capitale de la France ?</p>
+      <p>{{ message.chat_user }}</p>
     </div>
     <div class="reponse">
-        <p>Paris</p>
-    </div>
-    <div class="question">
-        <p>Quel est le nom de la capitale de l'Espagne ?</p>
-    </div>
-    <div class="reponse">
-        <p>Madrid</p>
-    </div>
-    <div class="question">
-        <p>Quel est le nom de la capitale de l'Italie ?</p>
-    </div>
-    <div class="reponse">
-        <p>Rome</p>
-    </div>
-    <div class="question">
-        <p>Quel est le nom de la capitale de l'Allemagne ?</p>
-    </div>
-    <div class="reponse">
-        <p>Berlin</p>
-    </div>
-    <div class="question">
-        <p>Donne moi la recette complète d'un risotto</p>
-    </div>
-    <div class="reponse">
-        <p>Préparez les champignons. Passez-les rapidement sous un filet d'eau, essuyez-les et détaillez-les en gros morceaux. Faites fondre une noix de beurre et faites-y revenir la gousse d'ail émincée pendant 2 minutes. Ajoutez les champignons et laissez-les cuire environ 3 minutes en ajoutant le persil lavé et ciselé à la fin. Ajoutez 3 cuillères à soupe de vin blanc et laissez cuire 2 minutes jusqu'à ce qu'il réduise. Ajoutez la crème fraîche et mélangez. Salez, poivrez et réservez.</p>
-        <p>Faites bouillir un litre d'eau dans lequel vous diluerez les cubes de bouillon. Dans une sauteuse, faites chauffer l'huile d'olive pour y faire blondir l'oignon émincé pendant 3 minutes. Ajoutez le riz et laissez-le cuire en remuant pendant 2 minutes jusqu'à ce qu'il soit un peu transparent.</p>
-        <p>Ajoutez 10 cl de vin blanc (1/2 verre) et une fois qu'il est absorbé par le riz, ajoutez une louche de bouillon, puis mélangez. Une fois que le bouillon est bien absorbé, ajoutez une nouvelle louche, et ainsi de suite jusqu'à épuisement du bouillon (environ 20 bonnes minutes).</p>
-        <p>Ajoutez la moitié du parmesan et les champignons, attendez 2 minutes puis mélangez vivement.</p>
-        <p>Pour finir, Servez très chaud avec le reste du parmesan.</p>
+      <p *ngIf="i!=messages.length - 1">{{ message.chat_ia }}</p>
+      <p *ngIf="i==messages.length - 1" [(ngModel)]="botResponse">{{ message.chat_ia }}</p>
+
     </div>
 
 </div>
-
-<form class="form">
+  
+<form class="form" (ngSubmit)="sendMessage()">
     <mat-form-field class="full-width prompt">
-        <input matInput placeholder="Veuillez poser votre question :">
-        <mat-icon class="send-prompt">send</mat-icon>
+      <input matInput [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
+      <button mat-icon-button type="submit" class="send-prompt">
+        <mat-icon>send</mat-icon>
+      </button>
     </mat-form-field>
-</form>
-
+  </form>
+  
