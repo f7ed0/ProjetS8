@@ -1,0 +1,24 @@
+<form class="form">
+
+    <div class="top">
+        <button class="btn-close" mat-icon-button aria-label="close dialog" (click)="closeDialog()" mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+        <h1 class="title">Connexion</h1>
+    </div>
+
+    <mat-form-field class="full-width">
+        <mat-label>User</mat-label>
+        <input matInput [formControl]="user_control" placeholder="">
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+        <mat-label>Enter your password</mat-label>
+        <input matInput [formControl]="pass_control" [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <button mat-flat-button class="btn-login" color="primary" (click)="getData()">Se connecter</button>
+</form>
