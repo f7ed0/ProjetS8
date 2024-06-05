@@ -6,7 +6,7 @@ from controllers.historicController import router as historic_router
 app = FastAPI()
 
 origins = [
-    "http://localhost:4200",  # Your Angular app's URL
+    "http://localhost:4200", 
 ]
 
 app.add_middleware(
@@ -18,6 +18,5 @@ app.add_middleware(
 )
 
 
-# Enregistrer le module de routage auprès de l'instance FastAPI
 app.include_router(historic_router, prefix="/api/v1", tags=["historics"])
   
