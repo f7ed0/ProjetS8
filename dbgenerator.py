@@ -3,18 +3,21 @@ from tika import parser
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.vectorstores import Chroma
+from pypdf import PdfReader
 
 
 
 embedder = HuggingFaceBgeEmbeddings(
     model_name='sentence-Transformers/all-MiniLM-l6-v2',
-    model_kwargs={"device" : "cpu"},
+    model_kwargs={"device" : "cuda"},
     encode_kwargs={"normalize_embeddings" : False}
 )
 
 txt_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200, separator="\n\n")
 
 def load_pdf(path:str) -> list[str] :
+    #t = PdfReader(path)
+    #return '\n'.join([page.extract_text() for page in t.pages])
     return parser.from_file(path)["content"]
 
 def split_paragraph(text) :
@@ -23,7 +26,7 @@ def split_paragraph(text) :
 def embedding_dryrun(splitted_text):
     chunks = [sp.page_content for sp in splitted_text]
     embeded = embedder.embed_documents(chunks)
-    print(len(embeded))
+    #print(len(embeded))
 
 
 
