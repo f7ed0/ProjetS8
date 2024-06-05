@@ -1,37 +1,48 @@
 import torch
 from transformers import AutoTokenizer,AutoModelForCausalLM
-from pypdf import PdfReader
-import os
+import dbgenerator
+import ctx_generator
 
-tokenizer = AutoTokenizer.from_pretrained("google/gemma-1.1-2b-it")
+model_id = "google/gemma-1.1-2b-it"
+#model_id = "microsoft/Phi-3-mini-128k-instruct"
+
+tokenizer = AutoTokenizer.from_pretrained(model_id)
 print(tokenizer.chat_template)
-model = AutoModelForCausalLM.from_pretrained("google/gemma-1.1-2b-it")
+model = AutoModelForCausalLM.from_pretrained(model_id)
 
-reader = PdfReader('docs/eb4ca340-c217-4bbd-939b-92307eb908b6.pdf')
-
-print(len(reader.pages)) 
-
-ctx = ""
-for page in reader.pages :
-    ctx += page.extract_text()+"\n"
+base = lambda x : {"role": "user","content":x+"\nTu est le chatbot de l'Universitée des Hauts-de-France, tu est là pour répondre a toute les question sur cet universitée et assister les personnes à mieux la connaître."}
 
 messages = [
-    {"role": "user","content":ctx+"\nTu est le chatbot de l'Universitée des Hauts-de-France, tu est là pour répondre a toute les question des personnes sur cet universitée."},
-    {"role": "assistant", "content": "Bonjour ! Je suis l'assistant UPHF comment puis-je vous aider ?"},
+    base(""),
+    {"role": "assistant", "content": "Bonjour ! Je suis l'assistant UPHF. comment puis-je vous aider ?"},
 ]
+
+print("Assistant> Bonjour ! Je suis l'assistant UPHF. comment puis-je vous aider ?")
+
+cdb = dbgenerator.loadEmbededDB()
 
 while True :
     q = input("User> ")
-    messages.append({"role" : "user", "content" : q})
+    if q == "exit":
+        break
+    #print("NEW CONTEXT :",[item.page_content for item in cdb.similarity_search(q)])
+    messages.append({"role" : "user", "content" : f'{q}'})
+    messages[0] = base(ctx_generator.generateCtx(messages,cdb))
+
+
 
     inputs = tokenizer.apply_chat_template(messages,tokenize=True,add_generation_prompt=True,return_tensors="pt")
 
     gen_tokens = model.generate(
         inputs,
-        max_new_tokens=180,
+        max_new_tokens=500,
         temperature=1,
         do_sample=True,
     )
 
+    resp = tokenizer.decode(gen_tokens[0]).split("<start_of_turn>model")
 
-    print(tokenizer.decode(gen_tokens[0]))
+    rsp = resp[len(resp)-1][1:].replace("<eos>","")
+
+    print("Assistant>",rsp)
+    messages.append({"role" : "Assistant", "content" : rsp})
