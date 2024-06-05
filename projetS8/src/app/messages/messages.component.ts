@@ -23,8 +23,7 @@ export class MessagesComponent implements OnInit {
   userMessage: string = '';
   botResponse: string = ''; 
 
-  
-  
+
 
   constructor(
     private route: ActivatedRoute,
@@ -38,7 +37,6 @@ export class MessagesComponent implements OnInit {
       if (newChatId && newChatId !== this.chatId) {
         this.chatId = newChatId;
         this.getDataByChatId(this.chatId);
-        this.botResponse = this.messages[this.messages.length - 1].chat_ia;
       }
     });
   }
@@ -49,6 +47,7 @@ export class MessagesComponent implements OnInit {
         console.log('Data received from API:', data); // Log the received data
         this.messages = data;
         this.cdr.detectChanges(); // Force Angular to detect changes
+        this.botResponse = this.messages[this.messages.length - 1].chat_ia;
       },
       error: (error) => {
         console.error('There was an error!', error);
