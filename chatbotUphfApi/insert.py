@@ -1,23 +1,22 @@
 # chatbotUphfApi/seed/insert.py
 
-from sqlalchemy.orm import Session
-from models.historic import Historic
-from config import SessionLocal
+from config import get_db
 
 def insert_historic():
-    db = SessionLocal()
-    db.add(Historic(chat_id="1", chat_user="Bonjour", chat_ia="Bonjour"))
-    db.add(Historic(chat_id="1", chat_user="Comment ça va ?", chat_ia="Je vais bien et vous ?"))
-    db.add(Historic(chat_id="1", chat_user="Je vais bien merci", chat_ia="Je suis content pour vous"))
-    db.add(Historic(chat_id="1", chat_user="Merci", chat_ia="Je vous en prie"))
-    db.add(Historic(chat_id="1", chat_user="Au revoir", chat_ia="Au revoir"))
-    db.add(Historic(chat_id="1", chat_user="A bientôt", chat_ia="A bientôt"))
-    db.add(Historic(chat_id="2", chat_user="Salut", chat_ia="Salut"))
-    db.add(Historic(chat_id="2", chat_user="Comment ça va ?", chat_ia="Je vais bien et vous ?"))
-    db.add(Historic(chat_id="2", chat_user="Je vais bien merci", chat_ia="Je suis content pour vous"))
-    db.add(Historic(chat_id="2", chat_user="Merci", chat_ia="Je vous en prie"))
-    db.commit()
-    db.close()
+    db = get_db()
+    db.historic.insert_many([
+        {"chat_id": "1", "chat_user": "Bonjour", "chat_ia": "Bonjour"},
+        {"chat_id": "1", "chat_user": "Comment ça va ?", "chat_ia": "Je vais bien et vous ?"},
+        {"chat_id": "1", "chat_user": "Je vais bien merci", "chat_ia": "Je suis content pour vous"},
+        {"chat_id": "1", "chat_user": "Merci", "chat_ia": "Je vous en prie"},
+        {"chat_id": "1", "chat_user": "Au revoir", "chat_ia": "Au revoir"},
+        {"chat_id": "1", "chat_user": "A bientôt", "chat_ia": "A bientôt"},
+        {"chat_id": "2", "chat_user": "Salut", "chat_ia": "Salut"},
+        {"chat_id": "2", "chat_user": "Comment ça va ?", "chat_ia": "Je vais bien et vous ?"},
+        {"chat_id": "2", "chat_user": "Je vais bien merci", "chat_ia": "Je suis content pour vous"},
+        {"chat_id": "2", "chat_user": "Merci", "chat_ia": "Je vous en prie"}
+    ])
+    print("Data inserted successfully")
 
 if __name__ == "__main__":
     insert_historic()

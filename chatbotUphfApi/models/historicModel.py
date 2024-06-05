@@ -1,6 +1,4 @@
 # schemas.py
-from sqlalchemy import create_engine, Column, Integer, String
-from sqlalchemy.ext.declarative import declarative_base
 from pydantic import BaseModel
 
 class HistoricBase(BaseModel):
@@ -23,3 +21,4 @@ class Historic(HistoricBase):
 
     class Config:
         orm_mode = True
+

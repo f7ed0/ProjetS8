@@ -1,6 +1,7 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from pymongo import MongoClient
 
+MONGO_URI = "mongodb://root:insa@localhost:27017/?authSource=chatbotUPHF"
+DATABASE_NAME = "chatbotUPHF"
 
 DATABASE_URL = "mysql+pymysql://root:insa@localhost:3307/chatbotUPHF"
 
@@ -9,8 +10,8 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
 def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+    return db
+
+
+
+
