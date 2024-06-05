@@ -29,7 +29,19 @@ h4{
     color: white;
 }
 
+.new_conv{
+    margin-left: 20px;
+}
+
+.new_conv .mat-icon{
+    font-size: 17px;
+    color: white;
+    width: auto;
+    height: auto;
+}
+
 .boutons{
     display: flex;
     gap: 15px;
 }
+

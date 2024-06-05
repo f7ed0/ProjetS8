@@ -1,18 +1,19 @@
 import { Component } from '@angular/core';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NewconvService } from '../newconv.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [MatButtonModule, MatDialogModule, MatIconModule, CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
 
@@ -21,7 +22,8 @@ export class HeaderComponent {
   constructor(
     private dialog: MatDialog,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private newconvService: NewconvService
   ){}
 
   ngOnInit() {
@@ -33,7 +35,7 @@ export class HeaderComponent {
   openDialog() {
     let d = this.dialog.open(LoginComponent, {data : undefined});
     d.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`)
+      console.log(`Dialog result: ${result}`);
     });
   }
 
@@ -49,4 +51,11 @@ export class HeaderComponent {
     }
   }
 
+  setNewConv() {
+    this.newconvService.setNewConv();
+  }
+
+  setMessages() {
+    this.newconvService.setMessages();
+  }
 }
