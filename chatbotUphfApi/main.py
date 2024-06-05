@@ -1,4 +1,3 @@
-# main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from controllers.historicController import router as historic_router
@@ -17,7 +16,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(historic_router, prefix="/api/v1")
 
-# Enregistrer le module de routage auprès de l'instance FastAPI
-app.include_router(historic_router, prefix="/api/v1", tags=["historics"])
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
   

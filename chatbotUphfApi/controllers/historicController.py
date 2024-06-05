@@ -1,76 +1,76 @@
-# controllers/historicController.py
 from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from sqlalchemy import func
 from typing import List
-from models.historic import Historic as HistoricModel
 from models.historicModel import HistoricBase, HistoricCreate, HistoricUpdate
 from config import get_db
+from bson import ObjectId
 
 router = APIRouter()
 
 @router.get("/historic", response_model=List[HistoricBase])
-def get_all_historic(db: Session = Depends(get_db)):
-    historic_list = db.query(HistoricModel).all()
+def get_all_historic(db = Depends(get_db)):
+    historic_list = list(db.historic.find())
+    for item in historic_list:
+        item['id'] = str(item['_id'])
     return historic_list
 
 @router.get("/historic/distinct", response_model=List[HistoricBase])
-def get_all_distinct_historic(db: Session = Depends(get_db)):
-    subquery = db.query(
-        HistoricModel.chat_id,
-        func.min(HistoricModel.id).label('min_id')
-    ).group_by(HistoricModel.chat_id).subquery()
-    
-    historic_list = db.query(HistoricModel).join(
-        subquery, HistoricModel.id == subquery.c.min_id
-    ).all()
+def get_all_distinct_historic(db = Depends(get_db)):
+    pipeline = [
+        {"$group": {"_id": "$chat_id", "doc": {"$first": "$$ROOT"}}},
+        {"$replaceRoot": {"newRoot": "$doc"}}
+    ]
+    historic_list = list(db.historic.aggregate(pipeline))
+    for item in historic_list:
+        item['id'] = str(item['_id'])
     return historic_list
 
 @router.get("/historic/{id}", response_model=HistoricBase)
-def get_historic_by_id(id: int, db: Session = Depends(get_db)):
-    historic_item = db.query(HistoricModel).filter(HistoricModel.id == id).first()
+def get_historic_by_id(id: str, db = Depends(get_db)):
+    historic_item = db.historic.find_one({"_id": ObjectId(id)})
     if historic_item is None:
         raise HTTPException(status_code=404, detail="Historic not found")
+    historic_item['id'] = str(historic_item['_id'])
+    print(historic_item)
     return historic_item
 
 @router.get("/historic/chat/{chat_id}", response_model=List[HistoricBase])
-def get_historic_by_chat_id(chat_id: int, db: Session = Depends(get_db)):
-    historic_item = db.query(HistoricModel).filter(HistoricModel.chat_id == chat_id)
-    if historic_item is None:
+def get_historic_by_chat_id(chat_id: str, db = Depends(get_db)):
+    historic_items = list(db.historic.find({"chat_id": chat_id}))
+    if not historic_items:
         raise HTTPException(status_code=404, detail="Historic not found")
-    return historic_item
+    for item in historic_items:
+        item['id'] = str(item['_id'])
+    return historic_items
 
-@router.get("/historic/chat/unique/{chat_id}", response_model=List[HistoricBase])
-def get_historic_by_chat_id_unique(chat_id: int, db: Session = Depends(get_db)):
-    historic_item = db.query(HistoricModel).filter(HistoricModel.chat_id == chat_id).last()
-    if historic_item is None:
+@router.get("/historic/chat/unique/{chat_id}", response_model=HistoricBase)
+def get_historic_by_chat_id_unique(chat_id: str, db = Depends(get_db)):
+    # Rechercher le dernier élément par chat_id en triant par timestamp descendant
+    historic_item = get_historic_by_chat_id(chat_id, db)
+    if not historic_item:
         raise HTTPException(status_code=404, detail="Historic not found")
-    return historic_item
+    return historic_item[-1]
 
 @router.post("/historic", response_model=HistoricBase)
-def create_historic(historic: HistoricCreate, db: Session = Depends(get_db)):
-    db_historic = HistoricModel(**historic.dict())
-    print(db_historic)
-    db.add(db_historic)
-    db.commit()
-    db.refresh(db_historic)
-    return db_historic
+def create_historic(historic: HistoricCreate, db = Depends(get_db)):
+    result = db.historic.insert_one(historic.dict())
+    new_historic = db.historic.find_one({"_id": result.inserted_id})
+    new_historic['id'] = str(new_historic['_id'])
+    return new_historic
 
-@router.put("/historic/chat/{id}", response_model=HistoricBase)
-def update_historic(id: int, historic: HistoricUpdate, db: Session = Depends(get_db)):
-    db_historic = db.query(HistoricModel).filter(HistoricModel.chat_id == id).last()
-    if db_historic is None:
+@router.put("/historic/{id}", response_model=HistoricBase)
+def update_historic(id: str, historic: HistoricUpdate, db = Depends(get_db)):
+    updated_data = {k: v for k, v in historic.dict().items() if v is not None}
+    result = db.historic.update_one({"_id": ObjectId(id)}, {"$set": updated_data})
+    if result.matched_count == 0:
         raise HTTPException(status_code=404, detail="Historic not found")
-    db_historic.chat_ia = historic.chat_ia
-    db.commit()
-    db.refresh(db_historic)
-    return db_historic
+    updated_historic = db.historic.find_one({"_id": ObjectId(id)})
+    updated_historic['id'] = str(updated_historic['_id'])
+    return updated_historic
 
 @router.delete("/historic/{id}")
-def delete_historic(id: int, db: Session = Depends(get_db)):
-    historic_item = db.query(HistoricModel).filter(HistoricModel.id == id).first()
-    if historic_item is None:
+def delete_historic(id: str, db = Depends(get_db)):
+    result = db.historic.delete_one({"_id": ObjectId(id)})
+    if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Historic not found")
-    db.delete(historic_item)
-    db.commit()
-    return {"detail": "Historic deleted"}
+    return {"message": "Historic deleted successfully"}
+
