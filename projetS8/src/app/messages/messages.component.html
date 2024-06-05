@@ -3,16 +3,14 @@
       <p>{{ message.chat_user }}</p>
     </div>
     <div class="reponse">
-      <p *ngIf="i!=messages.length - 1">{{ message.chat_ia }}</p>
-      <p *ngIf="i==messages.length - 1" [(ngModel)]="botResponse">{{ message.chat_ia }}</p>
-
+      <p>{{ message.chat_ia }}</p>
     </div>
 
 </div>
   
 <form class="form" (ngSubmit)="sendMessage()">
     <mat-form-field class="full-width prompt">
-      <input matInput [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
+      <input matInput [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="userMessage">
       <button mat-icon-button type="submit" class="send-prompt">
         <mat-icon>send</mat-icon>
       </button>
