@@ -71,6 +71,8 @@ p{
 .send-prompt{
     position: absolute;
     right: 0px;
+    border: none;
+    background-color: transparent;
     color: $bg;
     cursor: pointer;
 }
