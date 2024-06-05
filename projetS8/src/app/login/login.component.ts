@@ -6,6 +6,7 @@ import {FormControl, FormsModule, ReactiveFormsModule, Validators} from '@angula
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,15 +24,18 @@ export class LoginComponent {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<LoginComponent> 
-  ) {
-
-
-  }
+    public dialogRef: MatDialogRef<LoginComponent>,
+    private authService: AuthService
+  ) {}
 
   clickEvent(event: MouseEvent) {
     this.hide = !this.hide;
     event.stopPropagation();
+  }
+
+  login() {
+    this.authService.login();
+    this.dialogRef.close();
   }
 
   closeDialog() {
@@ -41,7 +45,7 @@ export class LoginComponent {
   getData(){
     let user = this.user_control.value;
     let pass = this.pass_control.value;
-    console.log(user, pass);
+    this.login();
   }
 
 }
