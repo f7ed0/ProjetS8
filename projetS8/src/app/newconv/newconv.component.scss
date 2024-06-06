@@ -1,0 +1,58 @@
+$bg : #242331;
+
+.newconv-container{
+    margin: 0 auto;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero h1{
+    color: white;
+    font-size: 21px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+.hero mat-icon{
+    position: relative;
+    width: auto;
+    height: auto;
+    font-size: 150px;
+    color: white;
+}
+
+
+.form{
+    width: 90%;
+    margin: 0 auto;
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    background-color: $bg;
+}
+
+.full-width{
+    width: 100%;
+    border-radius: 10px;
+}   
+
+.send-prompt{
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    right: 0px;
+    color: $bg;
+    cursor: pointer;
+}

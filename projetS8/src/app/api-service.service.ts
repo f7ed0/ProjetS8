@@ -2,11 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { timeout } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
+  private loggedIn = new BehaviorSubject<boolean>(false);
+  isLoggedIn = this.loggedIn.asObservable();
+
   constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
@@ -40,5 +44,29 @@ export class ApiServiceService {
     return this.http.get('http://127.0.0.1:8000/api/v1/historic/chat/unique/'+id);
   }
 
+  connect(username :string, password :string): Observable<any> {
+    const data = { username, password };
+    return this.http.post('http://127.0.0.1:8000/api/v1/login/', data);
+  }
+  
+  register(username :string, password :string): Observable<any> {
+    const data = { username, password };
+    return this.http.post('http://127.0.0.1:8000/api/v1/register/', data);
+  }
+
+  login() {
+    console.log(this.loggedIn);
+    console.log("ZOOOMY");
+    this.loggedIn.next(true);
+    
+  }
+
+  logout() {
+    this.loggedIn.next(false);
+  }
+
+  get isLoggedInValue(): boolean {
+    return this.loggedIn.getValue();
+  }
 }
 

@@ -1,13 +1,14 @@
 <mat-drawer-container class="main-container" autosize>
-    <mat-drawer #drawer class="sidenav" mode="side">
-      <app-convs></app-convs>
-    </mat-drawer>
-  
-    <div class="sidenav-content">
-      <button mat-mini-fab color="primary" class="btn-chats" (click)="toggleDrawer()">
-        <mat-icon>{{ isChevronLeft ? 'chevron_left' : 'chevron_right' }}</mat-icon>
-      </button>
-      <app-messages class="app-messages"></app-messages>
-      
-    </div>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <app-convs></app-convs>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button mat-mini-fab color="primary" class="btn-chats" (click)="toggleDrawer()">
+      <mat-icon>{{ isChevronLeft ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+    </button>
+    <app-newconv *ngIf="showNewConv" class="app-convs"></app-newconv>
+    <app-messages *ngIf="!showNewConv" class="app-messages"></app-messages>
+    
+  </div>
 </mat-drawer-container>

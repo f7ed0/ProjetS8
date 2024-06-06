@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
+import { NewconvService } from '../newconv.service';
 
 @Component({
   selector: 'app-convs',
@@ -27,7 +28,11 @@ import { RouterModule, Router } from '@angular/router';
 export class ConvsComponent implements OnInit {
   convs: any = [];
 
-  constructor(private apiService: ApiServiceService, private router: Router) {}
+  constructor(
+    private apiService: ApiServiceService, 
+    private router: Router,
+    private newconvService: NewconvService
+  ) {}
 
   ngOnInit(): void {
     this.getDataDistinct();
@@ -36,7 +41,7 @@ export class ConvsComponent implements OnInit {
   getDataDistinct(): void {
     this.apiService.getDataDistinct().subscribe({
       next: (data: any) => {
-        console.log('Data received from API:', data); // Log the received data
+        console.log('Data received from API:', data);
         this.convs = data;
       },
       error: (error) => {
@@ -54,6 +59,7 @@ export class ConvsComponent implements OnInit {
   }
 
   navigateToChat(chatId: string): void {
+    this.newconvService.setMessages();
     this.router.navigate([`/chat/${chatId}`]);
   }
 }

@@ -2,6 +2,7 @@
     <div class="logo">
         <mat-icon>smart_toy</mat-icon>
         <h4>UPHF CHATBOT</h4>
+        <button mat-flat-button color="primary" class="new_conv" (click)="setNewConv()">Nouvelle conversation<mat-icon>add_circle</mat-icon></button>
     </div>
     <div class="boutons">
         <button mat-flat-button color="primary" *ngIf="!isLoggedIn" (click)="openDialog()">Se connecter</button>

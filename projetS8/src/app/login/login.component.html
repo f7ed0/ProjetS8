@@ -9,7 +9,7 @@
 
     <mat-form-field class="full-width">
         <mat-label>User</mat-label>
-        <input matInput [formControl]="user_control" placeholder="">
+        <input matInput [formControl]="user_control" placeholder="username">
     </mat-form-field>
 
     <mat-form-field class="full-width">
@@ -20,5 +20,11 @@
         </button>
     </mat-form-field>
 
-    <button mat-flat-button class="btn-login" color="primary" (click)="getData()">Se connecter</button>
+    <<button mat-flat-button class="btn-login" color="primary" (click)="isRegistering ? register() : getData()">
+        {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
+    </button>
+    <!--je veux pouvoir m'inscrire nn un truc qui est cacher et mais qui reste dans le form-->
+    <p>
+        {{ isRegistering ? 'Déjà inscrit ?' : 'Pas encore inscrit ?' }} <a (click)="toggleForm()">{{ isRegistering ? 'Se connecter' : 'S\'inscrire' }}</a>
+    </p>
 </form>
