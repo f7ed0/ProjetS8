@@ -8,6 +8,7 @@ import { ConvsComponent } from '../convs/convs.component';
 import { NewconvComponent } from '../newconv/newconv.component';
 import { NewconvService } from '../newconv.service';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../header/header.component';
 
 
 @Component({
@@ -22,6 +23,7 @@ import { CommonModule } from '@angular/common';
     ConvsComponent, 
     NewconvComponent,
     CommonModule,
+    HeaderComponent
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
