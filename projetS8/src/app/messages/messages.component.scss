@@ -9,16 +9,15 @@ $bg : #242331;
 .container-messages{
     margin: 0 auto;
     width: 90%;
-    padding-top: 30px;
-    padding-bottom: 50px;
+    padding-bottom: 40px;
     display: flex;
     flex-direction: column;
     justify-content: start;
-    gap: 30px;
+    gap: 40px;
 }
 
 .question, .reponse{
-    width: 40%;
+    width: 60%;
     padding: 20px 22px;
     border-radius: 30px;
     color: white;
@@ -71,6 +70,8 @@ p{
 .send-prompt{
     position: absolute;
     right: 0px;
+    background-color: transparent;
+    border: none;
     color: $bg;
     cursor: pointer;
 }

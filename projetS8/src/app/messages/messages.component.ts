@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
 import { timeout } from 'rxjs';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-messages',
@@ -22,8 +23,7 @@ export class MessagesComponent implements OnInit {
   messages: any = [];
   userMessage: string = '';
   botResponse: string = ''; 
-
-
+  userID = this.apiService.getId();
 
   constructor(
     private route: ActivatedRoute,
@@ -65,15 +65,15 @@ export class MessagesComponent implements OnInit {
 
   sendMessage(): void {
     const userMessage = this.userMessage;
-    const botResponse = 'Smehli';  // Replace with actual bot response logic
+    const botResponse = 'Smehli';  
     if (userMessage === '') {
       return;
     }
-    this.apiService.postData(this.chatId, userMessage, botResponse).subscribe({
+    this.apiService.postData(this.chatId, this.userID, userMessage, botResponse).subscribe({
       next: (data: any) => {
         this.messages.push(data);
-        this.userMessage = '';  // Clear the input field
-        this.cdr.detectChanges(); // Force Angular to detect changes
+        this.userMessage = ''; 
+        this.cdr.detectChanges(); 
       },
       error: (error) => {
         console.error('There was an error saving the message!', error);
