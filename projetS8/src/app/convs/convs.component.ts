@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 import { NewconvService } from '../newconv.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-convs',
@@ -27,6 +28,7 @@ import { NewconvService } from '../newconv.service';
 })
 export class ConvsComponent implements OnInit {
   convs: any = [];
+  userID = this.apiService.getId();
 
   constructor(
     private apiService: ApiServiceService, 
@@ -35,13 +37,13 @@ export class ConvsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    console.log(this.userID);
     this.getDataDistinct();
   }
 
   getDataDistinct(): void {
-    this.apiService.getDataDistinct().subscribe({
+    this.apiService.getDataByUserId(this.userID).subscribe({
       next: (data: any) => {
-        console.log('Data received from API:', data);
         this.convs = data;
       },
       error: (error) => {
