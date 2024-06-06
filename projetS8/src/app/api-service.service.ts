@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { timeout } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class ApiServiceService {
   private loggedIn = new BehaviorSubject<boolean>(false);
   isLoggedIn = this.loggedIn.asObservable();
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient, private userService: UserService) {}
 
   getData(): Observable<any> {
     console.log(this.http.get('http://127.0.0.1:8000/api/v1/historic/'));
@@ -26,13 +28,16 @@ export class ApiServiceService {
     return this.http.get('http://127.0.0.1:8000/api/v1/historic/distinct');
   }
 
+  getDataByUserId(userId: string): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/v1/historic/user/' + userId);
+  }
+
   getDataByChatId(chatId: string): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/v1/historic/chat/' + chatId);
   }
 
-  postData(chat_id: string, chat_user: string, chat_ia: string): Observable<any> {
-    const data = { chat_id, chat_user, chat_ia };
-    console.log(data);
+  postData(chat_id: string, chat_id_user: string, chat_user: string, chat_ia: string): Observable<any> {
+    const data = { chat_id, chat_id_user, chat_user, chat_ia };
     return this.http.post('http://127.0.0.1:8000/api/v1/historic/', data);
   }
 
@@ -55,10 +60,7 @@ export class ApiServiceService {
   }
 
   login() {
-    console.log(this.loggedIn);
-    console.log("ZOOOMY");
     this.loggedIn.next(true);
-    
   }
 
   logout() {
@@ -68,5 +70,14 @@ export class ApiServiceService {
   get isLoggedInValue(): boolean {
     return this.loggedIn.getValue();
   }
+
+  setId(id: string) {
+    this.userService.setId(id);
+  }
+
+  getId(): string { 
+    return this.userService.getId();
+  }
+
 }
 
