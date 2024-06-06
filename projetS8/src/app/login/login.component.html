@@ -9,18 +9,18 @@
 
     <mat-form-field class="full-width">
         <mat-label>User</mat-label>
-        <input matInput [formControl]="user_control" placeholder="username">
+        <input matInput [(ngModel)]="user_control" placeholder="username" name="user_control">
     </mat-form-field>
 
     <mat-form-field class="full-width">
         <mat-label>Enter your password</mat-label>
-        <input matInput [formControl]="pass_control" [type]="hide ? 'password' : 'text'">
+        <input matInput [[(ngModel)]="pass_control" name="password" [type]="hide ? 'password' : 'text'">
         <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
     </mat-form-field>
 
-    <<button mat-flat-button class="btn-login" color="primary" (click)="isRegistering ? register() : getData()">
+    <button mat-flat-button class="btn-login" color="primary" (click)="isRegistering ? register() : getData()">
         {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
     </button>
     <!--je veux pouvoir m'inscrire nn un truc qui est cacher et mais qui reste dans le form-->

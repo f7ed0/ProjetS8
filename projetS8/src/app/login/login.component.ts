@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
@@ -16,15 +16,23 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   standalone: true,
-  imports: [CommonModule, MatInputModule, MatFormFieldModule, FormsModule, MatIconModule, MatButtonModule, ReactiveFormsModule,],
-  providers: [ApiServiceService] // Add HttpClient here
+  imports: [
+    CommonModule, 
+    MatInputModule, 
+    MatFormFieldModule, 
+    FormsModule, 
+    MatIconModule, 
+    MatButtonModule, 
+    ReactiveFormsModule,
+  ],
+  providers: [ApiServiceService]
 })
 export class LoginComponent {
   isRegistering = false;
   hide = true;
 
-  user_control = new FormControl('', [Validators.required]);
-  pass_control = new FormControl('', [Validators.required]);
+  user_control = "" 
+  pass_control = ""
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -39,32 +47,45 @@ export class LoginComponent {
 
   ngOnInit(): void {}
 
-  //pour se connecter
   getData() {
-    console.log(this.user_control.value);
-    if(this.user_control.value && this.pass_control.value) {
-      console.log(this.user_control.value);
-      this.apiService.connect(this.user_control.value, this.pass_control.value).subscribe((data) => {
-      this.dialogRef.close();
-      this.apiService.login();
-      });
+    console.log("Attempting to log in");
+    if (this.user_control && this.pass_control) {
+      this.apiService.connect(this.user_control, this.pass_control).subscribe(
+        (data) => {
+          this.apiService.login();
+          this.dialogRef.close();
+        },
+        (error) => {
+          console.error("Login failed", error);
+        }
+      );
+    } else {
+      console.error("Invalid form data");
     }
   }
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
-
   register() {
-    if(this.user_control.value && this.pass_control.value) {
-      this.apiService.register(this.user_control.value, this.pass_control.value).subscribe((data) => {
-      this.dialogRef.close();
-      this.apiService.login();
-      });
+    console.log("Attempting to register");
+    if (this.user_control && this.pass_control) {
+      this.apiService.register(this.user_control, this.pass_control).subscribe(
+        (data) => {
+          this.apiService.login();
+          this.dialogRef.close();
+        },
+        (error) => {
+          console.error("Registration failed", error);
+        }
+      );
+    } else {
+      console.error("Invalid form data");
     }
   }
 
   toggleForm() {
     this.isRegistering = !this.isRegistering;
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
 }
