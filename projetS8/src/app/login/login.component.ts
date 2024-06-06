@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from '../auth.service';
 import { ApiServiceService } from '../api-service.service';
 import { FormsModule } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,19 +17,19 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./login.component.scss'],
   standalone: true,
   imports: [CommonModule, MatInputModule, MatFormFieldModule, FormsModule, MatIconModule, MatButtonModule, ReactiveFormsModule,],
-  providers: [ApiServiceService] // Add HttpClient here
+  providers: [ApiServiceService] 
 })
 export class LoginComponent {
   isRegistering = false;
+  isInvalid = false;
   hide = true;
 
   user_control = new FormControl('', [Validators.required]);
   pass_control = new FormControl('', [Validators.required]);
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<LoginComponent>,
-    private apiService: ApiServiceService
+    private apiService: ApiServiceService,
+    private router: Router,
   ) {}
 
   clickEvent(event: MouseEvent) {
@@ -39,27 +39,37 @@ export class LoginComponent {
 
   ngOnInit(): void {}
 
-  //pour se connecter
   getData() {
     console.log(this.user_control.value);
     if(this.user_control.value && this.pass_control.value) {
-      console.log(this.user_control.value);
-      this.apiService.connect(this.user_control.value, this.pass_control.value).subscribe((data) => {
-      this.dialogRef.close();
-      this.apiService.login();
+      this.apiService.connect(this.user_control.value, this.pass_control.value).subscribe({
+        next :(data) => {
+          console.log('Connexion autorisée !');
+          console.log(data)
+          const userId = data.user_id;
+          this.apiService.setId(userId);
+          this.isInvalid = false;
+          this.router.navigate(['/home']);
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+          this.isInvalid = true;
+        }
       });
     }
   }
 
-  closeDialog() {
-    this.dialogRef.close();
-  }
-
   register() {
     if(this.user_control.value && this.pass_control.value) {
-      this.apiService.register(this.user_control.value, this.pass_control.value).subscribe((data) => {
-      this.dialogRef.close();
-      this.apiService.login();
+      this.apiService.register(this.user_control.value, this.pass_control.value).subscribe({
+        next : (data) => {
+          this.apiService.login();
+          this.isInvalid = false;
+          this.router.navigate(['/home']);
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+        }
       });
     }
   }

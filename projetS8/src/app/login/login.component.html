@@ -1,30 +1,31 @@
-<form class="form">
+<div class="container">
+    <form class="form">
+        <div class="top">
+            <h1 class="title">Connexion</h1>
+        </div>
 
-    <div class="top">
-        <button class="btn-close" mat-icon-button aria-label="close dialog" (click)="closeDialog()" mat-dialog-close>
-            <mat-icon>close</mat-icon>
+        <p class="invalid" *ngIf="isInvalid">Le nom d'utilisateur ou le mot de passe est incorrect !</p>
+
+        <mat-form-field class="full-width">
+            <mat-label>User</mat-label>
+            <input matInput [formControl]="user_control" placeholder="username">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [formControl]="pass_control" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        
+        <button mat-flat-button class="btn-login" color="primary" (click)="isRegistering ? register() : getData()">
+            {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
         </button>
-        <h1 class="title">Connexion</h1>
-    </div>
 
-    <mat-form-field class="full-width">
-        <mat-label>User</mat-label>
-        <input matInput [formControl]="user_control" placeholder="username">
-    </mat-form-field>
-
-    <mat-form-field class="full-width">
-        <mat-label>Enter your password</mat-label>
-        <input matInput [formControl]="pass_control" [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-    </mat-form-field>
-
-    <<button mat-flat-button class="btn-login" color="primary" (click)="isRegistering ? register() : getData()">
-        {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
-    </button>
-    <!--je veux pouvoir m'inscrire nn un truc qui est cacher et mais qui reste dans le form-->
-    <p>
-        {{ isRegistering ? 'Déjà inscrit ?' : 'Pas encore inscrit ?' }} <a (click)="toggleForm()">{{ isRegistering ? 'Se connecter' : 'S\'inscrire' }}</a>
-    </p>
-</form>
+        <p>
+            {{ isRegistering ? 'Déjà inscrit ?' : 'Pas encore inscrit ?' }} <a (click)="toggleForm()">{{ isRegistering ? 'Se connecter' : 'S\'inscrire' }}</a>
+        </p>
+    </form>
+</div>
