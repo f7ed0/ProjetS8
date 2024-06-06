@@ -62,14 +62,19 @@ export class HeaderComponent {
 
   logout() {
     this.apiService.logout();
+    this.navigateToLogin();
   }
 
-  navigateToAnotherComponent() {
-    if (this.isLoggedIn) {
+  navigateToFeedback() {
       this.router.navigate(['/feedback']);
-    } else {
-      this.openDialog(); 
-    }
+  }
+
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  }
+
+  navigateToLogin() {
+    this.router.navigate(['/']);
   }
 
   setNewConv() {

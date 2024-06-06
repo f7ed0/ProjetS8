@@ -5,8 +5,7 @@
         <button mat-flat-button color="primary" class="new_conv" (click)="setNewConv()">Nouvelle conversation<mat-icon>add_circle</mat-icon></button>
     </div>
     <div class="boutons">
-        <button mat-flat-button color="primary" *ngIf="!isLoggedIn" (click)="openDialog()">Se connecter</button>
-        <button mat-flat-button color="accent" *ngIf="isLoggedIn" (click)="navigateToAnotherComponent()">Suggestions</button>
-        <button mat-flat-button color="primary" *ngIf="isLoggedIn" (click)="logout()">Se déconnecter</button>
+        <button mat-flat-button color="primary" *ngIf="isLoggedIn" (click)="navigateToFeedback()">Suggestions</button>
+        <button mat-flat-button color="accent" (click)="logout()">Se déconnecter</button>
     </div>
 </nav>
