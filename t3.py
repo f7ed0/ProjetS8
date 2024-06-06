@@ -3,6 +3,8 @@ from transformers import AutoTokenizer,AutoModelForCausalLM
 import dbgenerator
 import ctx_generator
 from huggingface_hub import *
+import sys
+import custom_template
 
 pin_memory = True
 
@@ -11,18 +13,16 @@ model_id = "google/gemma-1.1-2b-it"
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
-torch.random.manual_seed(0)
-torch.cuda.empty_cache()
-print(torch.cuda.memory_summary(device=None, abbreviated=False))
 
 tokenizer = AutoTokenizer.from_pretrained(model_id)
-print(tokenizer.chat_template)
+tokenizer.chat_template = custom_template.custom_template_gemma1_1
+#print(tokenizer.chat_template)
 model = AutoModelForCausalLM.from_pretrained(model_id).to(device)
 
-base = lambda x : {"role": "user","content":x+"\nTu est le chatbot de l'Universitée des Hauts-de-France, tu est là pour répondre a toute les question sur cet universitée et assister les personnes à mieux la connaître."}
+base = lambda x : {"role": "system","content": "Contexte supplémentaire : "+x+"\n"}
 
 messages = [
-    base(""),
+    {"role" : "system","content" : "Tu est une IA d'Assistance conversationelle de l'Universitée des Hauts-de-France, tu est là pour répondre aux questions sur cet universitée et échanger avec eux pour les aider a la connaitre à mieux la connaître."},
     {"role": "assistant", "content": "Bonjour ! Je suis l'assistant UPHF. comment puis-je vous aider ?"},
 ]
 
@@ -35,8 +35,9 @@ while True :
     if q == "exit":
         break
     #print("NEW CONTEXT :",[item.page_content for item in cdb.similarity_search(q)])
+    messages.append(base(ctx_generator.generateCtx(q,cdb)))
     messages.append({"role" : "user", "content" : f'{q}'})
-    messages[0] = base(ctx_generator.generateCtx(messages,cdb))
+
 
     inputs = tokenizer.apply_chat_template(messages,tokenize=True,add_generation_prompt=True,return_tensors="pt").to(device)
 

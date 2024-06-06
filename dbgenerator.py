@@ -1,24 +1,26 @@
 import chromadb
+import torch
 from tika import parser
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.vectorstores import Chroma
 from pypdf import PdfReader
-
+import os
+import shutil
 
 
 embedder = HuggingFaceBgeEmbeddings(
     model_name='sentence-Transformers/all-MiniLM-l6-v2',
-    model_kwargs={"device" : "cuda"},
+    model_kwargs={"device" : "cuda" if torch.cuda.is_available() else "cpu"},
     encode_kwargs={"normalize_embeddings" : False}
 )
 
-txt_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200, separator="\n\n")
+txt_splitter = CharacterTextSplitter(chunk_size=1500, chunk_overlap=500, separator="\n")
 
 def load_pdf(path:str) -> list[str] :
-    #t = PdfReader(path)
-    #return '\n'.join([page.extract_text() for page in t.pages])
-    return parser.from_file(path)["content"]
+    t = PdfReader(path)
+    return '\n'.join([page.extract_text() for page in t.pages[1:]])
+    #return parser.from_file(path)["content"]
 
 def split_paragraph(text) :
     return txt_splitter.create_documents([text])
@@ -34,6 +36,11 @@ def loadEmbededDB() :
     return Chroma(embedding_function=embedder,persist_directory="./chromadb")
 
 if __name__ == '__main__':
+    try:
+        shutil.rmtree("./chromadb")
+    except:
+        print("No db dir, creating it.")
+    os.mkdir("./chromadb")
 
     def embeding(splitted):
         return Chroma.from_documents(splitted,embedder,persist_directory="./chromadb")
@@ -42,10 +49,10 @@ if __name__ == '__main__':
     print(dump)
     splitted = split_paragraph(dump)
     print("STARTING EMBEDDING...")
-    print(splitted[0])
+    #print(splitted[0])
     chromadb = embeding(splitted)
     #chromadb = loadEmbededDB()
-    print("STARTING SIMILARITY SEARCH...")
-    docs = chromadb.similarity_search("C'est quoi l'UPHF ?")
-    print("RESULT : ")
-    print(docs)
+    #print("STARTING SIMILARITY SEARCH...")
+    #docs = chromadb.similarity_search("C'est quoi l'UPHF ?")
+    #print("RESULT : ")
+    #print(docs)

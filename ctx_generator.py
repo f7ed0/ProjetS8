@@ -1,12 +1,18 @@
-def generateCtx(discussion:list[dict[str]],db) -> str :
-    user_prompts = [it for it in discussion]
-    nb_prompt = len(user_prompts)
-    #print(user_prompts[2:][::-1])
-    ret = ""
-    for i,item in enumerate(user_prompts[2:][::-1]):
-        ctx_for_1 = db.similarity_search(item["content"])
-        percentage = (nb_prompt-i / nb_prompt)
-        if len(ctx_for_1) > 0:
-            ret += '\n'.join([it.page_content for it in ctx_for_1[:int((len(ctx_for_1)-1)*percentage)]])
-    #print(ret)
+import time
+from transformers import pipeline
+from langchain_community.vectorstores import Chroma
+
+#pipe = pipeline("summarization", model="facebook/bart-large-cnn")
+
+pipe = pipeline("summarization", model="Falconsai/text_summarization")
+
+def generateCtx(item,db:Chroma) -> str :
+    ctx_for_1 = db.similarity_search_with_relevance_scores(item,k=4,)
+    summary = pipe([it[0].page_content for it in ctx_for_1])
+    ret =  '\n'.join([it['summary_text'] for it in summary])
+    print("CONTEXT-----\n"+ret+"\n------------")
+    with open("log/ctx_"+str(int(time.time()))+".txt","w") as f :
+        f.write('\n------'.join(["relscore : "+str(it[1])+"\n"+it[0].page_content for it in ctx_for_1]))
+        f.write("\n=============\n")
+        f.write(ret)
     return ret
