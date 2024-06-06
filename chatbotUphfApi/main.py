@@ -6,7 +6,7 @@ from controllers.userController import router as user_router
 app = FastAPI()
 
 origins = [
-    "http://localhost:4200",  # Your Angular app's URL
+    "http://localhost:4200"
 ]
 
 app.add_middleware(

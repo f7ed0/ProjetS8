@@ -6,6 +6,7 @@ from bson import ObjectId
 
 router = APIRouter()
 
+
 @router.get("/historic", response_model=List[HistoricBase])
 def get_all_historic(db = Depends(get_db)):
     historic_list = list(db.historic.find())
@@ -24,13 +25,27 @@ def get_all_distinct_historic(db = Depends(get_db)):
         item['id'] = str(item['_id'])
     return historic_list
 
+@router.get("/historic/user/{user_id}", response_model=List[HistoricBase])
+def get_historic_by_user_id(user_id: str, db = Depends(get_db)):
+    pipeline = [
+        {"$match": {"chat_id_user": user_id}},  
+        {"$group": {"_id": "$chat_id", "doc": {"$first": "$$ROOT"}}},  
+        {"$replaceRoot": {"newRoot": "$doc"}} 
+    ]
+    historic_item = list(db.historic.aggregate(pipeline))
+    if not historic_item:
+        raise HTTPException(status_code=404, detail="Historic not found")
+    
+    for item in historic_item:
+        item['id'] = str(item['_id']) 
+    return historic_item
+
 @router.get("/historic/{id}", response_model=HistoricBase)
 def get_historic_by_id(id: str, db = Depends(get_db)):
     historic_item = db.historic.find_one({"_id": ObjectId(id)})
     if historic_item is None:
         raise HTTPException(status_code=404, detail="Historic not found")
     historic_item['id'] = str(historic_item['_id'])
-    print(historic_item)
     return historic_item
 
 @router.get("/historic/chat/{chat_id}", response_model=List[HistoricBase])
@@ -41,6 +56,8 @@ def get_historic_by_chat_id(chat_id: str, db = Depends(get_db)):
     for item in historic_items:
         item['id'] = str(item['_id'])
     return historic_items
+
+
 
 @router.get("/historic/chat/unique/{chat_id}", response_model=HistoricBase)
 def get_historic_by_chat_id_unique(chat_id: str, db = Depends(get_db)):

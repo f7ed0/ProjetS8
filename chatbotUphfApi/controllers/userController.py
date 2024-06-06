@@ -19,10 +19,11 @@ async def register(user: UserModel, db=Depends(get_db)):
 async def login(user: UserModel, db=Depends(get_db)):
     users_collection: Collection = db['users']
     db_user = users_collection.find_one({"username": user.username, "password": user.password})
-    print("ZOOM")
     if not db_user:
         raise HTTPException(status_code=401, detail="Invalid username or password")
-    print("ZOOMY")
-    return {"message": "Login successful"}
+    else:
+        user_id = str(db_user['_id'])
+        print(user_id)
+    return {"message": "Login successfuleeje", "user_id": user_id}
 
 
