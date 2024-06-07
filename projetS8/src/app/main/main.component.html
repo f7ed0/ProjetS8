@@ -12,7 +12,6 @@
       <mat-icon>{{ isChevronLeft ? 'chevron_left' : 'chevron_right' }}</mat-icon>
     </button>
     <app-newconv *ngIf="showNewConv" class="app-convs"></app-newconv>
-    <app-messages *ngIf="!showNewConv" class="app-messages"></app-messages>
-    
+    <app-messages id="app-messages" *ngIf="!showNewConv" class="app-messages"></app-messages>
   </div>
 </mat-drawer-container>

@@ -2,6 +2,7 @@ $bg : #242331;
 $bg-chats : #1e1d2a;
 $chevron : #f5f5f5;
 
+
 ::-webkit-scrollbar {
   width: 10px; 
 }
@@ -45,8 +46,8 @@ $chevron : #f5f5f5;
 }
 
 .app-messages{
-  overflow-y: scroll;
   width: 100%;
+  overflow-y: scroll;
 }
 
 .app-convs{
