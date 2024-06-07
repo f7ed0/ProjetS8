@@ -22,9 +22,15 @@ $chevron : #f5f5f5;
 }
 
 .btn-chats{
-  position: sticky;
+  position: absolute;
   top: 20px;
   left: 20px;
+  color: white !important;
+  background-color: #474371 !important;
+}
+
+.btn-chats-tel{
+  display: none;
 }
 
 .sidenav-content {
@@ -45,4 +51,22 @@ $chevron : #f5f5f5;
 
 .app-convs{
   width: 100%;
+}
+
+
+
+@media screen and (max-width: 500px) {
+  .sidenav {
+    width: 100%;
+  }
+
+  .btn-chats-tel{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: white !important;
+    background-color: $bg !important;
+  }
+
 }
