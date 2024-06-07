@@ -77,6 +77,7 @@ export class ConvsComponent implements OnInit {
     this.cdr.detectChanges(); // Detect changes after drawer is toggled
   }
 
+
   navigateToChat(chatId: string): void {
     this.newconvService.setMessages();
     this.router.navigate([`/chat/${chatId}`]).then(() => {
@@ -85,7 +86,21 @@ export class ConvsComponent implements OnInit {
     if (this.isMobile()) {
       this.toggleDrawer();
     }
+    setTimeout(() => {  this.scrollToBottom(); }, 300);
   }
+
+  scrollToBottom(): void {
+    let container = document.querySelector("#app-messages");
+    let value = container?.scrollHeight;
+    console.log(container);
+    if(container != null) {
+      container.scrollTo({
+        top: value,
+        behavior: 'smooth'
+      });
+    }
+  }
+
 
   setNewConv() {
     this.newconvService.setNewConv();
