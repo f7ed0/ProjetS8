@@ -25,6 +25,18 @@ def get_all_distinct_historic(db = Depends(get_db)):
         item['id'] = str(item['_id'])
     return historic_list
 
+@router.get("/historic/distinct/{chat_id_user}", response_model=List[HistoricBase])
+def get_all_distinct_historic_by_user_id(chat_id_user: str, db = Depends(get_db)):
+    pipeline = [
+        {"$match": {"chat_id_user": chat_id_user}},
+        {"$group": {"_id": "$chat_id", "doc": {"$first": "$$ROOT"}}},
+        {"$replaceRoot": {"newRoot": "$doc"}}
+    ]
+    historic_list = list(db.historic.aggregate(pipeline))
+    for item in historic_list:
+        item['id'] = str(item['_id'])
+    return historic_list
+
 @router.get("/historic/user/{user_id}", response_model=List[HistoricBase])
 def get_historic_by_user_id(user_id: str, db = Depends(get_db)):
     pipeline = [
@@ -57,6 +69,15 @@ def get_historic_by_chat_id(chat_id: str, db = Depends(get_db)):
         item['id'] = str(item['_id'])
     return historic_items
 
+@router.get("/historic/chat/user/{id}", response_model=List[HistoricBase])
+def get_historic_chat_by_id(id: str, db = Depends(get_db)):
+    historic_items = list(db.historic.find({"chat_id_user": id}))
+    print(historic_items)
+    if not historic_items:
+        raise HTTPException(status_code=404, detail="Historic not found")
+    for item in historic_items:
+        item['id'] = str(item['_id'])
+    return historic_items
 
 
 @router.get("/historic/chat/unique/{chat_id}", response_model=HistoricBase)
@@ -90,4 +111,5 @@ def delete_historic(id: str, db = Depends(get_db)):
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Historic not found")
     return {"message": "Historic deleted successfully"}
+
 

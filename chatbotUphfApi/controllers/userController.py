@@ -15,6 +15,7 @@ async def register(user: UserModel, db=Depends(get_db)):
     users_collection.insert_one(user.dict())
     return {"message": "User registered successfully"}
 
+
 @router.post("/login")
 async def login(user: UserModel, db=Depends(get_db)):
     users_collection: Collection = db['users']
@@ -25,5 +26,6 @@ async def login(user: UserModel, db=Depends(get_db)):
         user_id = str(db_user['_id'])
         print(user_id)
     return {"message": "Login successfuleeje", "user_id": user_id}
+
 
 
