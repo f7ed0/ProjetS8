@@ -1,4 +1,9 @@
 <div class="container-convs">
+    <div class="container_newconv">
+        <button mat-flat-button class="new_conv notel" (click)="setNewConv()">Nouvelle conversation<mat-icon class="logo_new_conv">add_circle</mat-icon></button>
+        <button mat-flat-button class="new_conv tel" (click)="setNewConv(); toggleDrawer();">Nouvelle conversation<mat-icon class="logo_new_conv">add_circle</mat-icon></button>
+    </div>
+
     <div (click)="navigateToChat(conv.chat_id)" *ngFor = "let conv of convs; let i = index" class="conv">
         <p >chat n°{{ conv.chat_id }}</p>
     </div>
