@@ -48,15 +48,12 @@ export class HeaderComponent {
   ){}
 
   ngOnInit() {
-    console.log("YOU FEEL THE SAME")
-    console.log(this.authService.getisLoggedInValue());
     this.isLoggedIn = this.authService.getisLoggedInValue();
   }
 
   openDialog() {
     let d = this.dialog.open(LoginComponent, {data : undefined});
     d.afterClosed().subscribe(result => {
-      console.log(this.isLoggedIn);
       console.log(`Dialog result: ${result}`);
     });
   }

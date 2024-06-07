@@ -16,7 +16,6 @@ export class ApiServiceService {
   constructor(private http: HttpClient, private userService: UserService,private authService : AuthService) {}
 
   getData(): Observable<any> {
-    console.log(this.http.get('http://127.0.0.1:8000/api/v1/historic/'));
     return this.http.get('http://127.0.0.1:8000/api/v1/historic/');
   }
 

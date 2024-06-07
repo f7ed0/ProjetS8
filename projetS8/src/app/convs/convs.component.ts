@@ -37,7 +37,6 @@ export class ConvsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.userID);
     this.getDataDistinct();
   }
 

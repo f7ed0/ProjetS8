@@ -30,12 +30,12 @@ import { ApiServiceService } from '../api-service.service';
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [UserService,ApiServiceService]
+  
 })
 export class MainComponent implements AfterViewInit {
   @ViewChild('drawer') drawer!: MatDrawer;
   isChevronLeft: boolean = true;
-  showNewConv = true;
+  showNewConv = this.newconvService.getShowNewConv();
   chatUser : any;
 
   constructor(
@@ -47,9 +47,11 @@ export class MainComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     this.drawer.open();
+    console.log(this.newconvService.getShowNewConv());
     this.newconvService.showNewConv$.subscribe(state => {
       this.showNewConv = state;
       this.cdr.detectChanges();
+      
       console.log("PinkPantheress Supremacy");
       console.log(this.showNewConv);
 

@@ -43,12 +43,9 @@ export class LoginComponent {
   }
 
   getData() {
-    console.log(this.user_control.value);
     if(this.user_control.value && this.pass_control.value) {
       this.apiService.connect(this.user_control.value, this.pass_control.value).subscribe({
         next :(data) => {
-          console.log('Connexion autorisée !');
-          console.log(data)
           const userId = data.user_id;
           this.apiService.setId(userId);
           this.isInvalid = false;

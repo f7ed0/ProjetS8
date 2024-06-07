@@ -44,10 +44,7 @@ export class MessagesComponent implements OnInit {
   getDataByChatId(chatId: string): void {
     this.apiService.getDataByChatId(chatId).subscribe({
       next: (data: any) => {
-        console.log('Data received from API:', data); // Log the received data
         this.messages = data;
-        console.log(this.messages);
-        console.log(this.userID);
         if (this.messages[this.messages.length - 1].chat_id_user === this.userID) {
           console.error('Network error - make sure the API server is running.');
         }

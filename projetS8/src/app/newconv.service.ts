@@ -5,20 +5,23 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class NewconvService {
-  private showNewConvSubject = new BehaviorSubject<boolean>(true);
-  showNewConv$ = this.showNewConvSubject.asObservable();
+  private showNewConvSubject: BehaviorSubject<boolean>;
+  showNewConv$;
+
+  constructor() {
+    this.showNewConvSubject = new BehaviorSubject<boolean>(true);
+    this.showNewConv$ = this.showNewConvSubject.asObservable(); // Initialisez cette propriété ici
+  }
 
   setNewConv() {
-    this.showNewConvSubject.next(true);
-    console.log(this.showNewConvSubject.value);
+    this.showNewConvSubject.next(true); // Update BehaviorSubject
   }
 
   setMessages() {
-    this.showNewConvSubject.next(false);
-    console.log(this.showNewConvSubject.value);
+    this.showNewConvSubject.next(false); // Update BehaviorSubject
   }
 
-  getShowNewConv() {
-    return this.showNewConvSubject.value;
+  getShowNewConv(): boolean {
+    return this.showNewConvSubject.getValue();
   }
 }

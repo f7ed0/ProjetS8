@@ -1,12 +1,11 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import {v4 as uuidv4} from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 import { ApiServiceService } from '../api-service.service';
 import { UserService } from '../user.service';
-import { routes } from '../app.routes';
 import { Router } from '@angular/router';
 import { NewconvService } from '../newconv.service';
 
@@ -15,28 +14,38 @@ import { NewconvService } from '../newconv.service';
   standalone: true,
   imports: [MatInputModule, MatFormFieldModule, FormsModule, MatIconModule],
   templateUrl: './newconv.component.html',
-  styleUrl: './newconv.component.scss',
-  providers: [ApiServiceService,UserService,NewconvService],
+  styleUrls: ['./newconv.component.scss'],
+  // Suppression de `providers` ici pour éviter de réinitialiser le service
 })
-export class NewconvComponent {
+export class NewconvComponent implements OnInit {
   userMessage: string = '';
   chat_id: string = '';
 
-  constructor(private apiService: ApiServiceService, private userService :UserService,private router: Router, private newConvService : NewconvService) { }
+  constructor(
+    private apiService: ApiServiceService,
+    private userService: UserService,
+    private router: Router,
+    private newConvService: NewconvService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
+    this.newConvService.showNewConv$.subscribe(showNewConv => {
+      console.log('showNewConv changed:', showNewConv);
+      // Force change detection if necessary
+      this.cdr.detectChanges();
+    });
   }
 
   generateConv() {
     this.chat_id = uuidv4();
-    this.apiService.postData(this.chat_id, this.userService.getId(), this.userMessage, "Smehli").subscribe((data) => {
+    this.apiService.postData(this.chat_id, this.userService.getId(), this.userMessage, "Smehli").subscribe(data => {
       console.log(data);
-      this.router.navigate(['/chat', this.chat_id]);
       this.newConvService.setMessages();
-      console.log("pardon");
-      console.log(this.newConvService.showNewConv$);
+      this.router.navigate(['/chat', this.chat_id]).then(() => {
+        console.log("Navigated to chat:", this.chat_id);
+        this.cdr.detectChanges(); // Forcer la détection des changements après la navigation
+      });
     });
   }
-
-
-}
+}  
