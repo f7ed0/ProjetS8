@@ -5,9 +5,9 @@
         <h1>Démarrez une nouvelle conversation !</h1>
     </div>
 
-    <form class="form">
+    <form class="form" (ngSubmit)="generateConv()">
         <mat-form-field class="full-width prompt">
-          <input matInput placeholder="Veuillez poser votre question :" name="message">
+          <input matInput [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
           <button mat-icon-button type="submit" class="send-prompt">
             <mat-icon>send</mat-icon>
           </button>

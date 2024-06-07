@@ -45,6 +45,12 @@ export class ApiServiceService {
     return this.http.post('http://127.0.0.1:8000/api/v1/historic/', data);
   }
 
+  createConv(chat_id: string,chat_user:string,chat_id_user:string): Observable<any> {
+    const data = { chat_id, chat_user, chat_id_user };
+    return this.http.post('http://127.0.0.1:8000/api/v1/historic/new', data);
+
+  }
+
   updateBotResponse(id: string, chat_ia: string): Observable<any> {
     const data = { chat_ia };
     return this.http.put('http://127.0.0.1:8000/api/v1/historic/chat/'+id , data);

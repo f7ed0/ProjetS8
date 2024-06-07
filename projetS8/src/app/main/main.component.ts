@@ -50,6 +50,9 @@ export class MainComponent implements AfterViewInit {
     this.newconvService.showNewConv$.subscribe(state => {
       this.showNewConv = state;
       this.cdr.detectChanges();
+      console.log("PinkPantheress Supremacy");
+      console.log(this.showNewConv);
+
     });
   }
 
@@ -61,9 +64,6 @@ export class MainComponent implements AfterViewInit {
   toggleIcon() {
     this.isChevronLeft = !this.isChevronLeft;
   }
-
-  
- 
 
 }
 

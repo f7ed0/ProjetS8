@@ -17,4 +17,8 @@ export class NewconvService {
     this.showNewConvSubject.next(false);
     console.log(this.showNewConvSubject.value);
   }
+
+  getShowNewConv() {
+    return this.showNewConvSubject.value;
+  }
 }

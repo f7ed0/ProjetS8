@@ -15,6 +15,8 @@ class HistoricCreate(HistoricBase):
     chat_user: str
     chat_ia: str
 
+
+
 class HistoricUpdate(HistoricBase):
     chat_ia: str
 
