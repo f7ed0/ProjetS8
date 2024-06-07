@@ -59,7 +59,7 @@ $bg : #242331;
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 768px) {
 
     .hero{
         padding: 20px;
@@ -67,6 +67,7 @@ $bg : #242331;
 
     .hero h1{
         text-align: center;
+        font-size: 19px;
     }
 
 }

@@ -1,18 +1,21 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-
+import { HeaderComponent } from '../header/header.component';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-sugg',
   standalone: true,
   templateUrl: './sugg.component.html',
   styleUrl: './sugg.component.scss',
-  imports: [MatTableModule, MatPaginatorModule, MatPaginator],
+  imports: [MatTableModule, MatPaginatorModule, MatPaginator, HeaderComponent],
 })
 export class SuggComponent implements AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+
+  constructor(private userService: UserService) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 

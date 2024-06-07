@@ -4,8 +4,25 @@
         <div class="question">
           <p>{{ message.chat_user }}</p>
         </div>
-        <div class="reponse">
-          <p>{{ message.chat_ia }}</p>
+        <div class="container-reponse">
+          <div class="reponse">
+            <p>{{ message.chat_ia }}</p>
+          </div>
+          <div class="actions">
+            <button class="btn_action" mat-icon-button>
+              <mat-icon class="icon_action">content_copy</mat-icon>
+            </button>
+            <button class="btn_action" mat-icon-button>
+              <mat-icon class="icon_action">thumb_up</mat-icon>
+            </button>
+            <button class="btn_action" mat-icon-button>
+              <mat-icon class="icon_action">thumb_down</mat-icon>
+            </button>
+            <button class="btn_action" mat-icon-button>
+              <mat-icon class="icon_action">emoji_objects</mat-icon>
+            </button>
+            
+          </div>
         </div>
     </div>
   </div>

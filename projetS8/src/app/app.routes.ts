@@ -5,7 +5,6 @@ import { RouterModule } from '@angular/router';
 import { SuggComponent } from './sugg/sugg.component';
 import { authGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
-import { MessagesComponent } from './messages/messages.component';
 
 export const routes: Routes = [
     {path : "", component: LoginComponent},

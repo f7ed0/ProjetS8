@@ -29,6 +29,7 @@ $bg : #242331;
 }
 
 .question, .reponse{
+    position: relative;
     width: 60%;
     padding: 20px 22px;
     border-radius: 30px;
@@ -44,6 +45,7 @@ $bg : #242331;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    z-index: 2;
 }
 
 p{
@@ -59,10 +61,6 @@ p{
     background-color: $bg-reponse;
     align-self: flex-start;
 }
-
-
-
-
 
 
 .form{
@@ -86,4 +84,41 @@ p{
     border: none;
     color: $bg;
     cursor: pointer;
+}
+
+.container-reponse:hover .actions{
+    transform: translateY(0px);
+}
+
+.actions{
+    position: relative;
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0px;
+    padding-top: 10px;
+    padding-left: 3%;
+    z-index: 1;
+    transform: translateY(0px);
+    transition: all 0.3s ease;
+}
+
+.btn_action{
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 3px;
+}
+
+.icon_action{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 768px){
+    .question, .reponse{
+        width: 80%;
+    }
 }

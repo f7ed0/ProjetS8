@@ -10,6 +10,7 @@ import { ApiServiceService } from '../api-service.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -29,7 +30,8 @@ export class LoginComponent {
   constructor(
     private apiService: ApiServiceService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private userService: UserService
   ) {}
 
   clickEvent(event: MouseEvent) {
@@ -38,7 +40,15 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-    console.log(this.authService.getisLoggedInValue);
+    this.userService.setFeedback('false');
+  }
+
+  onSubmit() {
+    if(this.isRegistering) {
+      this.register();
+    } else {
+      this.getData();
+    }
   }
 
   getData() {

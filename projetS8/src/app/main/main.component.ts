@@ -11,7 +11,6 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
 import { UserService } from '../user.service';
 import { ApiServiceService } from '../api-service.service';
-
 import { DrawerService } from '../drawer.service';
 import { Subscription } from 'rxjs';
 
@@ -51,17 +50,14 @@ export class MainComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
+
     this.drawer.open();
     console.log(this.newconvService.getShowNewConv());
     this.newconvService.showNewConv$.subscribe(state => {
       this.showNewConv = state;
       this.cdr.detectChanges();
-      
-      console.log("PinkPantheress Supremacy");
-      console.log(this.showNewConv);
-
     });
-
+    this.u.setFeedback('false');
     this.drawerSubscription = this.drawerService.toggleDrawer$.subscribe(() => {
       this.toggleDrawer();
     });
@@ -70,6 +66,7 @@ export class MainComponent implements AfterViewInit {
       this.drawer.close();
       this.toggleIcon();
     }
+    this.cdr.detectChanges();
   }
 
   ngOnDestroy() {

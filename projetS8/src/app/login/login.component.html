@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form">
+    <form class="form" (ngSubmit)="onSubmit()">
         <div class="top">
             <h1 class="title">Connexion</h1>
         </div>
@@ -20,7 +20,7 @@
         </mat-form-field>
 
         
-        <button mat-flat-button class="btn-login" color="primary" (click)="isRegistering ? register() : getData()">
+        <button mat-flat-button class="btn-login" color="primary" type="submit">
             {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
         </button>
 
