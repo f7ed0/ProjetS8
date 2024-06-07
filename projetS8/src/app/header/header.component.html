@@ -6,6 +6,9 @@
     </div>
     <div class="boutons">
         <button mat-flat-button color="primary" *ngIf="isLoggedIn" (click)="navigateToFeedback()">Suggestions</button>
-        <button mat-flat-button color="accent" (click)="logout()">Se déconnecter</button>
+
+        <button mat-flat-button color="accent" *ngIf="isLoggedIn" (click)="logout()">Déconnexion</button>
+        <button mat-flat-button color="primary" *ngIf="!isLoggedIn" (click)="logout()">Connecter</button>
+        
     </div>
 </nav>

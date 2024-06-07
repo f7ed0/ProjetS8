@@ -3,7 +3,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { MatIconModule } from '@angular/material/icon';
-import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { NewconvService } from '../newconv.service';
@@ -14,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -43,13 +43,14 @@ export class HeaderComponent {
     private dialog: MatDialog,
     private apiService: ApiServiceService,
     private router: Router,
-    private newconvService: NewconvService
+    private newconvService: NewconvService,
+    private authService : AuthService
   ){}
 
   ngOnInit() {
-    this.apiService.isLoggedIn.subscribe((status: boolean) => {
-      this.isLoggedIn = status;
-    });
+    console.log("YOU FEEL THE SAME")
+    console.log(this.authService.getisLoggedInValue());
+    this.isLoggedIn = this.authService.getisLoggedInValue();
   }
 
   openDialog() {
@@ -61,7 +62,7 @@ export class HeaderComponent {
   }
 
   logout() {
-    this.apiService.logout();
+    this.authService.setLoggedIn(false);
     this.navigateToLogin();
   }
 

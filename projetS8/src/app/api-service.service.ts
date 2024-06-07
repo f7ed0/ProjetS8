@@ -4,16 +4,16 @@ import { Injectable } from '@angular/core';
 import { timeout } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { UserService } from './user.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiServiceService {
-  private loggedIn = new BehaviorSubject<boolean>(false);
-  isLoggedIn = this.loggedIn.asObservable();
+ 
 
 
-  constructor(private http: HttpClient, private userService: UserService) {}
+  constructor(private http: HttpClient, private userService: UserService,private authService : AuthService) {}
 
   getData(): Observable<any> {
     console.log(this.http.get('http://127.0.0.1:8000/api/v1/historic/'));
@@ -26,6 +26,10 @@ export class ApiServiceService {
   
   getDataDistinct(): Observable<any> {
     return this.http.get('http://127.0.0.1:8000/api/v1/historic/distinct');
+  }
+
+  getDataDistinctUser(): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/v1/historic/distinct/'+this.userService.getId());
   }
 
   getDataByUserId(userId: string): Observable<any> {
@@ -59,17 +63,8 @@ export class ApiServiceService {
     return this.http.post('http://127.0.0.1:8000/api/v1/register/', data);
   }
 
-  login() {
-    this.loggedIn.next(true);
-  }
 
-  logout() {
-    this.loggedIn.next(false);
-  }
 
-  get isLoggedInValue(): boolean {
-    return this.loggedIn.getValue();
-  }
 
   setId(id: string) {
     this.userService.setId(id);

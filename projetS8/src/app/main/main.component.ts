@@ -9,6 +9,8 @@ import { NewconvComponent } from '../newconv/newconv.component';
 import { NewconvService } from '../newconv.service';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
+import { UserService } from '../user.service';
+import { ApiServiceService } from '../api-service.service';
 
 
 @Component({
@@ -27,16 +29,20 @@ import { HeaderComponent } from '../header/header.component';
   ],
   templateUrl: './main.component.html',
   styleUrl: './main.component.scss',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [UserService,ApiServiceService]
 })
 export class MainComponent implements AfterViewInit {
   @ViewChild('drawer') drawer!: MatDrawer;
   isChevronLeft: boolean = true;
   showNewConv = true;
+  chatUser : any;
 
   constructor(
     private newconvService: NewconvService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private u: UserService,
+    private apiService: ApiServiceService
   ) {}
 
   ngAfterViewInit() {
@@ -55,6 +61,9 @@ export class MainComponent implements AfterViewInit {
   toggleIcon() {
     this.isChevronLeft = !this.isChevronLeft;
   }
+
+  
+ 
 
 }
 

@@ -13,7 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HttpClientModule,RouterOutlet, HeaderComponent, HttpClientModule,CommonModule,MatFormFieldModule,MatInputModule,MatIconModule,MatButtonModule],
+  imports: [HttpClientModule,RouterOutlet, HeaderComponent,MatFormFieldModule,MatInputModule,MatIconModule,MatButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   

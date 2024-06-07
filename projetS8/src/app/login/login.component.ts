@@ -6,10 +6,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { AuthService } from '../auth.service';
 import { ApiServiceService } from '../api-service.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -30,6 +30,7 @@ export class LoginComponent {
   constructor(
     private apiService: ApiServiceService,
     private router: Router,
+    private authService: AuthService
   ) {}
 
   clickEvent(event: MouseEvent) {
@@ -37,7 +38,9 @@ export class LoginComponent {
     event.stopPropagation();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.authService.getisLoggedInValue);
+  }
 
   getData() {
     console.log(this.user_control.value);
@@ -49,6 +52,7 @@ export class LoginComponent {
           const userId = data.user_id;
           this.apiService.setId(userId);
           this.isInvalid = false;
+          this.authService.setLoggedIn(true);
           this.router.navigate(['/home']);
         },
         error: (error) => {
@@ -63,7 +67,7 @@ export class LoginComponent {
     if(this.user_control.value && this.pass_control.value) {
       this.apiService.register(this.user_control.value, this.pass_control.value).subscribe({
         next : (data) => {
-          this.apiService.login();
+          this.authService.setLoggedIn(true);
           this.isInvalid = false;
           this.router.navigate(['/home']);
         },
