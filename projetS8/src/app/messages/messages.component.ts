@@ -7,8 +7,6 @@ import { ApiServiceService } from '../api-service.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
-import { timeout } from 'rxjs';
-import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-messages',
@@ -19,7 +17,7 @@ import { UserService } from '../user.service';
 })
 export class MessagesComponent implements OnInit {
   chatId: string = '';
-  messages: any = [];
+  messages: any[] = [];
   userMessage: string = '';
   botResponse: string = ''; 
   userID = this.apiService.getId();
@@ -28,7 +26,8 @@ export class MessagesComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiServiceService,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
@@ -38,6 +37,18 @@ export class MessagesComponent implements OnInit {
         this.getDataByChatId(this.chatId);
       }
     });
+  }
+
+  scrollToBottom(): void {
+    let container = document.querySelector("#app-messages");
+    let value = container?.scrollHeight;
+    console.log(container);
+    if(container != null) {
+      container.scrollTo({
+        top: value,
+        behavior: 'smooth'
+      });
+    }
   }
 
   getDataByChatId(chatId: string): void {
@@ -76,6 +87,7 @@ export class MessagesComponent implements OnInit {
         this.messages.push(data);
         this.userMessage = ''; 
         this.cdr.detectChanges(); 
+        this.scrollToBottom();
       },
       error: (error) => {
         console.error('There was an error saving the message!', error);
