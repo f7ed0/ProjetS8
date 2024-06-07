@@ -8,7 +8,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 import { NewconvService } from '../newconv.service';
+import {MatButtonModule} from '@angular/material/button';
 import { UserService } from '../user.service';
+import { DrawerService } from '../drawer.service';
 
 @Component({
   selector: 'app-convs',
@@ -20,7 +22,8 @@ import { UserService } from '../user.service';
     FormsModule,
     MatIconModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule
   ],
   templateUrl: './convs.component.html',
   styleUrls: ['./convs.component.scss'],
@@ -29,15 +32,18 @@ import { UserService } from '../user.service';
 export class ConvsComponent implements OnInit {
   convs: any = [];
   userID = this.apiService.getId();
+  screenWidth: number = 0;
 
   constructor(
     private apiService: ApiServiceService, 
     private router: Router,
-    private newconvService: NewconvService
+    private newconvService: NewconvService,
+    private drawerService: DrawerService
   ) {}
 
   ngOnInit(): void {
     this.getDataDistinct();
+    this.checkScreenWidth();
   }
 
   getDataDistinct(): void {
@@ -59,8 +65,28 @@ export class ConvsComponent implements OnInit {
     });
   }
 
+  toggleDrawer() {
+    this.drawerService.toggleDrawer();
+  }
+
   navigateToChat(chatId: string): void {
     this.newconvService.setMessages();
     this.router.navigate([`/chat/${chatId}`]);
+    if(this.isMobile()) {
+      this.toggleDrawer();
+    }
   }
+
+  setNewConv() {
+    this.newconvService.setNewConv();
+  }
+
+  checkScreenWidth() {
+    this.screenWidth = window.innerWidth;
+  }
+
+  isMobile(): boolean {
+    return this.screenWidth < 768; 
+  }
+
 }

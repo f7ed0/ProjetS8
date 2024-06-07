@@ -23,25 +23,68 @@ h4{
     gap: 10px;
 }
 
-.logo .mat-icon{
+.logo_robot{
     font-size: 22px;
     font-weight: 400;
     color: white;
 }
 
-.new_conv{
-    margin-left: 20px;
-}
-
-.new_conv .mat-icon{
-    font-size: 17px;
-    color: white;
-    width: auto;
-    height: auto;
-}
 
 .boutons{
     display: flex;
     gap: 15px;
 }
 
+.tel{
+    display: none;
+}
+
+.notel{
+    display: block;
+}
+
+
+@media screen and (max-width: 500px) {
+
+    .tel{
+        display: block;
+    }
+
+    .notel{
+        display: none;
+    }
+
+    nav{
+        padding-right: 5px;
+    }
+
+    .logo{
+        gap: 5px;
+    }
+
+    .logo h4{
+        font-size: 11px;
+        line-height: normal;
+        width: 50px;
+        margin-left: 5px;
+    }
+
+    .logo_robot{
+        font-size: 25px;
+    }
+
+    .btn_logout{
+        font-size: 0px;
+        min-width: auto;
+    }
+
+    .logo_out{
+        font-size: 22px !important;
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+        color: white;
+        width: auto !important;
+        height: auto !important;
+    }
+
+}

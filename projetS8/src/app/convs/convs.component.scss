@@ -14,6 +14,9 @@ $separator : #33304e;
     border: 0px solid $separator;
     border-bottom-width: 1px;
     transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 .conv:hover{
@@ -22,9 +25,51 @@ $separator : #33304e;
 }
 
 .conv p{
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     font-family: 'Roboto', sans-serif;
     color: white;
     margin: 0;
+}
+
+.new_conv{
+    width: 100%;
+    padding: 40px 25px;
+    display: flex;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    align-items: center;
+    justify-content: start;
+    border-radius: 0;
+    background-color: #504f78 !important;
+    color: white !important;
+
+}
+
+.logo_new_conv{
+    margin-right: 10px !important;
+    font-size: 22px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.tel{
+    display: none;
+}
+
+.notel{
+    display: flex;
+}
+
+@media screen and (max-width: 500px) {
+
+    .tel{
+        display: flex;
+    }
+
+    .notel{
+        display: none;
+    }
+
 }

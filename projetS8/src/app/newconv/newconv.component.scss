@@ -56,3 +56,17 @@ $bg : #242331;
     color: $bg;
     cursor: pointer;
 }
+
+
+
+@media screen and (max-width: 500px) {
+
+    .hero{
+        padding: 20px;
+    }
+
+    .hero h1{
+        text-align: center;
+    }
+
+}
