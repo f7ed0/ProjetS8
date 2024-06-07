@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from models.historicModel import HistoricBase, HistoricCreate, HistoricUpdate,HistoricCreateNewConv
+from models.historicModel import HistoricBase, HistoricCreate, HistoricUpdate
 from config import get_db
 from bson import ObjectId
 
@@ -95,12 +95,6 @@ def create_historic(historic: HistoricCreate, db = Depends(get_db)):
     new_historic['id'] = str(new_historic['_id'])
     return new_historic
 
-@router.post("/historic/new", response_model=HistoricBase)
-def create_historic_new_conv(historic: HistoricCreateNewConv, db = Depends(get_db)):
-    result = db.historic.insert_one(historic.dict())
-    new_historic = db.historic.find_one({"_id": result.inserted_id})
-    new_historic['id'] = str(new_historic['_id'])
-    return new_historic
 
 @router.put("/historic/{id}", response_model=HistoricBase)
 def update_historic(id: str, historic: HistoricUpdate, db = Depends(get_db)):

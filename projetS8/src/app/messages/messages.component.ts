@@ -16,7 +16,6 @@ import { UserService } from '../user.service';
   imports: [CommonModule, MatInputModule, MatFormFieldModule, FormsModule, MatIconModule],
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.scss'],
-  providers: [ApiServiceService]
 })
 export class MessagesComponent implements OnInit {
   chatId: string = '';

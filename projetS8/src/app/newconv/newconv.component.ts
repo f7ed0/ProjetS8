@@ -15,7 +15,6 @@ import { NewconvService } from '../newconv.service';
   imports: [MatInputModule, MatFormFieldModule, FormsModule, MatIconModule],
   templateUrl: './newconv.component.html',
   styleUrls: ['./newconv.component.scss'],
-  // Suppression de `providers` ici pour éviter de réinitialiser le service
 })
 export class NewconvComponent implements OnInit {
   userMessage: string = '';

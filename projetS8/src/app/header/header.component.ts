@@ -33,7 +33,6 @@ import { AuthService } from '../auth.service';
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [ApiServiceService]
 })
 export class HeaderComponent {
 

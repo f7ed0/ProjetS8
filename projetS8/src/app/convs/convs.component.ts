@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiServiceService } from '../api-service.service';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ApiServiceService } from '../api-service.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -8,8 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router } from '@angular/router';
 import { NewconvService } from '../newconv.service';
-import {MatButtonModule} from '@angular/material/button';
-import { UserService } from '../user.service';
+import { MatButtonModule } from '@angular/material/button';
 import { DrawerService } from '../drawer.service';
 
 @Component({
@@ -27,29 +26,37 @@ import { DrawerService } from '../drawer.service';
   ],
   templateUrl: './convs.component.html',
   styleUrls: ['./convs.component.scss'],
-  providers: [ApiServiceService]
 })
 export class ConvsComponent implements OnInit {
   convs: any = [];
-  userID = this.apiService.getId();
+  userID: string;
   screenWidth: number = 0;
 
   constructor(
     private apiService: ApiServiceService, 
     private router: Router,
     private newconvService: NewconvService,
-    private drawerService: DrawerService
-  ) {}
+    private drawerService: DrawerService,
+    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
+  ) {
+    this.userID = this.apiService.getId();
+  }
 
   ngOnInit(): void {
     this.getDataDistinct();
     this.checkScreenWidth();
+
+    // Subscribe to the observable to detect changes when showNewConv changes
+    this.newconvService.showNewConv$.subscribe(showNewConv => {
+      this.cdr.detectChanges();
+    });
   }
 
   getDataDistinct(): void {
     this.apiService.getDataByUserId(this.userID).subscribe({
       next: (data: any) => {
         this.convs = data;
+        this.cdr.detectChanges(); // Detect changes after data is updated
       },
       error: (error) => {
         console.error('There was an error!', error);
@@ -67,26 +74,36 @@ export class ConvsComponent implements OnInit {
 
   toggleDrawer() {
     this.drawerService.toggleDrawer();
+    this.cdr.detectChanges(); // Detect changes after drawer is toggled
   }
 
   navigateToChat(chatId: string): void {
     this.newconvService.setMessages();
-    this.router.navigate([`/chat/${chatId}`]);
-    if(this.isMobile()) {
+    this.router.navigate([`/chat/${chatId}`]).then(() => {
+      this.cdr.detectChanges(); // Detect changes after navigation
+    });
+    if (this.isMobile()) {
       this.toggleDrawer();
     }
   }
 
   setNewConv() {
     this.newconvService.setNewConv();
+    this.cdr.detectChanges(); // Detect changes after setting new conversation
+    this.router.navigate(['/home']);
   }
 
   checkScreenWidth() {
     this.screenWidth = window.innerWidth;
+    this.cdr.detectChanges(); // Detect changes after checking screen width
   }
 
   isMobile(): boolean {
     return this.screenWidth < 768; 
   }
-
+  
+  refreshConvs() {
+    this.getDataDistinct();
+    this.cdr.detectChanges(); // Detect changes after refreshing conversations
+  }
 }

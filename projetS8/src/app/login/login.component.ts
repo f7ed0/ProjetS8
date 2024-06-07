@@ -17,7 +17,6 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.scss'],
   standalone: true,
   imports: [CommonModule, MatInputModule, MatFormFieldModule, FormsModule, MatIconModule, MatButtonModule, ReactiveFormsModule,],
-  providers: [ApiServiceService] 
 })
 export class LoginComponent {
   isRegistering = false;
