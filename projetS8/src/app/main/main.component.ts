@@ -50,14 +50,13 @@ export class MainComponent implements AfterViewInit {
   ) { }
 
   ngAfterViewInit() {
-
     this.drawer.open();
-    console.log(this.newconvService.getShowNewConv());
     this.newconvService.showNewConv$.subscribe(state => {
       this.showNewConv = state;
       this.cdr.detectChanges();
     });
     this.u.setFeedback('false');
+    this.cdr.detectChanges();
     this.drawerSubscription = this.drawerService.toggleDrawer$.subscribe(() => {
       this.toggleDrawer();
     });
@@ -66,7 +65,6 @@ export class MainComponent implements AfterViewInit {
       this.drawer.close();
       this.toggleIcon();
     }
-    this.cdr.detectChanges();
   }
 
   ngOnDestroy() {

@@ -9,14 +9,14 @@
             <p>{{ message.chat_ia }}</p>
           </div>
           <div class="actions">
-            <button class="btn_action" mat-icon-button>
-              <mat-icon class="icon_action">content_copy</mat-icon>
+            <button (click)="copyToClipboard(message.chat_ia, 'copy_'+i.toString())" class="btn_action" mat-icon-button>
+              <mat-icon id="copy_{{i}}" class="icon_action">content_copy</mat-icon>
             </button>
-            <button class="btn_action" mat-icon-button>
-              <mat-icon class="icon_action">thumb_up</mat-icon>
+            <button (click)="likeResponse(message.chat_ia, 'like_'+i.toString())" class="btn_action" mat-icon-button>
+              <mat-icon id="like_{{i}}" class="icon_action">thumb_up</mat-icon>
             </button>
-            <button class="btn_action" mat-icon-button>
-              <mat-icon class="icon_action">thumb_down</mat-icon>
+            <button (click)="dislikeResponse(message.chat_ia, 'dislike_'+i.toString())" class="btn_action" mat-icon-button>
+              <mat-icon id="dislike_{{i}}" class="icon_action">thumb_down</mat-icon>
             </button>
             <button class="btn_action" mat-icon-button>
               <mat-icon class="icon_action">emoji_objects</mat-icon>

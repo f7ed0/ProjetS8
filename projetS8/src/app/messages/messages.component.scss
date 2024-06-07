@@ -114,6 +114,15 @@ p{
 .icon_action{
     font-size: 18px;
     cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.greenColor{
+    color: #64d964 !important;
+}
+
+.redColor{
+    color: #d96464 !important;
 }
 
 

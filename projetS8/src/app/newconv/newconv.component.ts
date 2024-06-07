@@ -41,9 +41,9 @@ export class NewconvComponent implements OnInit {
     this.apiService.postData(this.chat_id, this.userService.getId(), this.userMessage, "Smehli").subscribe(data => {
       console.log(data);
       this.newConvService.setMessages();
+      this.userService.setChatId(this.chat_id);
       this.router.navigate(['/chat', this.chat_id]).then(() => {
-        console.log("Navigated to chat:", this.chat_id);
-        this.cdr.detectChanges(); // Forcer la détection des changements après la navigation
+        this.cdr.detectChanges();
       });
     });
   }

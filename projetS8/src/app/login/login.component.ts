@@ -41,6 +41,7 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.userService.setFeedback('false');
+    this.userService.setChatId('');
   }
 
   onSubmit() {

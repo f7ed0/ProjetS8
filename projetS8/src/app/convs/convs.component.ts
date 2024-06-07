@@ -10,6 +10,8 @@ import { RouterModule, Router } from '@angular/router';
 import { NewconvService } from '../newconv.service';
 import { MatButtonModule } from '@angular/material/button';
 import { DrawerService } from '../drawer.service';
+import { MessagesComponent } from '../messages/messages.component';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-convs',
@@ -22,7 +24,8 @@ import { DrawerService } from '../drawer.service';
     MatIconModule,
     HttpClientModule,
     RouterModule,
-    MatButtonModule
+    MatButtonModule,
+    MessagesComponent
   ],
   templateUrl: './convs.component.html',
   styleUrls: ['./convs.component.scss'],
@@ -37,7 +40,8 @@ export class ConvsComponent implements OnInit {
     private router: Router,
     private newconvService: NewconvService,
     private drawerService: DrawerService,
-    private cdr: ChangeDetectorRef // Inject ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private userService : UserService
   ) {
     this.userID = this.apiService.getId();
   }
@@ -45,18 +49,20 @@ export class ConvsComponent implements OnInit {
   ngOnInit(): void {
     this.getDataDistinct();
     this.checkScreenWidth();
-
-    // Subscribe to the observable to detect changes when showNewConv changes
     this.newconvService.showNewConv$.subscribe(showNewConv => {
       this.cdr.detectChanges();
     });
+    if(this.userService.getChatId() != '') {
+      setTimeout(() => {  this.addActiveClass(this.userService.getChatId()) }, 300);
+      ;
+    }
   }
 
   getDataDistinct(): void {
     this.apiService.getDataByUserId(this.userID).subscribe({
       next: (data: any) => {
         this.convs = data;
-        this.cdr.detectChanges(); // Detect changes after data is updated
+        this.cdr.detectChanges();
       },
       error: (error) => {
         console.error('There was an error!', error);
@@ -77,11 +83,26 @@ export class ConvsComponent implements OnInit {
     this.cdr.detectChanges(); // Detect changes after drawer is toggled
   }
 
+  addActiveClass(id: string): void {
+    const elements = document.getElementsByClassName('activeConv');
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].classList.remove('activeConv');
+    }
+    let element = document.getElementById(`conv_${id}`);
+    if (element != null) {
+      element.classList.add('activeConv');
+    }
+    console.log(element);
+  }
+
+
 
   navigateToChat(chatId: string): void {
     this.newconvService.setMessages();
     this.router.navigate([`/chat/${chatId}`]).then(() => {
-      this.cdr.detectChanges(); // Detect changes after navigation
+      this.userService.setChatId(chatId);
+      this.addActiveClass(chatId);
+      this.cdr.detectChanges(); 
     });
     if (this.isMobile()) {
       this.toggleDrawer();
@@ -104,13 +125,14 @@ export class ConvsComponent implements OnInit {
 
   setNewConv() {
     this.newconvService.setNewConv();
-    this.cdr.detectChanges(); // Detect changes after setting new conversation
+    this.cdr.detectChanges();
+    this.userService.setChatId('');
     this.router.navigate(['/home']);
   }
 
   checkScreenWidth() {
     this.screenWidth = window.innerWidth;
-    this.cdr.detectChanges(); // Detect changes after checking screen width
+    this.cdr.detectChanges();
   }
 
   isMobile(): boolean {
@@ -119,6 +141,6 @@ export class ConvsComponent implements OnInit {
   
   refreshConvs() {
     this.getDataDistinct();
-    this.cdr.detectChanges(); // Detect changes after refreshing conversations
+    this.cdr.detectChanges(); 
   }
 }

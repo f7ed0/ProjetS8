@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
@@ -7,6 +7,11 @@ import { ApiServiceService } from '../api-service.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @Component({
   selector: 'app-messages',
@@ -25,7 +30,8 @@ export class MessagesComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiServiceService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ) {
   }
 
@@ -58,7 +64,7 @@ export class MessagesComponent implements OnInit {
         if (this.messages[this.messages.length - 1].chat_id_user === this.userID) {
           console.error('Network error - make sure the API server is running.');
         }
-        this.cdr.detectChanges(); // Force Angular to detect changes
+        this.cdr.detectChanges();
         this.botResponse = this.messages[this.messages.length - 1].chat_ia;
         this.checkAndUpdateLastResponse(this.chatId);
       },
@@ -117,5 +123,70 @@ export class MessagesComponent implements OnInit {
         console.error('There was an error fetching the last message!', error);
       }
     });
+  }
+
+  copyToClipboard(botResponse : string, index : string): void {
+    navigator.clipboard.writeText(botResponse).then(() => {
+      this.checkAction(index);
+      console.log('Bot response copied to clipboard');
+    }, (err) => {
+      console.error('Failed to copy bot response to clipboard', err);
+    });
+  }
+
+  likeResponse(botResponse : string, index : string): void {
+    this.checkAction(index);
+     // Send the like to the Database
+  }
+
+  dislikeResponse(botResponse : string, index : string): void {
+    this.openDialog(botResponse, index);
+  }
+
+  checkAction(id : string, classname : string = 'greenColor'){
+    document.getElementById(id)?.classList.add(classname);
+    this.cdr.detectChanges();
+    setTimeout(() => {
+      document.getElementById(id)?.classList.remove(classname);
+      this.cdr.detectChanges();
+    }, 1500);
+  }
+
+
+
+  openDialog(botResponse : string, index : string) {
+    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+      width: '90%',
+      maxWidth: '500px',
+      data: { botResponse: botResponse }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.buttonClicked == "send") {
+        this.checkAction(index, 'redColor');
+        // Send the dislike to the Database
+      }
+     
+    });
+  }
+
+}
+
+@Component({
+  selector: 'dialog-content-example-dialog',
+  templateUrl: 'dislike.component.html',
+  styleUrls: ['dislike.component.scss'],
+  standalone: true,
+  imports: [MatIconModule, CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, FormsModule ],
+})
+export class DialogContentExampleDialog {
+  textContent: string = '';
+  constructor(
+    public dialogRef: MatDialogRef<DialogContentExampleDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: { botResponse: string }
+  ) {}
+
+  onCloseWithResult(result: string): void {
+    this.dialogRef.close({ buttonClicked: result, textareaContent: this.textContent });
   }
 }

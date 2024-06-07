@@ -6,6 +6,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
   private readonly USER_ID_KEY = 'user_id';
   private readonly FEEDBACK_KEY = 'false';
+  private readonly CHAT_ID_KEY = '';
 
   constructor() {}
 
@@ -23,6 +24,14 @@ export class UserService {
 
   getFeedback(): string {
     return ""+localStorage.getItem(this.FEEDBACK_KEY);
+  }
+
+  setChatId(chatId: string) {
+    localStorage.setItem(this.CHAT_ID_KEY, chatId);
+  }
+
+  getChatId(): string {
+    return ""+localStorage.getItem(this.CHAT_ID_KEY);
   }
 
 }
