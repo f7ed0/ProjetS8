@@ -1,0 +1,16 @@
+*{
+    box-sizing: border-box;
+}
+
+.snack_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 80px;
+}
+
+.snack_container p{
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+}

@@ -1,0 +1,22 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<div class="sugg_container">
+    <div class="sugg_title full_width">
+        <p>Aider nous à nous améliorer !</p>
+    </div>
+    <div class="sugg_response full_width">
+        <p>{{ data.botResponse }}</p>
+    </div>
+    <div class="sugg_comment full_width">
+        <mat-form-field>
+            <mat-label>Suggestions</mat-label>
+            <textarea matInput resizeMode="Both" [(ngModel)]="textContent"></textarea>
+          </mat-form-field>
+    </div>
+    <div class="sugg_actions full_width">
+        <button mat-flat-button class="sugg_cancel" (click)="onCloseWithResult('cancel')">Annuler<mat-icon>cancel</mat-icon></button>
+        <button mat-flat-button class="sugg_send" (click)="onCloseWithResult('send')">Envoyer<mat-icon>send</mat-icon></button>
+    </div>
+</div>
