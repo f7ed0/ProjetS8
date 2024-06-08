@@ -8,3 +8,28 @@ body{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: transparent !important;
+    padding: 0;
+}
+
+.mdc-snackbar__label{
+    padding-right: 16px !important;
+}
+
+.mat_snack_green {
+    background-color: #64d964; 
+    color: #FFFFFF;
+}
+  
+.mat_snack_red {
+    background-color: #d96464; 
+    color: #FFFFFF;
+}
+  
+.mat_snack_blue {
+    background-color: #6495d9; 
+    color: #FFFFFF;
+}
+  
