@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
-
+import {MAT_SNACK_BAR_DATA, MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-messages',
@@ -31,7 +31,8 @@ export class MessagesComponent implements OnInit {
     private route: ActivatedRoute,
     private apiService: ApiServiceService,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {
   }
 
@@ -128,7 +129,7 @@ export class MessagesComponent implements OnInit {
   copyToClipboard(botResponse : string, index : string): void {
     navigator.clipboard.writeText(botResponse).then(() => {
       this.checkAction(index);
-      console.log('Bot response copied to clipboard');
+      this.openSnackBar('Copier dans le presse-papier !','mat_snack_green');
     }, (err) => {
       console.error('Failed to copy bot response to clipboard', err);
     });
@@ -137,10 +138,15 @@ export class MessagesComponent implements OnInit {
   likeResponse(botResponse : string, index : string): void {
     this.checkAction(index);
      // Send the like to the Database
+     this.openSnackBar('Votre avis a bien été pris en compte !','mat_snack_green');
   }
 
   dislikeResponse(botResponse : string, index : string): void {
-    this.openDialog(botResponse, index);
+    this.openDislike(botResponse, index);
+  }
+
+  suggResponse(botResponse : string, index : string): void {
+    this.openSugg(botResponse, index);
   }
 
   checkAction(id : string, classname : string = 'greenColor'){
@@ -154,8 +160,8 @@ export class MessagesComponent implements OnInit {
 
 
 
-  openDialog(botResponse : string, index : string) {
-    const dialogRef = this.dialog.open(DialogContentExampleDialog, {
+  openDislike(botResponse : string, index : string) {
+    const dialogRef = this.dialog.open(DislikeComponent, {
       width: '90%',
       maxWidth: '500px',
       data: { botResponse: botResponse }
@@ -164,29 +170,89 @@ export class MessagesComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result.buttonClicked == "send") {
         this.checkAction(index, 'redColor');
-        // Send the dislike to the Database
+        // Envoi du dislike dans la bdd
+        this.openSnackBar('Votre avis a bien été pris en compte !','mat_snack_red');
       }
      
+    });
+  }
+
+  openSugg(botResponse : string, index : string) {
+    const dialogRef = this.dialog.open(SuggComponent, {
+      width: '90%',
+      maxWidth: '500px',
+      data: { botResponse: botResponse }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result.buttonClicked == "send") {
+        this.checkAction(index, 'blueColor');
+        // Envoi de la suggestion dans la bdd
+        this.openSnackBar('Votre suggestion a bien été prise en compte !','mat_snack_blue');
+      }
+    });
+  }
+
+
+  openSnackBar(message :string, classValue : string) {
+    this._snackBar.openFromComponent(SnackComponent, {
+      duration: 2500,
+      panelClass: ['mat-toolbar', classValue],
+      data: { message: message }
     });
   }
 
 }
 
 @Component({
-  selector: 'dialog-content-example-dialog',
+  selector: 'dislike-component',
   templateUrl: 'dislike.component.html',
   styleUrls: ['dislike.component.scss'],
   standalone: true,
   imports: [MatIconModule, CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, FormsModule ],
 })
-export class DialogContentExampleDialog {
+export class DislikeComponent {
   textContent: string = '';
   constructor(
-    public dialogRef: MatDialogRef<DialogContentExampleDialog>,
+    public dialogRef: MatDialogRef<DislikeComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { botResponse: string }
   ) {}
 
   onCloseWithResult(result: string): void {
     this.dialogRef.close({ buttonClicked: result, textareaContent: this.textContent });
   }
+}
+
+
+@Component({
+  selector: 'sugg-component',
+  templateUrl: 'sugg.component.html',
+  styleUrls: ['sugg.component.scss'],
+  standalone: true,
+  imports: [MatIconModule, CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, FormsModule ],
+})
+export class SuggComponent {
+  textContent: string = '';
+  constructor(
+    public dialogRef: MatDialogRef<SuggComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: { botResponse: string }
+  ) {}
+
+  onCloseWithResult(result: string): void {
+    this.dialogRef.close({ buttonClicked: result, textareaContent: this.textContent });
+  }
+}
+
+
+@Component({
+  selector: 'snack-component',
+  templateUrl: 'snack.component.html',
+  styleUrls: ['snack.component.scss'],
+  standalone: true,
+  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, FormsModule],
+})
+export class SnackComponent {
+  constructor(
+    @Inject(MAT_SNACK_BAR_DATA) public data: { message: string }
+  ) {}
 }

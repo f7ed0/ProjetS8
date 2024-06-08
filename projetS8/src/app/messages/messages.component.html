@@ -18,8 +18,8 @@
             <button (click)="dislikeResponse(message.chat_ia, 'dislike_'+i.toString())" class="btn_action" mat-icon-button>
               <mat-icon id="dislike_{{i}}" class="icon_action">thumb_down</mat-icon>
             </button>
-            <button class="btn_action" mat-icon-button>
-              <mat-icon class="icon_action">emoji_objects</mat-icon>
+            <button (click)="suggResponse(message.chat_ia, 'sugg_'+i.toString())" class="btn_action" mat-icon-button>
+              <mat-icon id="sugg_{{i}}" class="icon_action">emoji_objects</mat-icon>
             </button>
             
           </div>
