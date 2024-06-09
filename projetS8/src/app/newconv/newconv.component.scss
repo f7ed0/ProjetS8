@@ -9,7 +9,9 @@
 }
 
 .hero{
+    box-sizing: border-box;
     height: 100%;
+    padding-bottom: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -25,9 +27,9 @@
 
 
 .form{
-    width: 100%;
+    width: 90%;
     margin: 0 auto;
-    position: sticky;
+    position: absolute;
     bottom: 0;
     z-index: 2;
     background-color: var(--secondary);
@@ -49,7 +51,7 @@
 
 
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 468px) {
 
     .hero{
         padding: 20px;
