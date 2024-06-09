@@ -82,3 +82,17 @@ a{
     text-align: center;
     background-color: rgba(255, 74, 74, 0.1);
 }
+
+.error {
+    color: red;
+}
+
+.error_msg{
+    margin-bottom: 10px;
+}
+
+.rgpd_section{
+    display: flex;
+    align-items: baseline;
+    flex-direction: row;
+}
