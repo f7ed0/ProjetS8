@@ -1,34 +1,45 @@
-$bg : #242331;
-$bg-chats : #1e1d2a;
-$chevron : #f5f5f5;
-
 
 ::-webkit-scrollbar {
   width: 10px; 
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a9a3e4; 
+  background: var(--scroll-bar); 
 }
 
 ::-webkit-scrollbar-track {
-  background: #ffffff; 
+  background: var(--scroll-bar-bg); 
 }
 
 
 .main-container {
   width: 100vw;
   height: calc(100vh - 60px);
-  background-color: $bg;
+  background-color: var(--secondary);
 }
 
 .btn-chats{
   position: absolute;
   top: 20px;
   left: 20px;
-  color: white !important;
-  background-color: #474371 !important;
+  color: var(--text-color) !important;
+  background-color: var(--btn) !important;
 }
+
+.btn-theme{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: var(--text-color) !important;
+  background-color: var(--btn) !important;
+  transform: rotate(180deg);
+}
+
+.rotated {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}
+
 
 .btn-chats-tel{
   display: none;
@@ -42,7 +53,7 @@ $chevron : #f5f5f5;
 
 .sidenav {
   width: 350px;
-  background-color: $bg-chats;
+  background-color: var(--third);
 }
 
 .app-messages{
@@ -66,8 +77,8 @@ $chevron : #f5f5f5;
     position: absolute;
     top: 20px;
     right: 20px;
-    color: white !important;
-    background-color: $bg !important;
+    color: var(--text-color) !important;
+    background-color: var(--secondary) !important;
   }
 
 }

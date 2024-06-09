@@ -1,29 +1,27 @@
-$bg : #16151e;
-
 nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $bg;
+    background-color: var(--header);
     height: 60px;
     padding: 0 20px;
 }
 
 h4{
     margin: 0;
-    color: white;
+    color: var(--text-color);
     font-weight: 500;
     font-size: 15px;
     font-family: 'Roboto', sans-serif;
 }
 
 .target_drawer{
-    color: white;
+    color: var(--text-color);
     transition: all 0.35s ease;
 }
 
 .home{
-    color: white;
+    color: var(--text-color);
     font-size: 22px;
 }
 
@@ -40,7 +38,7 @@ h4{
 .logo_robot{
     font-size: 22px;
     font-weight: 400;
-    color: white;
+    color: var(--text-color);
 }
 
 
@@ -91,7 +89,7 @@ h4{
 
     .logo_out, .logo_sugg{
         font-size: 22px !important;
-        color: white;
+        color: var(--text-color);
     }
 
     .target_drawer{

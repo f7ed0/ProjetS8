@@ -13,6 +13,7 @@ import { UserService } from '../user.service';
 import { ApiServiceService } from '../api-service.service';
 import { DrawerService } from '../drawer.service';
 import { Subscription } from 'rxjs';
+import { ThemeService } from '../theme.service';
 
 @Component({
   selector: 'app-main',
@@ -38,6 +39,8 @@ export class MainComponent implements AfterViewInit {
   isChevronLeft: boolean = true;
   showNewConv = this.newconvService.getShowNewConv();
   chatUser : any;
+  isDarkTheme = this.themeService.isDarkTheme();
+  isRotated = false;
   private drawerSubscription: Subscription | undefined;
   screenWidth: number = 0;
 
@@ -46,7 +49,8 @@ export class MainComponent implements AfterViewInit {
     private cdr: ChangeDetectorRef,
     private u: UserService,
     private apiService: ApiServiceService,
-    private drawerService: DrawerService
+    private drawerService: DrawerService,
+    private themeService: ThemeService
   ) { }
 
   ngAfterViewInit() {
@@ -89,4 +93,12 @@ export class MainComponent implements AfterViewInit {
   isMobile(): boolean {
     return this.screenWidth < 768; 
   }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
+    this.isDarkTheme = !this.isDarkTheme;
+    this.isRotated = !this.isRotated;
+    this.cdr.detectChanges();
+  }
+
 }

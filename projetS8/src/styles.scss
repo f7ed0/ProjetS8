@@ -2,7 +2,39 @@
 @import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
 
 
+:root{
+    --header: #16151e;
+    --text-color : #FFFFFF;
+    --secondary: #242331;
+    --third : #1e1d2a;
+    --btn : #474371;
+    --question: #47465d;
+    --reponse : #797787;
+    --scroll-bar: #a9a3e4;
+    --scroll-bar-bg: #f4f4f4;
+    --separator: #33304e;
+    --hover-conv: #2b293c;
+    --active-conv: #8680c2;
+}
 
+[data-theme="light"] {
+    --header: #f7f7f7;
+    --text-color : #000000;
+    --third : #fafafa;
+    --btn : #e9e9e9;
+    --secondary: #FFFFFF;
+    --question: #e8e8e8;
+    --reponse : #d8d8d8;
+    --scroll-bar: #262626;
+    --scroll-bar-bg: #cecece;
+    --separator: #e8e8e8;
+    --hover-conv: #eeeeee;
+    --active-conv: #efefef;
+}
+
+*{
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
 body{
     margin: 0;
 }
