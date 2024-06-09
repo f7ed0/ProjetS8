@@ -30,9 +30,25 @@
   position: absolute;
   top: 20px;
   right: 20px;
+  z-index: 2;
   color: var(--text-color) !important;
   background-color: var(--btn) !important;
   transform: rotate(180deg);
+}
+
+.btn-rgpd{
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  z-index: 2;
+  color: var(--text-color) !important;
+  background-color: var(--btn) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-rgpd .mat-icon {
+  font-size: 22px;
 }
 
 .rotated {

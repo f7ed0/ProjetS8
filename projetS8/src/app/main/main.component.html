@@ -11,6 +11,9 @@
     <button mat-mini-fab class="btn-theme" [ngClass]="{'rotated': isRotated}" (click)="toggleTheme()">
       <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
     </button>
+    <button mat-mini-fab class="btn-rgpd" (click)="toggleRGPD()">
+      <mat-icon>gavel</mat-icon>
+    </button>
     <app-newconv *ngIf="showNewConv" class="app-convs"></app-newconv>
     <app-messages id="app-messages" *ngIf="!showNewConv" class="app-messages"></app-messages>
   </div>

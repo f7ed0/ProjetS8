@@ -14,6 +14,7 @@ import { ApiServiceService } from '../api-service.service';
 import { DrawerService } from '../drawer.service';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../theme.service';
+import { MatDialog, MatDialogActions, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-main',
@@ -50,7 +51,8 @@ export class MainComponent implements AfterViewInit {
     private u: UserService,
     private apiService: ApiServiceService,
     private drawerService: DrawerService,
-    private themeService: ThemeService
+    private themeService: ThemeService,
+    public dialog: MatDialog
   ) { }
 
   ngAfterViewInit() {
@@ -101,4 +103,24 @@ export class MainComponent implements AfterViewInit {
     this.cdr.detectChanges();
   }
 
+  toggleRGPD(){
+    this.dialog.open(RGPDComponent, {
+      width: '90%',
+      maxWidth: '800px'
+    });
+  }
+
+}
+
+@Component({
+  selector: 'rgpd-component',
+  templateUrl: 'rgpd.component.html',
+  styleUrls: ['rgpd.component.scss'],
+  standalone: true,
+  imports: [MatIconModule, CommonModule, MatButtonModule, MatButtonModule, MatDialogActions, MatDialogClose],
+})
+export class RGPDComponent {
+  constructor(
+    public dialogRef: MatDialogRef<RGPDComponent>,
+  ) {}
 }
