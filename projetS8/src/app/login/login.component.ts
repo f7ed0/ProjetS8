@@ -39,7 +39,7 @@ export class LoginComponent {
 
   user_control = new FormControl('', [Validators.required]);
   pass_control = new FormControl('', [Validators.required]);
-  acceptTerms = new FormControl(false, [Validators.requiredTrue]);
+  acceptTerms = new FormControl(true, [Validators.requiredTrue]);
 
   constructor(
     private apiService: ApiServiceService,
@@ -90,6 +90,7 @@ export class LoginComponent {
         }
       });
     } else {
+      console.log("non valid")
       this.isInvalid = true;
     }
   }
