@@ -1,0 +1,14 @@
+La plateforme Efficient-Drive, composée de trois bancs moteurs dynamiques, a pour objectif de développer et d'évaluer sur cycle de vitesse, des outils automatiques avancés liés au contrôle des moteurs thermiques essence et/ou hybrides.
+L'émulation d'une loi de route complète est rendue possible par la commande de la machine de charge, couplée au vilebrequin via un couplemètre en ligne.
+Un premier banc moteur instrumenté et équipé d'un calculateur ouvert, est spécifiquement dédié au développement des lois de pilotage des moteurs à combustion interne, mais aussi d'outils de diagnostic avancé.
+Le deuxième banc moteur embarque, quant à lui, une hybridation légère VALEO avec alterno-démarreur BSG144 de troisième génération, alimenté par un pack de supercapacités. Il permet d’étudier les chaînes de traction hybride et de valider les lois de gestion de l’énergie déterminées par les outils d’optimisation.
+Le troisième banc moteur, basé sur un six cylindres essence, a été conçu pour traiter les problématiques liées à la valorisation des calories perdues dans les gaz d'échappement en électricité (couplage moteur à combustion interne avec moteur Stirling à combustion externe).
+Equipée dernièrement d'une distribution d'Hydrogène à modulation de débit, Efficient-Drive permet dorénavant de développer des stratégies de pilotage, basées sur la bi-carburation essence / H2.
+performance, Hydrogène, rendement, moteur Stirling
+VALEO, Renault, CRITT M2A, CEVAA, THY Engineering, LMS
+D4FT780
+Renault
+Calculateur programmable avec Matlab/Simulink
+FH Electronics
+CPLS 132L
+PATAY

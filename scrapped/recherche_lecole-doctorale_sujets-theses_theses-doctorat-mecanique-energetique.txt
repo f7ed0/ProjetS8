@@ -1,0 +1,13 @@
+Damien BARBIER :"Etude de la sensibilité aux gradients thermiques des billettes lors d'une phase de réchauffage" (09/12/13 - UVHC - Campus Mont Houy - Amphi Bâtiment CISIT) -consulter la thèse en ligne
+Matthieu BOUDRIAUX :"Fonctionnalisation de surfaces en nitrure de silicium à partir de sol-gel de polysiloxanes" (29 juin 2011 à 10h30 - UVHC - Bâtiment Lottman)
+Benjamin LATOUR :"Etude expérimentale des échanges convectifs locaux autour d’un arbre aileté en rotation et soumis a un courant d’air transversal" (07/12/10 à 10h00 - UVHC - Amphi IEMN-DOAE)
+Alban Fabrice EPEE :"Caractérisation et modélisation du comportement d'un polymère semi cristallin au crash"(26/11/09 à 9h30 - UVHC - Amphi IEMN-DOAE)
+Yannick MULLER :"Interaction fluide-structure par couplage thermo-mécanique dans le système d’air secondaire des turbo-réacteurs. Contribution à une méthode de conception intégrée / Coupled thermo-mechanical fluid-structure interaction in the secondary air system of aircraft engines. Contribution to an integrated design method." (30/09/09 - UVHC - ENSIAME - Amphi E2)
+Lat Grand NDIAYE :"Modélisation de la combustion dans les fours d'incinération de déchets" (06/07/09 à 10h30 - UVHC - ENSIAME - Amphi E1)
+Yohann TORRES :"Transferts énergétiques dans les canaux de refroidissement courbes de moteurs fusées" (09/10/08 à 14h - UVHC - ENSIAME - Amphi E2)
+Ali GRINE :"Etude théorique et expérimentale de la convection forcée sur plaque plane en régime transitoire" (26/11/07 à 10h30 - UVHC - LME - Amphi E2 ENSIAME)
+Julien HERPE :"Caractérisation des performances des surfaces d'échange basée sur l'évaluation numérique du taux de production d'entropie: application aux échangeurs de chaleur automobiles" (23/10/07 à 10h - UVHC - ENSIAME - Amphi E7)
+Gonikodé KAHISSIM :"Etude expérimentale de l'écoulement autour d'un cylindre en rotation perpendiculairement à l'écoulement moyen" (07/12/06 à 10h30 - ENSIAME - Amphi E7)
+Mohamed SI YOUCEF :"Gestion durable de l'environnement en Algérie " (23/06/06 à 10h - ISTV1 - Amphi 300)
+Véronique DUBOIS :"Etude détaillée des structures tourbillonnaires développées à l'extrados de corps élancés simples, complexes et de corps de révolution " (16/12/05 à 10h - ISTV1 - Amphi 300)
+Francisco CADAVID:"Simulation numérique de la réduction des émissions de no dans un four pilote de 4 mW et une chaudière tangentielle de 609 mW à charbon pulvérisé" (16/12/04 à 11h - ENSIAME -Amphi E3)

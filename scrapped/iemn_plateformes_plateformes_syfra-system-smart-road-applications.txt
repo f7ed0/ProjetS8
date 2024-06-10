@@ -1,0 +1,3 @@
+Objectifs de la plateforme SYstem For smart Road Application :
+La plateforme prend la forme d’une voiture intelligente dans son environnement intelligent.
+Le véhicule embarque :

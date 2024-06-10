@@ -1,0 +1,24 @@
+Afin de construire un contrat d'études, vous aurez besoin de remplacer les cours que vous deviez normalement suivre dans votre université d'origine par des cours dispensés à l'Université Polytechnique Hauts-de-France.
+Pour avoir un aperçu des formations de l'Université Polytechnique Hauts-de-France, consultez notrecatalogue des formations.
+L'Université Polytechnique Hauts-de-France propose deux parcours de formation dispensés entièrement en langue anglaise,
+Les projets menés en laboratoire ou au sein d'une composante peuvent être encadrés en langue anglaise.
+Vos enseignants ainsi que le Pôle de Relations Internationales à l'Université Polytechnique Hauts-de-France vous aident dans votre choix. N'hésitez pas à leur demander conseil.
+L'échelle de notation en France s'étend de 0 à 20.0 étant la plus mauvaise note, 20 la meilleure.
+La note de 10 marque la moyenne, c'est-à-dire qu'elle représente dans la plupart des cas la note minimale à obtenir pour se voir attribuer les crédits. Attention dans certains diplômes, la note minimale à obtenir pour recevoir les crédits peut être supérieure. Le responsable pédagogique du diplôme vous renseignera à ce sujet.
+La note 20 est assez rarement attribuée car elle correspond à un travail parfait auquel aucun reproche ne peut être fait.
+Note ECTS
+% d'étudiants admis qui devraient obtenir la note
+A
+10%
+B
+25%
+C
+30%
+D
+25%
+E
+10%
+FX
+-
+F
+-

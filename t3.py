@@ -37,11 +37,29 @@ print("Assistant> Bonjour ! Je suis l'assistant UPHF. comment puis-je vous aider
 
 cdb = dbgenerator.loadEmbededDB()
 
+def extract_context(q):
+    inputs = tokenizer.apply_chat_template(messages[2:]+[{"role" : "system" , "content" : f"Reformule cette question en prenant en compte du contexte : \"{q}\""}],
+        tokenize=True,add_generation_prompt=True,return_tensors="pt"
+    ).to(device)
+    gen_tokens = model.generate(
+        inputs,
+        max_new_tokens=600,
+        temperature=0.1,
+        do_sample=True,
+    )
+
+    resp = tokenizer.decode(gen_tokens[0]).split("<start_of_turn>model")
+
+    rsp = resp[len(resp)-1][1:].replace("<eos>","")
+
+    return rsp
+
 while True :
     q = input("User> ")
     if q == "exit":
         break
     #print("NEW CONTEXT :",[item.page_content for item in cdb.similarity_search(q)])
+    #print("-------------\n",extract_context(q),"\n--------------------")
     ctx = ctx_generator.generateCtx(q,cdb)
     print(len(ctx),end="\t")
     ctx = [it for it in ctx if it not in "\n".join([jt['content'] for jt in messages if jt['role'] == 'system'])]
@@ -59,22 +77,11 @@ while True :
         do_sample=True,
     )
 
-    match model_id:
-        case "google/gemma-1.1-2b-it":
-            resp = tokenizer.decode(gen_tokens[0]).split("<start_of_turn>model")
+    resp = tokenizer.decode(gen_tokens[0]).split("<start_of_turn>model")
 
-            rsp = resp[len(resp)-1][1:].replace("<eos>","")
+    rsp = resp[len(resp)-1][1:].replace("<eos>","")
 
-            print("Assistant>",rsp)
-            messages.append({"role" : "Assistant", "content" : rsp})
-        case "microsoft/Phi-3-mini-128k-instruct":
-            resp = tokenizer.decode(gen_tokens[0]).split("<|assistant|>")
+    print("Assistant>",rsp)
+    messages.append({"role" : "Assistant", "content" : rsp})
 
-            rsp = resp[len(resp)-1].replace("<|end|>","")
-
-            print("Assistant>",rsp)
-            messages.append({"role" : "Assistant", "content" : rsp})
-        case _:
-            resp = tokenizer.decode(gen_tokens[0])
-            print(resp)
     torch.cuda.empty_cache()

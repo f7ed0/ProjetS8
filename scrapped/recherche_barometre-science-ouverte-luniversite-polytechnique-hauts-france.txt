@@ -1,0 +1,8 @@
+Le baromètre de la science ouverte a pour objectif de mesurer l'évolution des pratiques de science ouverte en France à partir de données fiables, ouvertes et maîtrisées. Cet outil de pilotage est produit par le Ministère de l'Enseignement supérieur, de la Recherche et de l'innovation depuis 2019.
+Seules les publications disposant d'un DOI sont prises en compte et les données proviennent du croisement de plusieurs sources (HAL, Web of Science, Scopus, Pubmed)
+Depuis janvier 2022, une nouvelle version simplifiée est déclinable localement pour chaque université. Un code libre a été développé par l'Université de Lorraine permettant aux établissements de dresser une liste de DOI, vous pouvez le retrouver justeici.
+Les données brutes ont été recueillies en 2022.
+
+
+
+

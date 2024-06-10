@@ -1,0 +1,6 @@
+La plateforme PSCHITT constitue un simulateur polyvalent, dynamique et immersif dédié à des recherches dans le domaine du transport et de la mobilité. Elle fait partie du plateaumobilité autonomedu laboratoire.
+Conçu par le LAMIH, le simulateur PSCHITT (2 M€) constitue un équipement de recherche dans le transport élaboré spécifiquement pour être multimodal (conception modulaire basée sur des cabines pleine échelle interchangeables). Ainsi, la plateforme permet actuellement de reproduire deux modalités de transport :
+Pour des besoins de recherche ponctuels spécifiques, des équipements temporaires peuvent également être développés, comme :
+Conduite tram/train, déplacement en fauteuil roulant
+La plateforme s’inscrit dans le cadre du Contrat de Plan État-Région (CPER)RITMEA, cofinancé par l’Union Européenneavec le Fond Européen de Développement Régional (FEDER), par l’Étatet par laRégion Hauts-de-France.
+Responsable scientifique : Jean-Christophe PopieulResponsables plateforme : Gérald Conreur et Thierry PoulainCourriel :@email

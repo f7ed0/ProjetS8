@@ -1,0 +1,5 @@
+MobiLean regroupe 2 plateformes, permettant d’aborder de manière holistique les problématiques liées au développement des véhicules de demain (véhicules propres, moins énergivores)
+Ces plateformes, recensées parmi celles du CNRS Sciences informatiques, s'inscrivent dans le réseau des Instituts Carnot (CARNAUTO) "Etude et développement de système d’optimisation énergétique pour véhicules".
+MobiLean permet notamment :
+Il regroupe les plateformes :
+Ce plateau poursuit son développement au travers le projetRITMEAco-financé dans le cadre ducontrat de plan État Région (CPER 2021-2027)et du POFéder. 2021 - 2027.

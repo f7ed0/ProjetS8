@@ -1,0 +1,13 @@
+La plateforme TRIBologie EXtrême permet de reproduire les conditions de frottement et d’usure dans des conditions sévères de vitesse, température et pression de contact.
+Des essais sont développés sur les différents équipements qui la composent pour recréer à échelle réduite les conditions de contact frottant intervenants dans les procédés de mise en forme et d’autres applications où le frottement est sévère tel que le freinage.
+Le post-traitement des échantillons produits permet d’identifier les mécanismes d’usures et d’endommagement aux interfaces, de sélectionner des huiles de coupe et des lubrifiants en fonction des états de surfaces, de reproduire les particules générées (3ème corps) en situation réelle.
+Cette plateforme s'inscrit dans la plateforme régionale Tribosurf et poursuit son développement au travers du projetRITMEA,co-financé dans le cadre ducontrat de plan État Région (CPER 2021-2027)et du POFéder.
+Frottement, Indentation, Scratch, Oxyde, Revêtement, Lubrifiant, Haute Température, Surface, Usure, Abrasion Mécanique, Mise en Forme, Matériaux Biologique, Archéologie.
+Banc d’essai WHUST composé d’un vérin dynamique, d’un inducteur et d’une métrologie associée (efforts, température) afin de reproduire les conditions de contact à haute température (>800°C) et haute pression de contact,
+Tribomètre Grande vitesse (HST, partenariat ENSIAME) composé d’une machine de fraisage à commande numérique  qui permet d’atteindre des vitesses de frottement jusqu’à 50m/s. Des dispositifs sont adaptables spécifiquement en fonction de l’étude (vérins, système de télémesure pour l’acquisition de température sur un système tournant, dispositif d’aspiration du 3ème corps en sortie de contact…), TRIBOLAB à chaud et la métrologie associée.
+UMT Tribolab
+Brüker
+Effort normal max 2kNVitesse de rotation 5000rpmTempérature max 1000°CVitesse linéaire 10mm/sPossibilité d’essais sous atmosphère inerte
+Upsetting Sliding Test
+Equipement unique conçu au laboratoireEffort normal max 20kNTempérature échantillon jusque 1200°CTempérature outil jusque 150°CVitesse de glissement max 500mm/s
+Coût total équipement :520 k€
