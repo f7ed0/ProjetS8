@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import {MAT_SNACK_BAR_DATA, MatSnackBar} from '@angular/material/snack-bar';
 
+
 @Component({
   selector: 'app-messages',
   standalone: true,
@@ -26,6 +27,7 @@ export class MessagesComponent implements OnInit {
   userMessage: string = '';
   botResponse: string = ''; 
   userID = this.apiService.getId();
+  message_id = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -126,7 +128,7 @@ export class MessagesComponent implements OnInit {
     });
   }
 
-  copyToClipboard(botResponse : string, index : string): void {
+  copyToClipboard(botResponse : string, index : string,id:string): void {
     navigator.clipboard.writeText(botResponse).then(() => {
       this.checkAction(index);
       this.openSnackBar('Copier dans le presse-papier !','mat_snack_green');
@@ -135,18 +137,47 @@ export class MessagesComponent implements OnInit {
     });
   }
 
-  likeResponse(botResponse : string, index : string): void {
+  likeResponse(botResponse : string, index : string,id:string): void {
     this.checkAction(index);
      // Send the like to the Database
+     this.message_id = id;
      this.openSnackBar('Votre avis a bien été pris en compte !','mat_snack_green');
+     this.sendLike();
   }
 
-  dislikeResponse(botResponse : string, index : string): void {
-    this.openDislike(botResponse, index);
+  sendLike(){
+    this.apiService.getFeedbackByChatId(this.message_id).subscribe({
+      next: (data: any) => {
+        console.log('Feedback1 sent successfully');
+          this.apiService.modifyFeedback(this.message_id, '', this.chatId, this.userID, this.botResponse,false,true).subscribe({
+            next: (data: any) => {
+              console.log('Feedback2 sent successfully');
+            },
+            error: (error) => {
+              console.error('There was an error sending the feedback!', error);
+            }
+          });
+      },
+      error: (error) => {
+        this.apiService.sendFeedback('', this.chatId, this.userID, this.botResponse,this.message_id,false,true).subscribe({
+          next: (data: any) => {
+            console.log('Feedback3 sent successfully');
+          },
+          error: (error) => {
+            console.error('There was an error sending the feedback!', error);
+          }
+        });
+      }
+    });
+  
   }
 
-  suggResponse(botResponse : string, index : string): void {
-    this.openSugg(botResponse, index);
+  dislikeResponse(botResponse : string, index : string,id:string): void {
+    this.openDislike(botResponse, index, this.chatId,this.userMessage,id);
+  }
+
+  suggResponse(botResponse : string, index : string,id:string): void {
+    this.openSugg(botResponse, index, this.chatId,this.userMessage,id);
   }
 
   checkAction(id : string, classname : string = 'greenColor'){
@@ -160,11 +191,11 @@ export class MessagesComponent implements OnInit {
 
 
 
-  openDislike(botResponse : string, index : string) {
+  openDislike(botResponse : string, index : string, chat_id : string, chat_user:string,id:string) {
     const dialogRef = this.dialog.open(DislikeComponent, {
       width: '90%',
       maxWidth: '500px',
-      data: { botResponse: botResponse }
+      data: { botResponse: botResponse, chat_id: chat_id, chat_user: chat_user,id:id}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -177,11 +208,11 @@ export class MessagesComponent implements OnInit {
     });
   }
 
-  openSugg(botResponse : string, index : string) {
+  openSugg(botResponse : string, index : string, chat_id : string, chat_user:string,id:string ) {
     const dialogRef = this.dialog.open(SuggComponent, {
       width: '90%',
       maxWidth: '500px',
-      data: { botResponse: botResponse }
+      data: { botResponse: botResponse, chat_id: chat_id, chat_user: chat_user,id:id}
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -213,13 +244,53 @@ export class MessagesComponent implements OnInit {
 })
 export class DislikeComponent {
   textContent: string = '';
+  chat_id: string = '';
   constructor(
-    public dialogRef: MatDialogRef<DislikeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { botResponse: string }
+    public dialogRef: MatDialogRef<SuggComponent>,
+    private apiService: ApiServiceService,
+    @Inject(MAT_DIALOG_DATA) public data: { botResponse: string, chat_id: string, chat_user: string,id:string}
   ) {}
+
+  ngOnInit(): void {
+    this.chat_id = this.data.chat_id;
+    console.log(this.data.chat_id);
+  }
 
   onCloseWithResult(result: string): void {
     this.dialogRef.close({ buttonClicked: result, textareaContent: this.textContent });
+    if (result === 'send') {
+      this.sendSugg();
+    }
+  }
+
+  sendSugg() {
+    const sugg = this.textContent;
+    const chat_id_user = this.apiService.getId();
+    console.log("Hello bitch c'est l'hecatombe")
+    console.log(this.data.id);
+    this.apiService.getFeedbackByChatId(this.data.id).subscribe({
+      next: (data: any) => {
+        console.log('Feedback1 sent successfully');
+          this.apiService.modifyFeedback(this.data.id, sugg, this.data.chat_id, chat_id_user, this.data.botResponse,false,false).subscribe({
+            next: (data: any) => {
+              console.log('Feedback2 sent successfully');
+            },
+            error: (error) => {
+              console.error('There was an error sending the feedback!', error);
+            }
+          });
+      },
+      error: (error) => {
+        this.apiService.sendFeedback(sugg, this.data.chat_id, chat_id_user, this.data.botResponse,this.data.id,false,false).subscribe({
+          next: (data: any) => {
+            console.log('Feedback3 sent successfully');
+          },
+          error: (error) => {
+            console.error('There was an error sending the feedback!', error);
+          }
+        });
+      }
+    });
   }
 }
 
@@ -232,15 +303,56 @@ export class DislikeComponent {
   imports: [MatIconModule, CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, FormsModule ],
 })
 export class SuggComponent {
-  textContent: string = '';
+  textContent: string = 'ijezi';
+  chat_id: string = '';
+  route: any;
   constructor(
     public dialogRef: MatDialogRef<SuggComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { botResponse: string }
+    private apiService: ApiServiceService,
+    @Inject(MAT_DIALOG_DATA) public data: { botResponse: string, chat_id: string, chat_user: string,id:string}
   ) {}
 
+  ngOnInit(): void {
+    this.chat_id = this.data.chat_id;
+    console.log(this.data.chat_user);
+  }
+  
   onCloseWithResult(result: string): void {
     this.dialogRef.close({ buttonClicked: result, textareaContent: this.textContent });
+    if (result === 'send') {
+      this.sendSugg();
+    }
   }
+
+  sendSugg() {
+    const sugg = this.textContent;
+    const chat_id_user = this.apiService.getId();
+
+    this.apiService.getFeedbackByChatId(this.data.id).subscribe({
+      next: (data: any) => {
+        console.log('Feedback1 sent successfully');
+          this.apiService.modifyFeedback(this.data.id, sugg, this.data.chat_id, chat_id_user, this.data.botResponse,true,false).subscribe({
+            next: (data: any) => {
+              console.log('Feedback2 sent successfully');
+            },
+            error: (error) => {
+              console.error('There was an error sending the feedback!', error);
+            }
+          });
+      },
+      error: (error) => {
+        this.apiService.sendFeedback(sugg, this.data.chat_id, chat_id_user, this.data.botResponse,this.data.id,true,false).subscribe({
+          next: (data: any) => {
+            console.log('Feedback3 sent successfully');
+          },
+          error: (error) => {
+            console.error('There was an error sending the feedback!', error);
+          }
+        });
+      }
+    });
+  }
+  
 }
 
 

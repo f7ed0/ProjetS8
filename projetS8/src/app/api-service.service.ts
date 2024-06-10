@@ -69,7 +69,19 @@ export class ApiServiceService {
   }
 
 
+  sendFeedback(feedback: string,chat_id: string,chat_id_user : string,chat_ia: string,id:string,is_suggestion:boolean,is_like:boolean): Observable<any> {
+    const data = { feedback,chat_id,chat_id_user,chat_ia,id,is_suggestion,is_like };
+    return this.http.post('http://127.0.0.1:8000/api/v1/feedback',data);
+  }
 
+  getFeedbackByChatId(id: string): Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/v1/feedback/'+id);
+  }
+
+  modifyFeedback(id: string, feedback: string,chat_id: string,chat_id_user : string,chat_ia: string,is_suggestion:boolean,is_like:boolean): Observable<any> {
+    const data = { feedback,chat_id,chat_id_user,chat_ia,id,is_suggestion,is_like };
+    return this.http.put('http://127.0.0.1:8000/api/v1/feedback/'+id, data);
+  }
 
   setId(id: string) {
     this.userService.setId(id);

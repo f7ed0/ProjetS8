@@ -10,6 +10,7 @@ export const routes: Routes = [
     {path : "", component: LoginComponent},
     {path : "home", component: MainComponent},
     {path : "chat/:chat_id", component: MainComponent},
+    {path : "chat/:chat_id", component: SuggComponent},
     {path: "feedback", component: SuggComponent, canActivate: [authGuard]}
 ];
 

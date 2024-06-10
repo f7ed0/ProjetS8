@@ -67,15 +67,16 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    console.log(this.isRegistering);
     if(this.isRegistering) {
       this.register();
     } else {
+      console.log('getting data');
       this.getData();
     }
   }
 
   getData() {
-    if(this.myForm.valid) {
       this.apiService.connect(this.user_control.value!, this.pass_control.value!).subscribe({
         next: (data) => {
           const userId = data.user_id;
@@ -89,9 +90,6 @@ export class LoginComponent {
           this.isInvalid = true;
         }
       });
-    } else {
-      this.isInvalid = true;
-    }
   }
 
   register() {
