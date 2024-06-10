@@ -1,20 +1,20 @@
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from models.historicModel import HistoricBase, HistoricCreate, HistoricUpdate
+from models.historicModel import HistoricBase, HistoricCreate, HistoricUpdate, Historic
 from config import get_db
 from bson import ObjectId
 
 router = APIRouter()
 
 
-@router.get("/historic", response_model=List[HistoricBase])
+@router.get("/historic", response_model=List[Historic])
 def get_all_historic(db = Depends(get_db)):
     historic_list = list(db.historic.find())
     for item in historic_list:
         item['id'] = str(item['_id'])
     return historic_list
 
-@router.get("/historic/distinct", response_model=List[HistoricBase])
+@router.get("/historic/distinct", response_model=List[Historic])
 def get_all_distinct_historic(db = Depends(get_db)):
     pipeline = [
         {"$group": {"_id": "$chat_id", "doc": {"$first": "$$ROOT"}}},
@@ -25,7 +25,7 @@ def get_all_distinct_historic(db = Depends(get_db)):
         item['id'] = str(item['_id'])
     return historic_list
 
-@router.get("/historic/distinct/{chat_id_user}", response_model=List[HistoricBase])
+@router.get("/historic/distinct/{chat_id_user}", response_model=List[Historic])
 def get_all_distinct_historic_by_user_id(chat_id_user: str, db = Depends(get_db)):
     pipeline = [
         {"$match": {"chat_id_user": chat_id_user}},
@@ -37,7 +37,7 @@ def get_all_distinct_historic_by_user_id(chat_id_user: str, db = Depends(get_db)
         item['id'] = str(item['_id'])
     return historic_list
 
-@router.get("/historic/user/{user_id}", response_model=List[HistoricBase])
+@router.get("/historic/user/{user_id}", response_model=List[Historic])
 def get_historic_by_user_id(user_id: str, db = Depends(get_db)):
     pipeline = [
         {"$match": {"chat_id_user": user_id}},  
@@ -52,15 +52,8 @@ def get_historic_by_user_id(user_id: str, db = Depends(get_db)):
         item['id'] = str(item['_id']) 
     return historic_item
 
-@router.get("/historic/{id}", response_model=HistoricBase)
-def get_historic_by_id(id: str, db = Depends(get_db)):
-    historic_item = db.historic.find_one({"_id": ObjectId(id)})
-    if historic_item is None:
-        raise HTTPException(status_code=404, detail="Historic not found")
-    historic_item['id'] = str(historic_item['_id'])
-    return historic_item
 
-@router.get("/historic/chat/{chat_id}", response_model=List[HistoricBase])
+@router.get("/historic/chat/{chat_id}", response_model=List[Historic])
 def get_historic_by_chat_id(chat_id: str, db = Depends(get_db)):
     historic_items = list(db.historic.find({"chat_id": chat_id}))
     if not historic_items:
@@ -69,7 +62,7 @@ def get_historic_by_chat_id(chat_id: str, db = Depends(get_db)):
         item['id'] = str(item['_id'])
     return historic_items
 
-@router.get("/historic/chat/user/{id}", response_model=List[HistoricBase])
+@router.get("/historic/chat/user/{id}", response_model=List[Historic])
 def get_historic_chat_by_id(id: str, db = Depends(get_db)):
     historic_items = list(db.historic.find({"chat_id_user": id}))
     print(historic_items)
@@ -80,7 +73,7 @@ def get_historic_chat_by_id(id: str, db = Depends(get_db)):
     return historic_items
 
 
-@router.get("/historic/chat/unique/{chat_id}", response_model=HistoricBase)
+@router.get("/historic/chat/unique/{chat_id}", response_model=Historic)
 def get_historic_by_chat_id_unique(chat_id: str, db = Depends(get_db)):
     # Rechercher le dernier élément par chat_id en triant par timestamp descendant
     historic_item = get_historic_by_chat_id(chat_id, db)
