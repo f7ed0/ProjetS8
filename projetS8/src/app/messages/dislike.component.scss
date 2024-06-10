@@ -61,11 +61,11 @@ mat-form-field{
 }
 
 .dislike_cancel{
-    background-color: #575757;
+    background-color: var(--header);
     color: #ffffff;
 }
 
 .dislike_send{
-    background-color: #ff4081;
+    background-color: var(--btn-sugg);
     color: #ffffff;
 }

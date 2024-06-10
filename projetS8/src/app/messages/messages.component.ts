@@ -128,6 +128,17 @@ export class MessagesComponent implements OnInit {
     });
   }
 
+  formatDate(dateValue : string) {
+    const months = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    const date = new Date(dateValue);
+    const day = date.getDate();
+    const month = months[date.getMonth()];
+    const year = date.getFullYear();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `Le ${day} ${month} ${year} à ${hours}:${minutes}`;
+  }
+
   copyToClipboard(botResponse : string, index : string,id:string): void {
     navigator.clipboard.writeText(botResponse).then(() => {
       this.checkAction(index);
@@ -303,7 +314,7 @@ export class DislikeComponent {
   imports: [MatIconModule, CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatButtonModule, FormsModule ],
 })
 export class SuggComponent {
-  textContent: string = 'ijezi';
+  textContent: string = '';
   chat_id: string = '';
   route: any;
   constructor(

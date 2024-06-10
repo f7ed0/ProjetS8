@@ -15,6 +15,7 @@ import { DrawerService } from '../drawer.service';
 import { Subscription } from 'rxjs';
 import { ThemeService } from '../theme.service';
 import { MatDialog, MatDialogActions, MatDialogClose, MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -61,7 +62,7 @@ export class MainComponent implements AfterViewInit {
       this.showNewConv = state;
       this.cdr.detectChanges();
     });
-    this.u.setFeedback('false');
+    this.u.setHome('false');
     this.cdr.detectChanges();
     this.drawerSubscription = this.drawerService.toggleDrawer$.subscribe(() => {
       this.toggleDrawer();
@@ -110,6 +111,7 @@ export class MainComponent implements AfterViewInit {
     });
   }
 
+
 }
 
 @Component({
@@ -122,5 +124,16 @@ export class MainComponent implements AfterViewInit {
 export class RGPDComponent {
   constructor(
     public dialogRef: MatDialogRef<RGPDComponent>,
+    private cdr: ChangeDetectorRef,
+    private router: Router,
+    private userService: UserService
   ) {}
+
+  goToResetPage(){
+    this.dialogRef.close();
+    this.userService.setHome('true');
+    this.router.navigate(['/reset']);
+    this.cdr.detectChanges();
+  }
+
 }

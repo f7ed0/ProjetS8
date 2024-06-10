@@ -21,7 +21,7 @@
             <button (click)="suggResponse(message.chat_ia, 'sugg_'+i.toString(),message.id)" class="btn_action" mat-icon-button>
               <mat-icon id="sugg_{{i}}" class="icon_action">emoji_objects</mat-icon>
             </button>
-            <p>{{message.timestamp}}</p>
+            <p class="dateMessage">{{formatDate(message.timestamp)}}</p>
             
           </div>
         </div>

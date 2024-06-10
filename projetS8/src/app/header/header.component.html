@@ -1,13 +1,12 @@
 <nav>
     <div class="logo">
-        <button mat-icon-button class="home" *ngIf="isFeedback" (click)="navigateToHome(); "><mat-icon class="home">home</mat-icon></button>
-        <button mat-icon-button class="target_drawer tel" *ngIf="!isFeedback" [ngClass]="{'rotated': isRotated}" (click)="toggleDrawer(); "><mat-icon class="target_drawer">chevron_left</mat-icon></button>
-        <mat-icon class="logo_robot">smart_toy</mat-icon>
+        <button mat-icon-button class="home" *ngIf="isHome" (click)="navigateToHome(); "><mat-icon class="home">home</mat-icon></button>
+        <button mat-icon-button class="target_drawer tel" *ngIf="!isHome" [ngClass]="{'rotated': isRotated}" (click)="toggleDrawer(); "><mat-icon class="target_drawer">chevron_left</mat-icon></button>
         <h4>UPHF CHATBOT</h4>
     </div>
     <div class="boutons">
-        <button mat-flat-button color="primary" class="btn_sugg notel" *ngIf="isLoggedIn" (click)="navigateToFeedback()">Suggestions <mat-icon>emoji_objects</mat-icon></button>
-        <button mat-flat-button color="accent" class="btn_logout notel" (click)="logout()">Se déconnecter <mat-icon class="logo_out">logout</mat-icon></button>
+        <button mat-flat-button class="btn_sugg notel" *ngIf="isLoggedIn" (click)="navigateToFeedback()">Suggestions <mat-icon>emoji_objects</mat-icon></button>
+        <button mat-flat-button class="btn_logout notel" (click)="logout()">Se déconnecter <mat-icon class="logo_out">logout</mat-icon></button>
         <button mat-icon-button class="btn_sugg tel" (click)="navigateToFeedback()"><mat-icon class="logo_sugg">admin_panel_settings</mat-icon></button>
         <button mat-icon-button class="btn_logout tel" (click)="logout()"><mat-icon class="logo_out">logout</mat-icon></button>
     </div>

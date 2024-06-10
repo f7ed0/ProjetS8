@@ -40,8 +40,8 @@
     align-items: center;
     justify-content: start;
     border-radius: 0;
-    background-color: var(--btn) !important;
-    color: var(--text-color) !important;
+    background-color: var(--newconv) !important;
+    color: white !important;
 
 }
 
@@ -54,6 +54,10 @@
 
 .activeConv{
     background-color: var(--active-conv) !important;
+}
+
+.activeConv p{
+    color: white;
 }
 
 .tel{

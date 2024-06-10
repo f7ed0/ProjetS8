@@ -16,7 +16,7 @@
 
 .container-message{
     margin: 0 auto;
-    width: 90%;
+    width: 85%;
     padding-bottom: 40px;
     display: flex;
     flex-direction: column;
@@ -58,9 +58,16 @@ p{
     align-self: flex-start;
 }
 
+.dateMessage{
+    font-size: 14px;
+    font-style: italic;
+    padding-left: 10px;
+    color: var(--btn-actions);
+}
+
 
 .form{
-    width: 90%;
+    width: 85%;
     margin: 0 auto;
     position: sticky;
     bottom: 0;
@@ -78,7 +85,7 @@ p{
     right: 0px;
     background-color: transparent;
     border: none;
-    color: #242331;
+    color: var(--prompt-btn);
     cursor: pointer;
 }
 
@@ -88,7 +95,6 @@ p{
 
 .actions{
     position: relative;
-    width: 60%;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -100,16 +106,21 @@ p{
     transition: all 0.3s ease;
 }
 
+
 .btn_action{
     background-color: transparent;
     border: none;
-    color: var(--text-color);
+    color: var(--btn-actions);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
     padding: 3px;
 }
 
 .icon_action{
     font-size: 18px;
     cursor: pointer;
+    height: auto;
     transition: all 0.3s ease;
 }
 
@@ -128,6 +139,6 @@ p{
 
 @media screen and (max-width: 768px){
     .question, .reponse{
-        width: 80%;
+        width: 85%;
     }
 }

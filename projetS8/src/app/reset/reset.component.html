@@ -1,0 +1,33 @@
+<head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<app-header></app-header>
+<body>
+    <div class="reset_container">
+        <form class="reset_form" [formGroup]="resetForm">
+            <h1 class="reset_title">Suppression des données</h1>
+            <p>Êtes-vous certain de vouloir supprimer toutes les données liées à votre compte ?</p>
+
+            <p>La suppression de votre compte entraînera la suppression définitive des informations suivantes :</p>
+            <div class="liste_infos">
+                <p>- Vos informations de connexion (login et mot de passe)</p>
+                <p>- Toutes les conversations enregistrées</p>
+            </div>
+
+            <div class="check_container">
+                <p>En cliquant sur <span>Confirmer</span>, vous acceptez que toutes les données liées à votre compte soient supprimées de manière permanente. 
+                    Si vous souhaitez conserver vos données, veuillez cliquer sur <span>Annuler</span>.
+                </p>
+                <mat-checkbox formControlName="acceptTerms" class="reset_checkbox"></mat-checkbox>
+            </div>
+
+            <div class="boutons">
+                <button mat-flat-button class="cancel_button" (click)="navigateToHome()">Annuler</button>
+                <button mat-flat-button class="reset_button" (click)="suppData()" [disabled]="!resetForm.valid">Confirmer</button>
+            </div>
+            
+        </form>
+    </div>
+</body>
+

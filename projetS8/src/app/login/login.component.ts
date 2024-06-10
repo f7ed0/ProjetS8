@@ -62,7 +62,7 @@ export class LoginComponent {
   }
 
   ngOnInit(): void {
-    this.userService.setFeedback('false');
+    this.userService.setHome('false');
     this.userService.setChatId('');
   }
 

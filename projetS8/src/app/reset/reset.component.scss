@@ -1,0 +1,79 @@
+body{
+    background-color: var(--secondary);
+    width: 100vw;
+    height: calc(100vh - 60px);
+    display: flex;
+}
+
+.reset_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 600px;
+}
+
+.reset_form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--scroll-bar-bg);
+}
+
+.reset_title{
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    border: 0px solid var(--scroll-bar);
+    font-weight: 500;
+    border-bottom-width: 1px;
+    margin: 0;
+}
+
+.reset_form p{
+    margin: 0;
+    padding: 0 20px;
+}
+
+.liste_infos{
+    padding: 0px 40px;
+}
+
+.check_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-right: 30px;
+}
+
+span{
+    font-weight: 500;
+}
+
+.check_container p{
+    padding: 0px;
+}
+
+.boutons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 0px;
+    padding-top: 10px;
+}
+
+.cancel_button{
+    color: white !important;
+    background-color: var(--btn-logout) !important;
+}
+
+.reset_button{
+    color: white !important;
+    background-color: var(--btn-sugg) !important;
+}

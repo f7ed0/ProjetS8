@@ -2,12 +2,13 @@
 @import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
 
 
-:root{
+[data-theme="dark"] {
     --header: #16151e;
     --text-color : #FFFFFF;
     --secondary: #242331;
     --third : #1e1d2a;
     --btn : #474371;
+    --newconv : #474371;
     --question: #47465d;
     --reponse : #797787;
     --scroll-bar: #a9a3e4;
@@ -15,21 +16,30 @@
     --separator: #33304e;
     --hover-conv: #2b293c;
     --active-conv: #8680c2;
+    --btn-actions: #ffffff;
+    --prompt-btn: #16151e;
+    --btn-sugg: #474371;
+    --btn-logout: #8680c2;
 }
 
-[data-theme="light"] {
-    --header: #f7f7f7;
+:root {
+    --header: #0081a1;
     --text-color : #000000;
-    --third : #fafafa;
-    --btn : #e9e9e9;
     --secondary: #FFFFFF;
-    --question: #e8e8e8;
-    --reponse : #d8d8d8;
-    --scroll-bar: #262626;
-    --scroll-bar-bg: #cecece;
+    --third : #f5f9fb;
+    --newconv : #c8a14e;
+    --btn : #6fbdd1;
+    --question: #e9f2f7;
+    --reponse : #d4e8f2;
+    --scroll-bar: #c8a14e;
+    --scroll-bar-bg: #f5f9fb;
     --separator: #e8e8e8;
-    --hover-conv: #eeeeee;
-    --active-conv: #efefef;
+    --hover-conv: #0081a151;
+    --active-conv: #0081a1;
+    --btn-actions: #3f3f3f;
+    --prompt-btn: #00627b;
+    --btn-sugg: #c8a14e;
+    --btn-logout: #00627b;
 }
 
 *{

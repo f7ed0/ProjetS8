@@ -22,7 +22,7 @@
   position: absolute;
   top: 20px;
   left: 20px;
-  color: var(--text-color) !important;
+  color: white !important;
   background-color: var(--btn) !important;
 }
 
@@ -31,9 +31,8 @@
   top: 20px;
   right: 20px;
   z-index: 2;
-  color: var(--text-color) !important;
+  color: white !important;
   background-color: var(--btn) !important;
-  transform: rotate(180deg);
 }
 
 .btn-rgpd{
@@ -41,7 +40,7 @@
   top: 70px;
   right: 20px;
   z-index: 2;
-  color: var(--text-color) !important;
+  color: white !important;
   background-color: var(--btn) !important;
   display: flex;
   justify-content: center;
@@ -88,13 +87,11 @@
     width: 100%;
   }
 
-  .btn-chats-tel{
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: var(--text-color) !important;
-    background-color: var(--secondary) !important;
-  }
+ .btn-theme, .btn-rgpd{
+  background-color: var(--newconv) !important;
+}
+
+
+
 
 }

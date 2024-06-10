@@ -56,6 +56,9 @@ export class ConvsComponent implements OnInit {
       setTimeout(() => {  this.addActiveClass(this.userService.getChatId()) }, 300);
       ;
     }
+    this.removeActiveClass();
+    console.log("lalalalalalalalal");
+    this.cdr.detectChanges();
   }
 
   getDataDistinct(): void {
@@ -80,19 +83,23 @@ export class ConvsComponent implements OnInit {
 
   toggleDrawer() {
     this.drawerService.toggleDrawer();
-    this.cdr.detectChanges(); // Detect changes after drawer is toggled
+    this.cdr.detectChanges();
   }
 
   addActiveClass(id: string): void {
-    const elements = document.getElementsByClassName('activeConv');
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].classList.remove('activeConv');
-    }
+    this.removeActiveClass();
     let element = document.getElementById(`conv_${id}`);
     if (element != null) {
       element.classList.add('activeConv');
     }
     console.log(element);
+  }
+
+  removeActiveClass(): void {
+    const elements = document.getElementsByClassName('activeConv');
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].classList.remove('activeConv');
+    }
   }
 
 

@@ -39,7 +39,7 @@ export class HeaderComponent {
 
   isLoggedIn: boolean = false;
   isRotated = false;
-  isFeedback = this.userService.getFeedback() === 'true' ? true : false;
+  isHome = this.userService.getHome() === 'true' ? true : false;
 
   constructor(
     private dialog: MatDialog,
@@ -72,13 +72,13 @@ export class HeaderComponent {
   }
 
   navigateToFeedback() {
-    this.userService.setFeedback('true');
+    this.userService.setHome('true');
     this.router.navigate(['/feedback']);
     this.cdr.detectChanges();
   }
 
   navigateToHome() {
-    this.userService.setFeedback('false');
+    this.userService.setHome('false');
     this.router.navigate(['/home']);
     this.cdr.detectChanges();
   }

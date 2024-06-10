@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { SuggComponent } from './sugg/sugg.component';
 import { authGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
+import { ResetComponent } from './reset/reset.component';
 
 export const routes: Routes = [
     {path : "", component: LoginComponent},
     {path : "home", component: MainComponent},
     {path : "chat/:chat_id", component: MainComponent},
     {path : "chat/:chat_id", component: SuggComponent},
-    {path: "feedback", component: SuggComponent, canActivate: [authGuard]}
+    {path: "feedback", component: SuggComponent, canActivate: [authGuard]},
+    {path: "reset", component: ResetComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({

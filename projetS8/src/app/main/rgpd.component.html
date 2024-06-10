@@ -76,7 +76,8 @@
   <p>Pour toute question concernant cette politique de confidentialité, veuillez nous contacter à l'adresse email suivante : [Email de contact]</p>
 
   <mat-dialog-actions class="container_btn_close">
-      <button class="btn_close" mat-button mat-dialog-close cdkFocusInitial>Fermer</button>
+    <button class="resetData" (click)="goToResetPage()" mat-button>Supprimer mes données</button>
+    <button class="btn_close" mat-button mat-dialog-close cdkFocusInitial>Fermer</button>
   </mat-dialog-actions>
 
 </body>
