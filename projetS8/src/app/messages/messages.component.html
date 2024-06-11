@@ -6,7 +6,12 @@
         </div>
         <div class="container-reponse">
           <div class="reponse">
-            <p>{{ message.chat_ia }}</p>
+            <p>
+              <span *ngFor="let mot of decomposerEnMots(message.chat_ia); let j = index" 
+                    [ngClass]="{'fade-in-words' : isAnimated(message.timestamp, 5)}" [style.animation-delay]="j * 0.04 + 's'">
+                {{ detectSkip(mot) }}
+              </span>
+            </p>
           </div>
           <div class="actions">
             <button (click)="copyToClipboard(message.chat_ia, 'copy_'+i.toString(),message.id)" class="btn_action" mat-icon-button>
@@ -27,11 +32,12 @@
         </div>
     </div>
   </div>
+  
   <form class="form" (ngSubmit)="sendMessage()">
     <mat-form-field class="full-width prompt">
-      <input matInput [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
+      <input matInput autocomplete="off" [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
       <button mat-icon-button type="submit" class="send-prompt">
-        <mat-icon>send</mat-icon>
+        <mat-icon [ngClass]="{'isSending': isSending}">{{ isSending ? "sync" : "send"}}</mat-icon>
       </button>
     </mat-form-field>
   </form>

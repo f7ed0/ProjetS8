@@ -1,6 +1,32 @@
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons"); 
 @import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
 
+:root {
+    --header: #0081a1;
+    --text-color : #000000;
+    --secondary: #FFFFFF;
+    --third : #f5f9fb;
+    --newconv : #c8a14e;
+    --btn : #6fbdd1;
+    --question: #e9f2f7;
+    --reponse : #d4e8f2;
+    --scroll-bar: #c8a14e;
+    --scroll-bar-bg: #f5f9fb;
+    --separator: #e8e8e8;
+    --hover-conv: #0081a151;
+    --active-conv: #0081a1;
+    --btn-actions: #3f3f3f;
+    --prompt-btn: #00627b;
+    --btn-sugg: #c8a14e;
+    --btn-logout: #00627b;
+
+    --mdc-filled-text-field-focus-active-indicator-color: #0081a1;
+    --mdc-filled-text-field-focus-label-text-color: #0081a1;
+    --mdc-checkbox-selected-focus-icon-color: #c8a14e;
+    --mdc-checkbox-selected-hover-icon-color: #c8a14e;
+    --mdc-checkbox-selected-icon-color: #c8a14e;
+    --mdc-checkbox-selected-pressed-icon-color: #c8a14e;
+}
 
 [data-theme="dark"] {
     --header: #16151e;
@@ -20,27 +46,15 @@
     --prompt-btn: #16151e;
     --btn-sugg: #474371;
     --btn-logout: #8680c2;
+
+    --mdc-filled-text-field-focus-active-indicator-color: #474371;
+    --mdc-filled-text-field-focus-label-text-color: #474371;
+    --mdc-checkbox-selected-focus-icon-color: #8680c2;
+    --mdc-checkbox-selected-hover-icon-color: #8680c2;
+    --mdc-checkbox-selected-icon-color: #8680c2;
+    --mdc-checkbox-selected-pressed-icon-color: #8680c2;
 }
 
-:root {
-    --header: #0081a1;
-    --text-color : #000000;
-    --secondary: #FFFFFF;
-    --third : #f5f9fb;
-    --newconv : #c8a14e;
-    --btn : #6fbdd1;
-    --question: #e9f2f7;
-    --reponse : #d4e8f2;
-    --scroll-bar: #c8a14e;
-    --scroll-bar-bg: #f5f9fb;
-    --separator: #e8e8e8;
-    --hover-conv: #0081a151;
-    --active-conv: #0081a1;
-    --btn-actions: #3f3f3f;
-    --prompt-btn: #00627b;
-    --btn-sugg: #c8a14e;
-    --btn-logout: #00627b;
-}
 
 *{
     transition: background-color 0.35s ease, color 0.35s ease;
@@ -73,5 +87,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat_snack_blue {
     background-color: #6495d9; 
     color: #FFFFFF;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:focus:checked~.mdc-checkbox__ripple {
+    background-color: var(--header) !important;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+    border-color: var(--text-color) !important;
 }
   

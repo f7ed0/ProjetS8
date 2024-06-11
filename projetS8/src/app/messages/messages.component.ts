@@ -23,6 +23,7 @@ import {MAT_SNACK_BAR_DATA, MatSnackBar} from '@angular/material/snack-bar';
 })
 export class MessagesComponent implements OnInit {
   chatId: string = '';
+  isSending = false;
   messages: any[] = [];
   userMessage: string = '';
   botResponse: string = ''; 
@@ -70,6 +71,7 @@ export class MessagesComponent implements OnInit {
         this.cdr.detectChanges();
         this.botResponse = this.messages[this.messages.length - 1].chat_ia;
         this.checkAndUpdateLastResponse(this.chatId);
+        console.log(this.messages);
       },
       error: (error) => {
         console.error('There was an error!', error);
@@ -87,21 +89,51 @@ export class MessagesComponent implements OnInit {
 
   sendMessage(): void {
     const userMessage = this.userMessage;
-    const botResponse = 'Smehli';  
+    const botResponse = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus esse in blanditiis perspiciatis mollitia. '+
+    "Cupiditate delectus, minus fugit similique molestias adipisci placeat, officiis laborum dolores impedit eos est vitae iusto. Alias voluptate fugiat ad aliquam ipsa, quasi doloremque exercitationem vitae deleniti, ducimus nam? Labore fugiat, cupiditate libero ipsam nam magni deleniti ratione et? Ab odit molestiae explicabo officiis assumenda eveniet.";  
     if (userMessage === '') {
       return;
     }
+
     this.apiService.postData(this.chatId, this.userID, userMessage, botResponse).subscribe({
       next: (data: any) => {
-        this.messages.push(data);
-        this.userMessage = ''; 
-        this.cdr.detectChanges(); 
-        this.scrollToBottom();
+        this.loadIcon();
+        setTimeout(() => {
+          this.messages.push(data);
+          this.userMessage = ''; 
+          this.cdr.detectChanges(); 
+          this.scrollToBottom();
+        }, 3000);
       },
       error: (error) => {
         console.error('There was an error saving the message!', error);
       }
     });
+  }
+
+  decomposerEnMots(phrase: string): string[] {
+    return phrase.split(' ');
+  }
+
+  detectSkip(mot : string){
+    return mot.replace(/\n/g, '<br>');
+  }
+
+  isAnimated(timestamp: string, thresold: number): boolean {
+    const dateTimestamp = new Date(timestamp).getTime();
+    const dateActuelle = new Date().getTime();
+    const diffEnMillisecondes = dateActuelle - dateTimestamp;
+    const time = 1000*thresold;
+    return diffEnMillisecondes <= time;
+  }
+
+  loadIcon(){
+    this.isSending = true;
+    this.cdr.detectChanges();
+    setTimeout(() => {
+      this.isSending = false;
+      this.cdr.detectChanges();
+    }, 3000);
   }
 
   checkAndUpdateLastResponse(chat_id : string): void {
