@@ -68,6 +68,7 @@ export class MessagesComponent implements OnInit {
         if (this.messages[this.messages.length - 1].chat_id_user === this.userID) {
           console.error('Network error - make sure the API server is running.');
         }
+        console.log(this.messages);
         this.cdr.detectChanges();
         this.botResponse = this.messages[this.messages.length - 1].chat_ia;
         this.checkAndUpdateLastResponse(this.chatId);

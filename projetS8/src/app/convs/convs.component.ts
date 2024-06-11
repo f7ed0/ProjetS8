@@ -57,7 +57,6 @@ export class ConvsComponent implements OnInit {
       ;
     }
     this.removeActiveClass();
-    console.log("lalalalalalalalal");
     this.cdr.detectChanges();
   }
 
@@ -65,6 +64,7 @@ export class ConvsComponent implements OnInit {
     this.apiService.getDataByUserId(this.userID).subscribe({
       next: (data: any) => {
         this.convs = data;
+        console.log(this.convs);
         this.cdr.detectChanges();
       },
       error: (error) => {
@@ -102,6 +102,17 @@ export class ConvsComponent implements OnInit {
     }
   }
 
+
+  convFormat(msg : string){
+    let thresold = 70;
+    if(msg.length > thresold){
+      while(msg[thresold] != ' '){
+        thresold--;
+      }
+      return msg.slice(0, thresold) + ' ...';
+    }
+    return msg;
+  }
 
 
   navigateToChat(chatId: string): void {
