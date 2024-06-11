@@ -83,6 +83,14 @@ export class ApiServiceService {
     return this.http.put('http://127.0.0.1:8000/api/v1/feedback/'+id, data);
   }
 
+  resetAllHistoric_by_chat_id_user(chat_id_user: string): Observable<any> {
+    return this.http.delete('http://127.0.0.1:8000/api/v1/historic/'+chat_id_user);
+  }
+
+  deleteUser(id: string): Observable<any> {
+    return this.http.delete('http://127.0.0.1:8000/api/v1/delete/'+id);
+  }
+
   setId(id: string) {
     this.userService.setId(id);
   }

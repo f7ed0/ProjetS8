@@ -5,6 +5,9 @@ class UserModel(BaseModel):
     username: str
     password: str
 
-class ChatModel(BaseModel):
-    chat_id: str
-    messages: Optional[List[str]] = Field(default_factory=list)
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+class TokenData(BaseModel):
+    username: str = None

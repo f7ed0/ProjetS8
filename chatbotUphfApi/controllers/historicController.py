@@ -100,10 +100,11 @@ def update_historic(id: str, historic: HistoricUpdate, db = Depends(get_db)):
     return updated_historic
 
 @router.delete("/historic/{id}")
-def delete_historic(id: str, db = Depends(get_db)):
-    result = db.historic.delete_one({"_id": ObjectId(id)})
+def delete_historic(id: str, db=Depends(get_db)):
+    result = db.historic.delete_many({"chat_id_user": id})
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Historic not found")
-    return {"message": "Historic deleted successfully"}
+    return {"message": f"{result.deleted_count} historic records deleted successfully"}
+
 
 

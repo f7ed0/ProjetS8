@@ -96,7 +96,9 @@ export class LoginComponent {
     if(this.myForm.valid) {
       this.apiService.register(this.user_control.value!, this.pass_control.value!).subscribe({
         next: (data) => {
+          const userId = data.user_id;
           this.authService.setLoggedIn(true);
+          this.apiService.setId(userId);
           this.isInvalid = false;
           this.router.navigate(['/home']);
         },
