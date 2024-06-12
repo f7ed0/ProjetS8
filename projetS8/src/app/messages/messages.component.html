@@ -36,7 +36,7 @@
   <form class="form" (ngSubmit)="sendMessage()">
     <mat-form-field class="full-width prompt">
       <input matInput autocomplete="off" [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
-      <button mat-icon-button type="submit" class="send-prompt">
+      <button mat-icon-button type="submit" class="send-prompt" [disabled]="isSending">
         <mat-icon [ngClass]="{'isSending': isSending}">{{ isSending ? "sync" : "send"}}</mat-icon>
       </button>
     </mat-form-field>
