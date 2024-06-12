@@ -9,7 +9,8 @@ import { UserService } from './user.service';
 import { ApiServiceService } from './api-service.service';
 import { authGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { JWTtokenService } from './jwttoken.service';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes),provideAnimations(), provideAnimationsAsync(),  provideHttpClient(),NewconvService,UserService,ApiServiceService,AuthService]
+  providers: [provideRouter(routes),provideAnimations(), provideAnimationsAsync(),  provideHttpClient(),NewconvService,UserService,ApiServiceService,AuthService,JWTtokenService]
 };

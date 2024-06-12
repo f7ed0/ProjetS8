@@ -13,6 +13,7 @@ import { AuthService } from '../auth.service';
 import { UserService } from '../user.service';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
+import { JWTtokenService } from '../jwttoken.service';
 
 @Component({
   selector: 'app-login',
@@ -43,6 +44,7 @@ export class LoginComponent {
 
   constructor(
     private apiService: ApiServiceService,
+    private jwtService: JWTtokenService,
     private router: Router,
     private authService: AuthService,
     private userService: UserService
@@ -81,6 +83,8 @@ export class LoginComponent {
         next: (data) => {
           const userId = data.user_id;
           this.apiService.setId(userId);
+          console.log('Data received', data)  ;
+          this.jwtService.setToken( data.access_token);
           this.isInvalid = false;
           this.authService.setLoggedIn(true);
           this.router.navigate(['/home']);
@@ -99,6 +103,7 @@ export class LoginComponent {
           const userId = data.user_id;
           this.authService.setLoggedIn(true);
           this.apiService.setId(userId);
+          this.jwtService.setToken(data.jwt);
           this.isInvalid = false;
           this.router.navigate(['/home']);
         },
