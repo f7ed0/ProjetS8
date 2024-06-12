@@ -28,9 +28,11 @@
             <small class="error">Vous devez accepter notre politique de confidentialité</small>
         </div>
         
-        <button mat-flat-button class="btn-login" color="primary" type="submit">
-            {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
-        </button>
+        <div class="btn-container">
+            <button mat-flat-button class="btn-login" type="submit">
+                {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
+            </button>
+        </div>
 
         <p>
             {{ isRegistering ? 'Déjà inscrit ?' : 'Pas encore inscrit ?' }} <a (click)="toggleForm()">{{ isRegistering ? 'Se connecter' : 'S\'inscrire' }}</a>

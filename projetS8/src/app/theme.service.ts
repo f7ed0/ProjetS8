@@ -5,17 +5,17 @@ import { Injectable } from '@angular/core';
 })
 export class ThemeService {
 
-  isDark = false;
+  isLight = true;
 
   constructor() { }
 
   toggleTheme() { 
-    this.isDark = !this.isDark;
-    document.documentElement.setAttribute('data-theme', this.isDark ? 'dark' : 'light');
+    this.isLight = !this.isLight;
+    document.documentElement.setAttribute('data-theme', this.isLight ? 'light' : 'dark');
   }
 
-  isDarkTheme() {
-    return this.isDark;
+  isLightTheme() {
+    return this.isLight;
   }
 
 

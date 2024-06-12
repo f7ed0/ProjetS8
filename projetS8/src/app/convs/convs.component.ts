@@ -57,14 +57,26 @@ export class ConvsComponent implements OnInit {
       ;
     }
     this.removeActiveClass();
-    console.log("lalalalalalalalal");
     this.cdr.detectChanges();
   }
 
+  sortConvsByTimestamp() {
+    this.convs.sort((a:any, b:any) => {
+      const dateA = new Date(a.timestamp);
+      const dateB = new Date(b.timestamp);
+      if (!isNaN(dateA.getTime()) && !isNaN(dateB.getTime())) {
+        return dateB.getTime() - dateA.getTime();
+      }
+      return 0;
+    });
+  }
+  
   getDataDistinct(): void {
     this.apiService.getDataByUserId(this.userID).subscribe({
       next: (data: any) => {
         this.convs = data;
+        this.sortConvsByTimestamp();
+        console.log(this.convs);
         this.cdr.detectChanges();
       },
       error: (error) => {
@@ -102,6 +114,17 @@ export class ConvsComponent implements OnInit {
     }
   }
 
+
+  convFormat(msg : string){
+    let thresold = 70;
+    if(msg.length > thresold){
+      while(msg[thresold] != ' '){
+        thresold--;
+      }
+      return msg.slice(0, thresold) + ' ...';
+    }
+    return msg;
+  }
 
 
   navigateToChat(chatId: string): void {

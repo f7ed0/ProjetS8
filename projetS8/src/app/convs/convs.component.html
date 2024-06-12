@@ -5,7 +5,7 @@
     </div>
 
     <div id="conv_{{conv.chat_id}}" (click)="navigateToChat(conv.chat_id)" *ngFor = "let conv of convs; let i = index" class="conv">
-        <p>chat n°{{ conv.chat_id }}</p>
+        <p>{{ convFormat(convs[i].chat_user) }}</p>
     </div>
 </div>
 

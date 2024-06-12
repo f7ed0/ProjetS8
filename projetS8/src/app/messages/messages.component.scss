@@ -54,8 +54,11 @@ p{
 }
 
 .reponse{
+    position: relative;
+    display: inline-block;
     background-color: var(--reponse);
     align-self: flex-start;
+    overflow: hidden;
 }
 
 .dateMessage{
@@ -82,6 +85,7 @@ p{
 
 .send-prompt{
     position: absolute;
+    padding: 0px;
     right: 0px;
     background-color: transparent;
     border: none;
@@ -99,7 +103,7 @@ p{
     justify-content: flex-start;
     align-items: center;
     gap: 0px;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-left: 3%;
     z-index: 1;
     transform: translateY(0px);
@@ -136,6 +140,35 @@ p{
     color: #6495d9 !important;
 }
 
+.isSending{
+    animation: load 2s infinite;
+}
+
+@keyframes load {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }    
+}
+
+@keyframes fadeInWords {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in-words {
+    animation: fadeInWords 0.1s ease forwards;
+    margin-right: 3px;
+    font-size: 15px;
+    opacity: 0;
+    display: inline-block;
+}
 
 @media screen and (max-width: 768px){
     .question, .reponse{

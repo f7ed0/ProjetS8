@@ -1,8 +1,7 @@
-$bg : #242331;
-
 *{
     box-sizing: border-box;
 }
+
 
 .container{
     width: 100%;
@@ -10,37 +9,36 @@ $bg : #242331;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $bg;
+    background-color: var(--secondary);
     padding: 4%;
 }
 
 .form {
     position: relative;
-    background-color: white;
+    background-color: var(--third);
     width: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 20px;
 }
 
 .top{
     width: 100%;
-    height: 40px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
-    border : 0px solid #dedede;
+    padding: 20px;
+    border : 0px solid var(--newconv);
     border-bottom-width: 1px;
+    margin-bottom: 30px;
 }
 
 .top h1{
-    font-size: 19px;
+    font-size: 20px;
     font-weight: 500;
+    color: var(--text-color);
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
@@ -48,24 +46,30 @@ $bg : #242331;
 
 .full-width{
     width: 100%;
+    padding: 0px 20px;
+    padding-bottom: 0;
+}
+
+.btn-container{
+    width: 100%;
+    padding: 20px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .btn-login{
     width: 100%;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 22px;
+    background-color: var(--newconv) !important;
+    color: white !important;
 }
 
-.btn-close{
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    font-size: 15px;
-    color: $bg;
-}
   
 a{
-    color: #242331;
+    color: var(--active-conv);
     text-decoration: none;
     font-weight: 600;
     cursor: pointer;
@@ -76,11 +80,15 @@ a{
     font-size: 15px;
     margin-bottom: 20px;
     padding: 10px;
-    width: 100%;
+    width: calc(100% - 40px);
     border-radius: 5px;
     box-sizing: border-box;
     text-align: center;
     background-color: rgba(255, 74, 74, 0.1);
+}
+
+p{
+    color: var(--text-color);
 }
 
 .error {

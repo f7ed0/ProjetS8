@@ -41,7 +41,7 @@ export class MainComponent implements AfterViewInit {
   isChevronLeft: boolean = true;
   showNewConv = this.newconvService.getShowNewConv();
   chatUser : any;
-  isDarkTheme = this.themeService.isDarkTheme();
+  isLightTheme = this.themeService.isLightTheme();
   isRotated = false;
   private drawerSubscription: Subscription | undefined;
   screenWidth: number = 0;
@@ -99,7 +99,7 @@ export class MainComponent implements AfterViewInit {
 
   toggleTheme() {
     this.themeService.toggleTheme();
-    this.isDarkTheme = !this.isDarkTheme;
+    this.isLightTheme = !this.isLightTheme;
     this.isRotated = !this.isRotated;
     this.cdr.detectChanges();
   }
