@@ -39,3 +39,27 @@ def update_feedback(feedback_id: str, feedback: FeedbackBase, db=Depends(get_db)
     db.feedback.update_one({"id": feedback_id}, {"$set": feedback_dict})
     feedback_dict["_id"] = feedback_id
     return feedback_dict
+
+@router.get("/feedback/like", response_model=Feedback)
+def like_feedback(db=Depends(get_db), token: str = Depends(oauth2_scheme)):
+    decode_access_token(token)
+    feedback = db.feedback.find_one({"like": True})
+    if feedback:
+        feedback["_id"] = str(feedback["_id"])
+    return feedback
+
+@router.get("/feedback/dislike", response_model=Feedback)
+def dislike_feedback(db=Depends(get_db), token: str = Depends(oauth2_scheme)):
+    decode_access_token(token)
+    feedback = db.feedback.find_one({"like": False})
+    if feedback:
+        feedback["_id"] = str(feedback["_id"])
+    return feedback
+
+@router.get("/feedback/suggestion", response_model=Feedback)
+def suggestion_feedback(db=Depends(get_db), token: str = Depends(oauth2_scheme)):
+    decode_access_token(token)
+    feedback = db.feedback.find_one({"suggestion": True})
+    if feedback:
+        feedback["_id"] = str(feedback["_id"])
+    return feedback
