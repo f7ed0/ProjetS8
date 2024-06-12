@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
-from config import DATABASE_URL
+from chatbotUphfApi.config import DATABASE_URL
 
 engine = create_engine(DATABASE_URL)
 Base = declarative_base()

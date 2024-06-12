@@ -26,3 +26,9 @@ class HistoricCreate(HistoricBase):
 class HistoricUpdate(HistoricBase):
     chat_ia: str
 
+class LastHistoric(BaseModel):
+    chat_user: str
+    chat_ia: str
+    def to_dict(self):
+        return self.dict()
+    

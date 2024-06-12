@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from typing import List
-from models.feedbackModel import FeedbackBase, Feedback
-from config import get_db
+from chatbotUphfApi.models.feedbackModel import FeedbackBase, Feedback
+from chatbotUphfApi.config import get_db
 from bson import ObjectId
-from controllers.security import oauth2_scheme, decode_access_token
+from chatbotUphfApi.controllers.security import oauth2_scheme, decode_access_token
 
 router = APIRouter()
 

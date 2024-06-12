@@ -1,15 +1,15 @@
 # routes.py
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
-from models.userModel import UserModel, Token
-from config import get_db
+from chatbotUphfApi.models.userModel import UserModel, Token
+from chatbotUphfApi.config import get_db
 from pymongo.collection import Collection, ObjectId,Optional
 from typing import List
 from datetime import timedelta
 from passlib.context import CryptContext
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
-from controllers.security import oauth2_scheme, get_password_hash, verify_password, create_access_token, decode_access_token
+from chatbotUphfApi.controllers.security import oauth2_scheme, get_password_hash, verify_password, create_access_token, decode_access_token
 
 
 

@@ -7,7 +7,8 @@ from fastapi.security import OAuth2PasswordBearer
 import secrets
 
 # Générer une clé secrète sûre de 32 octets
-SECRET_KEY = secrets.token_hex(32)
+#SECRET_KEY = secrets.token_hex(32)
+SECRET_KEY= "secret"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 120
 
