@@ -103,7 +103,7 @@ export class LoginComponent {
           const userId = data.user_id;
           this.authService.setLoggedIn(true);
           this.apiService.setId(userId);
-          this.jwtService.setToken(data.jwt);
+          this.jwtService.setToken(data.access_token);
           this.isInvalid = false;
           this.router.navigate(['/home']);
         },

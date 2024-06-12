@@ -2,7 +2,12 @@
 from datetime import datetime
 from pydantic import BaseModel, Field
 
-class HistoricBase(BaseModel)
+class HistoricBase(BaseModel):
+    chat_id: str
+    chat_id_user: str
+    chat_user: str
+    chat_ia: str
+    timestamp: datetime
 
 class Historic(HistoricBase):
     id: str
