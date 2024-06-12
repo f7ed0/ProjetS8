@@ -1,0 +1,16 @@
+<div class="newconv-container">
+
+    <div class="hero">
+        <img src="../../assets/chabot-removebg.png" alt="hero" class="hero-image">
+    </div>
+
+    <form class="form" (ngSubmit)="generateConv()">
+        <mat-form-field class="full-width prompt">
+          <input matInput autocomplete="off" [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
+          <button mat-icon-button type="submit" class="send-prompt">
+            <mat-icon>send</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+
+</div>

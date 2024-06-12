@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.sugg_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 20px;
+}
+
+.full_width{
+    width: 100%;
+}
+
+mat-form-field{
+    width: 100%;
+}
+
+.sugg_title{
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 19px;
+    font-weight: 500;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    border: 0px solid #dedede;
+    border-bottom-width: 1px;
+}
+
+.sugg_response{
+    font-size: 15px;
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 10px;
+    color: #7b7b7b;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.sugg_comment textarea{
+    font-size: 15px;
+}
+
+.sugg_actions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.sugg_actions button{
+    padding: 20px 30px;
+    cursor: pointer;
+}
+
+.sugg_cancel{
+    background-color: var(--header);
+    color: #ffffff;
+}
+
+.sugg_send{
+    background-color: var(--btn-sugg);
+    color: #ffffff;
+}

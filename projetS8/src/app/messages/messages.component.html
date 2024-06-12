@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="container-messages">
+    <div class="container-message" *ngFor="let message of messages; let i = index">
+        <div class="question">
+          <p>{{ message.chat_user }}</p>
+        </div>
+        <div class="container-reponse">
+          <div class="reponse">
+            <p>
+              <span *ngFor="let mot of decomposerEnMots(message.chat_ia); let j = index" 
+                    [ngClass]="{'fade-in-words' : isAnimated(message.timestamp, 5)}" [style.animation-delay]="j * 0.04 + 's'">
+                {{ detectSkip(mot) }}
+              </span>
+            </p>
+          </div>
+          <div class="actions">
+            <button (click)="copyToClipboard(message.chat_ia, 'copy_'+i.toString(),message.id)" class="btn_action" mat-icon-button>
+              <mat-icon id="copy_{{i}}" class="icon_action">content_copy</mat-icon>
+            </button>
+            <button (click)="likeResponse(message.chat_ia, 'like_'+i.toString(),message.id)" class="btn_action" mat-icon-button>
+              <mat-icon id="like_{{i}}" class="icon_action">thumb_up</mat-icon>
+            </button>
+            <button (click)="dislikeResponse(message.chat_ia, 'dislike_'+i.toString(),message.id)" class="btn_action" mat-icon-button>
+              <mat-icon id="dislike_{{i}}" class="icon_action">thumb_down</mat-icon>
+            </button>
+            <button (click)="suggResponse(message.chat_ia, 'sugg_'+i.toString(),message.id)" class="btn_action" mat-icon-button>
+              <mat-icon id="sugg_{{i}}" class="icon_action">emoji_objects</mat-icon>
+            </button>
+            <p class="dateMessage">{{formatDate(message.timestamp)}}</p>
+            
+          </div>
+        </div>
+    </div>
+  </div>
+  
+  <form class="form" (ngSubmit)="sendMessage()">
+    <mat-form-field class="full-width prompt">
+      <input matInput autocomplete="off" [(ngModel)]="userMessage" placeholder="Veuillez poser votre question :" name="message">
+      <button mat-icon-button type="submit" class="send-prompt" [disabled]="isSending">
+        <mat-icon [ngClass]="{'isSending': isSending}">{{ isSending ? "sync" : "send"}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </form>
+</div>

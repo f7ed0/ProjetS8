@@ -1,0 +1,97 @@
+
+::-webkit-scrollbar {
+  width: 10px; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-bar); 
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-bar-bg); 
+}
+
+
+.main-container {
+  width: 100vw;
+  height: calc(100vh - 60px);
+  background-color: var(--secondary);
+}
+
+.btn-chats{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white !important;
+  background-color: var(--btn) !important;
+}
+
+.btn-theme{
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+  color: white !important;
+  background-color: var(--btn) !important;
+}
+
+.btn-rgpd{
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  z-index: 2;
+  color: white !important;
+  background-color: var(--btn) !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-rgpd .mat-icon {
+  font-size: 22px;
+}
+
+.rotated {
+  transform: rotate(360deg);
+  transition: transform 0.5s ease;
+}
+
+
+.btn-chats-tel{
+  display: none;
+}
+
+.sidenav-content {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.sidenav {
+  width: 350px;
+  background-color: var(--third);
+}
+
+.app-messages{
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.app-convs{
+  width: 100%;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+  }
+
+ .btn-theme, .btn-rgpd{
+  background-color: var(--newconv) !important;
+}
+
+
+
+
+}

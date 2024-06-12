@@ -1,0 +1,115 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header);
+    height: 60px;
+    padding: 0 20px;
+}
+
+h4{
+    margin: 0;
+    color: white;
+    font-weight: 500;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.target_drawer{
+    color: var(--text-color);
+    transition: all 0.35s ease;
+}
+
+.home{
+    color: white;
+    font-size: 20px;
+    padding-left: 0;
+    width: auto;
+}
+
+.target_drawer.rotated {
+    transform: rotate(180deg);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+}
+
+
+.boutons{
+    display: flex;
+    gap: 15px;
+}
+
+.btn_sugg{
+    color: white !important;
+    background-color: var(--btn-sugg) !important;
+}
+
+.btn_logout{
+    color: white !important;
+    background-color: var(--btn-logout) !important;
+}
+
+.tel{
+    display: none;
+}
+
+.notel{
+    display: block;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .tel{
+        display: block;
+    }
+
+    .notel{
+        display: none;
+    }
+
+    nav{
+        padding: 0px 5px;
+    }
+
+    .logo{
+        gap: 5px;
+    }
+
+    .logo h4{
+        font-size: 15px;
+        line-height: normal;
+    }
+
+    .logo_robot{
+       display: none;
+    }
+
+    .boutons{
+        gap: 0;
+    }
+
+    .btn_sugg{
+        background-color: transparent !important;
+    }
+    
+    .btn_logout{
+        background-color: transparent !important;
+    }
+
+    .logo_out, .logo_sugg{
+        font-size: 22px !important;
+        color: white;
+    }
+
+    .target_drawer{
+        font-size: 30px !important;
+        color: white;
+        width: auto;
+        height: auto;
+        display: flex;
+    }
+}
