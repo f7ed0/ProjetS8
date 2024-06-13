@@ -12,6 +12,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import {MAT_SNACK_BAR_DATA, MatSnackBar} from '@angular/material/snack-bar';
+import DOMPurify from "dompurify";
+import { marked } from 'marked';
 
 
 @Component({
@@ -29,6 +31,7 @@ export class MessagesComponent implements OnInit {
   botResponse: string = ''; 
   userID = this.apiService.getId();
   message_id = '';
+  w8ting_message = "";
 
   constructor(
     private route: ActivatedRoute,
@@ -61,6 +64,12 @@ export class MessagesComponent implements OnInit {
     }
   }
 
+  parseAndPurifyMD(text:string): string {
+    // @ts-expect-error
+    let t:string = marked.parse(text, {async : false})
+    return DOMPurify.sanitize(t)
+  }
+
   getDataByChatId(chatId: string): void {
     this.apiService.getDataByChatId(chatId).subscribe({
       next: (data: any) => {
@@ -90,6 +99,8 @@ export class MessagesComponent implements OnInit {
 
   sendMessage(): void {
     const userMessage = this.userMessage;
+    this.w8ting_message = this.userMessage;
+    this.userMessage = ""
     const botResponse = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus esse in blanditiis perspiciatis mollitia. '+
     "Cupiditate delectus, minus fugit similique molestias adipisci placeat, officiis laborum dolores impedit eos est vitae iusto. Alias voluptate fugiat ad aliquam ipsa, quasi doloremque exercitationem vitae deleniti, ducimus nam? Labore fugiat, cupiditate libero ipsam nam magni deleniti ratione et? Ab odit molestiae explicabo officiis assumenda eveniet.";  
     if (userMessage === '') {
@@ -101,7 +112,6 @@ export class MessagesComponent implements OnInit {
         this.loadIcon();
         setTimeout(() => {
           this.messages.push(data);
-          this.userMessage = ''; 
           this.cdr.detectChanges(); 
           this.scrollToBottom();
         }, 3000);
@@ -131,6 +141,7 @@ export class MessagesComponent implements OnInit {
   loadIcon(){
     this.isSending = true;
     this.cdr.detectChanges();
+    this.scrollToBottom();
     setTimeout(() => {
       this.isSending = false;
       this.cdr.detectChanges();

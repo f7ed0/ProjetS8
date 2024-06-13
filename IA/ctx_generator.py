@@ -13,7 +13,7 @@ def generateCtx(item,cdb:Chroma) -> list[str] :
     if len(item) < 10:
         return []
     query_search = kw(item)[0]['generated_text']
-    thresholds = [0.22,0.3]
+    thresholds = [0.3,0.3]
     print(query_search.lower())
     docs = []
     for i,db in enumerate(cdb) :

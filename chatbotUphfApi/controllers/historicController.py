@@ -104,7 +104,7 @@ def to_dict(items: List[LastHistoric]) -> List[dict]:
 
 def rename_chat_keys(chat_data):
     renamed_data = []
-    for item in chat_data:
+    for item in chat_data[::-1]:
         renamed_item = {}
         for key, value in item.items():
             if key == "chat_user":

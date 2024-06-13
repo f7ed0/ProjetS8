@@ -5,13 +5,7 @@
           <p>{{ message.chat_user }}</p>
         </div>
         <div class="container-reponse">
-          <div class="reponse">
-            <p>
-              <span *ngFor="let mot of decomposerEnMots(message.chat_ia); let j = index" 
-                    [ngClass]="{'fade-in-words' : isAnimated(message.timestamp, 5)}" [style.animation-delay]="j * 0.04 + 's'">
-                {{ detectSkip(mot) }}
-              </span>
-            </p>
+          <div class="reponse" [innerHTML]="parseAndPurifyMD(message.chat_ia)">
           </div>
           <div class="actions">
             <button (click)="copyToClipboard(message.chat_ia, 'copy_'+i.toString(),message.id)" class="btn_action" mat-icon-button>
@@ -27,10 +21,23 @@
               <mat-icon id="sugg_{{i}}" class="icon_action">emoji_objects</mat-icon>
             </button>
             <p class="dateMessage">{{formatDate(message.timestamp)}}</p>
-            
           </div>
         </div>
     </div>
+    @if(isSending) {
+      <div class="container-message">
+        <div class="question">
+          <p>{{ w8ting_message }}</p>
+        </div>
+        <div class="container-reponse">
+          <div class="reponse typing">
+            <div class="typing__dot"></div>
+            <div class="typing__dot"></div>
+            <div class="typing__dot"></div>
+          </div>
+        </div>
+      </div>
+    }
   </div>
   
   <form class="form" (ngSubmit)="sendMessage()">
