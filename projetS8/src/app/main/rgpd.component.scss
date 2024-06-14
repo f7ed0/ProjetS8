@@ -1,0 +1,38 @@
+::-webkit-scrollbar {
+    width: 10px; 
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: var(--scroll-bar); 
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--scroll-bar-bg); 
+  }
+  
+
+body{
+    padding: 30px;
+    max-height: 90vh; 
+    overflow-y: auto;
+}
+
+
+.container_btn_close{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn_close{
+    background-color: var(--btn-sugg);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.resetData{
+    background-color: var(--btn-logout);
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,25 @@
+Pour une histoire sociale de l’actionnariat en France à l’époque moderneProjet ANR
+Le financement des entreprises par les actions s’il n’est pas totalement nouveau, car il existe certains exemples au Moyen Âge (G. Sicard, 1953), marque cependant l’époque moderne, et en particulier le XVIIe siècle, par son développement qui touche des secteurs entiers de l’économie et qui accompagne la révolution industrielle. Si le mouvement est connu, les hommes, les actionnaires, le sont moins. Ils en sont pourtant les acteurs incontournables.
+Le projet ACTIMOD est un projet d’histoire sociale visant à caractériser les acteurs de cette mutation de l’économie française à un moment clé de son histoire. Connaître les investisseurs, leurs attentes et leurs motivations, c’est comprendre la conduite de ces entreprises, éventuellement aussi leur réussite ou leur échecs, mais c’est aussi à une autre échelle comprendre comment le monde économique était perçu et comment s’est opéré la modernisation de l’économie française. La période retenue couvrira le XVIIe siècle, époque à laquelle se constituent en France les premières sociétés par actions, et le XVIIIe siècle. Nous nous arrêterons en 1789 avant que les troubles révolutionnaires ne conduisent au démantèlement des entreprises, à leur réorganisation et à une nouvelle répartition du capital. Les biens des actionnaires, notamment des nobles, sont alors confisqués. Certaines sociétés sont même « nationalisées ».
+La formation d’une base de données (BDD) sur les actionnaires doit permettre de visualiser les grandes caractéristiques sociales et culturelles de ce groupe en France et ses grandes évolutions, et de mettre en évidence des investisseurs actifs qui pèsent sur les choix économiques et politiques et leurs réseaux. Des comparaisons avec l’actionnariat des sociétés par actions anglaises et hollandaises et des sociétés anonymes du premier XIXe siècle seront envisagées lors de la synthèse finale afin d’approfondir la réflexion et d’ouvrir de nouvelles perspectives. Dans quelle mesure ces expériences d’Ancien Régime préfigurent-elles le capitalisme du XIXe siècle ? Y a-t-il continuité ou rupture dans les profils et les motivations des actionnaires après la Révolution française ? Les actionnaires de l’époque moderne annoncent-ils d’une façon ou d’une autre les groupes d’influence de l’époque contemporaine ? Il apparaît ainsi que le thème de l’actionnariat en France à l’époque moderne porte de nombreuses interrogations qui trouvent dans le monde d’aujourd’hui un certain écho. Le déplacement du regard, ici vers le passé, pourrait tout autant nous aider à mieux apprécier les réalités de notre époque que d’en saisir la genèse.
+ROULET, ÉricCoordonnateur scientifique et pilotage de l’équipe 1
+Professeur des Universités en histoire moderneUnité de Recherche sur l’Histoire, les Langues, les Littératures et l’Interculturel (UR HLLI) 4030Université du Littoral Côte d’Opale (ULCO)
+GIRAUD, AgatheIngénieure d’études analyse sources historiques et culturelles
+Unité de Recherche sur l’Histoire, les Langues, les Littératures et l’Interculturel (UR HLLI) 4030Université du Littoral Côte d’Opale (ULCO)
+BARTOLOMEI, ArnaudPartenaire
+Maître de conférencesCentre de la Méditerranée Moderne et Contemporaine (CMMC) Université Côte d’Azur
+DESCHANEL, BorisPilotage de l’équipe 3
+Maître de conférencesCentre Norbert Elias UMR 8562Université d’Avignon
+DEWAR, HelenPartenaire
+Professor (and Research Associate, Wilson Institute)Département d’Histoire, Université de MontréalWilson Institute for Canadian History, McMaster University
+HEIJMANS, ElisabethPartenaire
+Post-doc and lecturerInstitute for historyLeiden University, Leyde, Pays-Bas
+LALOUX, LudovicPilotage de l’équipe 2
+Professeur des universités en histoire moderneÉcole doctorale 635 PHFLaboratoire de Recherche Sociétés & Humanités (LARSH)Université polytechnique Hauts-de-France (UPHF)
+MARTIN, SébastienPartenaire
+Maître de conférencesUnité de Recherche sur l’Histoire, les Langues, les Littératures et l’Interculturel (UR HLLI) 4030Université du Littoral Côte d’Opale (ULCO)
+STEINER, BenjaminPartenaire
+Professeur d’enseignement (substitution pour Martin Mulsow) en histoire des idées à l’époque moderneForschungszentrum GothaUniversité d’Erfurt, Gotha, Allemagne
+SZULMAN, EricPartenaireProfesseur agrégéInstitutions et dynamiques historiques de l’économie et de la société (IDHE.S) UMR 8533Université Paris I
+VAN RUYMBEKE, BertrandPilotage de l’axe transversal
+Professeur des universités en civilisation américaineTransCrit EA1569Université Paris 8Saint-Denis, France

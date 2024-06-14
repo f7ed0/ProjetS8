@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons"); 
+@import '../node_modules/@angular/material/prebuilt-themes/indigo-pink.css';
+
+:root {
+    --header: #0081a1;
+    --text-color : #000000;
+    --secondary: #FFFFFF;
+    --third : #f5f9fb;
+    --newconv : #c8a14e;
+    --btn : #6fbdd1;
+    --question: #e9f2f7;
+    --reponse : #d4e8f2;
+    --scroll-bar: #c8a14e;
+    --scroll-bar-bg: #f5f9fb;
+    --separator: #e8e8e8;
+    --hover-conv: #0081a151;
+    --active-conv: #0081a1;
+    --btn-actions: #004050;
+    --prompt-btn: #00627b;
+    --btn-sugg: #c8a14e;
+    --btn-logout: #00627b;
+
+    --mdc-filled-text-field-focus-active-indicator-color: #0081a1;
+    --mdc-filled-text-field-focus-label-text-color: #0081a1;
+    --mdc-checkbox-selected-focus-icon-color: #c8a14e;
+    --mdc-checkbox-selected-hover-icon-color: #c8a14e;
+    --mdc-checkbox-selected-icon-color: #c8a14e;
+    --mdc-checkbox-selected-pressed-icon-color: #c8a14e;
+}
+
+[data-theme="dark"] {
+    --header: #16151e;
+    --text-color : #FFFFFF;
+    --secondary: #242331;
+    --third : #1e1d2a;
+    --btn : #474371;
+    --newconv : #474371;
+    --question: #47465d;
+    --reponse : #797787;
+    --scroll-bar: #a9a3e4;
+    --scroll-bar-bg: #f4f4f4;
+    --separator: #33304e;
+    --hover-conv: #2b293c;
+    --active-conv: #8680c2;
+    --btn-actions: #ffffff;
+    --prompt-btn: #16151e;
+    --btn-sugg: #474371;
+    --btn-logout: #8680c2;
+
+    --mdc-filled-text-field-focus-active-indicator-color: #474371;
+    --mdc-filled-text-field-focus-label-text-color: #474371;
+    --mdc-checkbox-selected-focus-icon-color: #8680c2;
+    --mdc-checkbox-selected-hover-icon-color: #8680c2;
+    --mdc-checkbox-selected-icon-color: #8680c2;
+    --mdc-checkbox-selected-pressed-icon-color: #8680c2;
+}
+
+
+*{
+    transition: background-color 0.35s ease, color 0.35s ease;
+}
+body{
+    margin: 0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: transparent !important;
+    padding: 0;
+}
+
+.mdc-snackbar__label{
+    padding-right: 16px !important;
+}
+
+.mat_snack_green {
+    background-color: #64d964; 
+    color: #FFFFFF;
+}
+  
+.mat_snack_red {
+    background-color: #d96464; 
+    color: #FFFFFF;
+}
+  
+.mat_snack_blue {
+    background-color: #6495d9; 
+    color: #FFFFFF;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:focus:checked~.mdc-checkbox__ripple {
+    background-color: var(--header) !important;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled:not(:checked):not(:indeterminate):not([data-indeterminate=true])~.mdc-checkbox__background {
+    border-color: var(--text-color) !important;
+}
+  

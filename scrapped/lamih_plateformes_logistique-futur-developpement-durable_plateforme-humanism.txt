@@ -1,0 +1,8 @@
+La plateforme Humanism, conçue au LAMIH dans le cadre du projet ANR HUMANISM, a pour objectif de proposer une architecture logicielle qui permet de mettre en place et d'évaluer un système de production répondant aux spécificités de l'Industrie 4.0, mais aussi d'évaluer ses possibilités de coopération avec l'humain.
+Cette plateforme s'organise sur deux salles, une salle simulant la cellule de production (projection vidéo au sol de l'émulation d’une cellule flexible, dont le chargement/déchargement est assuré par deux robots de logistique mobiles), et une salle accueillant la position de contrôle de cette cellule.
+La plateforme technologique est utilisée dans le cadre de projets de recherche, mais aussi dans le cadre de la formation à l'INSA Hauts-de-France.
+Coopération Humain-Machine / Partage de tâches / Systèmes de production / cellule flexible robotisée / Robotique mobile  / Industrie 4.0 / Supervision.
+Coopération Humain-Machine dans un contexte d'Industrie 4.0
+Utilisation dans le cadre du projet ANR Humanism (Manufacturing 4.0)
+Robomaster EP CORE
+DJI

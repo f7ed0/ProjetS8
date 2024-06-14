@@ -1,0 +1,16 @@
+Lerèglement général sur la protection des données(UE) 2016 du Parlement Européen, mis en application depuis le 25 Mai 2018 dans chacun des pays de l'union européenne, renforce laloi française Informatique et Libertés de 1978 modifiée.
+En désignant undélégué à la protection des données personnelles(DPD/DPO), l'Université Polytechnique Hauts-de-France s'engage à établir une relation de confiance et à protéger la vie privée des étudiants, des membres du personnel, des partenaires… dans le respect de ce règlement européen et de cette loi.
+Les personnes concernées par des traitements de données à caractère personnel disposent de droits : d'information, d'accès, d'opposition, de modification, de suppression, de portabilité, de limitation. Consultezle site de la CNILpour avoir des précisions.
+La demande d'exercice des droits doit préciser le motif de la demande et les coordonnées du demandeur qui devra justifier de son identité, soit sur place auprès du service concerné, soit en transmettant un justificatif (photocopie de la carte CMS, ou d'une pièce d'identité, …).
+Les étudiants peuvent s'adresser à leur secrétariat pédagogique ou au Pôle Formation et vie étudiants (bâtiment La Maison de l'Etudiant)
+Les personnels peuvent s'adresser à la Direction des Ressources Humaines (bâtiment Froissart).
+Depuis l'application du RGPD, le principe de la logique déclarative des traitements de données personnelles est remplacé par un principe de responsabilisation. Le responsable de traitement représenté par le Président de l'Université, doit démontrer la conformité par de la documentation (activité de traitement inscrite au registre, contrat de sous-traitance, procédure d'habilitation, etc... )
+Par défaut et dès la conception d'un projet de traitement de données personnelles, les personnels en charge de sa mise en œuvre sont tenus de respecter les principes des règles de protection des données personnelles :
+Le délégué à la protection des données a pour mission d'aider et d'accompagner les responsables de projet de traitement de données dans leur démarche de conformité.
+Par un arrêté du 7 octobre 2021, le Président de l'UPHF et le Directeur de l'INSA HdF ont désignés des correspondants RGPD chargés de coopérer avec le DPO et de contribuer plus particulièrement dans leur structure à l'accompagnement des responsables de projet dans la conformité de leurs traitements de données.
+Le registre des traitements est disponible surhttps://uphf.provacy4.eu/
+Les personnels peuvent s'incrire et initier leur démarche de conformité dans un brouillon de traitement. Le DPO se charge de publier le traitement si sa conformité est démontrée.
+Contact :Guy Bisiaux -@email
+LaCNILa édité une nouvelle version (27 juin 2022) enrichie de sonMOOC sur la protection des données
+Les personnes intéressées peuvent s'inscrire et suivre le Mooc.
+SupDPO: Publications de l'association nationale des délégués à la protection des données des établissements d'enseignement supérieur et de recherche.

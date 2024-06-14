@@ -1,0 +1,41 @@
+<div class="container">
+    <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="top">
+            <h1 class="title">Connexion</h1>
+        </div>
+
+        <p class="invalid" *ngIf="isInvalid && !isRegistering">Le nom d'utilisateur ou le mot de passe est incorrect !</p>
+
+        <mat-form-field class="full-width">
+            <mat-label>User</mat-label>
+            <input matInput [formControl]="user_control" placeholder="username">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [formControl]="pass_control" [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <section class="rgpd_section full-width" *ngIf="isRegistering">  
+            <p>En cliquant sur "S'inscrire", vous acceptez notre <a href="/rgpd" target="_blank">politique de confidentialité</a>.</p>
+            <mat-checkbox formControlName="acceptTerms"></mat-checkbox>
+        </section>  
+
+        <div class="error_msg" *ngIf="acceptTerms.invalid && isRegistering && error_msg">
+            <small class="error">Vous devez accepter notre politique de confidentialité</small>
+        </div>
+        
+        <div class="btn-container">
+            <button mat-flat-button class="btn-login" type="submit">
+                {{ isRegistering ? 'S\'inscrire' : 'Se connecter' }}
+            </button>
+        </div>
+
+        <p>
+            {{ isRegistering ? 'Déjà inscrit ?' : 'Pas encore inscrit ?' }} <a (click)="toggleForm()">{{ isRegistering ? 'Se connecter' : 'S\'inscrire' }}</a>
+        </p>
+    </form>
+</div>

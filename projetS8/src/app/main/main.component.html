@@ -1,0 +1,20 @@
+<app-header></app-header>
+<mat-drawer-container class="main-container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side">
+    <app-convs></app-convs>
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <button *ngIf="!isMobile()" mat-mini-fab class="btn-chats" [ngClass]="{'rotated': isChevronLeft}" (click)="toggleDrawer()">
+      <mat-icon>{{ isChevronLeft ? 'chevron_left' : 'chevron_right' }}</mat-icon>
+    </button>
+    <button mat-mini-fab class="btn-theme" [ngClass]="{'rotated': isRotated}" (click)="toggleTheme()">
+      <mat-icon>{{ isLightTheme ? 'dark_mode' : 'light_mode' }}</mat-icon>
+    </button>
+    <button mat-mini-fab class="btn-rgpd" (click)="toggleRGPD()">
+      <mat-icon>gavel</mat-icon>
+    </button>
+    <app-newconv *ngIf="showNewConv" class="app-convs"></app-newconv>
+    <app-messages id="app-messages" *ngIf="!showNewConv" class="app-messages"></app-messages>
+  </div>
+</mat-drawer-container>

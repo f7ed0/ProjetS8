@@ -1,0 +1,117 @@
+Dans le groupe de recherche
+Autre
+Expertise au sein d'organisation
+Autres
+Contrat d'étude exploratoire (LL080602) entre la société AXIA, 171 rue Solférino 59000 Lille SIRET 42883796700036 et Valutec, C3T Université de Valenciennes-Le Mont-Houy BP 90014 59314 Valenciennes CEDEX 9 portant sur la conception et le dimensionnement mécanique d'un système support d'un panneau photovoltaïque de 1m2 orientable selon 2 axes.30 Avril 2008.
+Éditeur
+Éditeur
+Jointure G2 de deux courbes par une courbe de Bézier rationnelle à points massiques de contrôle, Lionel Garnier, Laurent Fuchs, Jean-Paul Bécar, Université de Bourgogne, L.I.B., 21000 Dijon, XLIM-SIC, UMR CNRS 7252, Université de Poitiers, SP2MI, 86962 Futuroscope Chasseneuil,  UPHF DEMAV UMR CNRS 2956, 59313 Valenciennes,G.T.M.G. 2023,  les 15 et 16 mars 2023 , Strasbourg
+
+
+Mass Points, Spaces of Spheres, "hyperbolae" and Dandelin and Quételet Theorems,Lionel Garnier and Lucie Druoton and Jean-Paul Becar and Laurent Fuchs and Géraldine Morin,WSEAS TRANSACTIONS ON MATHEMATICS, 2022, volume = 21,doi = 10.37394/23206.2022.21.34https://wseas.com/journals/articles.php?id=6700
+
+
+
+Courbes de Bézier, cinématique et ode au vecteur nul de contrôle, J. P. Bécar UPHF DEMAV UMR CNRS 2956, 59313 Valenciennes,   L. Garnier,Université de Bourgogne, L.I.B., 21000 Dijon L. Fuchs, XLIM-SIC, UMR CNRS 7252, Université de Poitiers, SP2MI, 86962 Futuroscope Chasseneuil.  G.T.M.G. 2022, Dijon, les 16 et 17 mars
+
+
+Points massiques et écriture manuscrite: Algorithmes de détection de points dominants Charles Lepaire, XLIM-SIC,  L. Fuchs, XLIM-SIC, UMR CNRS 7252, Université de Poitiers, SP2MI, 86962 Futuroscope Chasseneuil.  L. Garnier,Université de Bourgogne, L.I.B., 21000 Dijon, J. P. Bécar UPHF DEMAV UMR CNRS 2956, 59313 Valenciennes,
+G.T.M.G. 2022, Dijon, les 16 et 17 mars
+Subdivisions of Horned or Spindle Dupin Cyclides Using Bézier Curves with Mass Points
+Author(s): Lionel Garnier, Lucie Druoton, Jean-Paul Bécar, Laurent Fuchs, Géraldine Morin, Pages: 756-776
+DOI: 10.37394/23206.2021.20.80
+WSEAS Transactions on Mathematics, ISSN / E-ISSN: 1109-2769 / 2224-2880, Volume 20, 2021, Art. #80
+Subdivisions of Ring Dupin Cyclides Using Bézier Curves with Mass Points
+Lionel Garnier, Lucie Druoton, Jean-Paul Bécar, Laurent Fuchs, Géraldine Morin
+Published: 9 November 2021 byWorld Scientific and Engineering Academy and Society (WSEAS)
+inWSEAS TRANSACTIONS ON MATHEMATICS
+References: 21
+WSEAS TRANSACTIONS ON MATHEMATICS, Volume 20, pp 581-596;https://doi.org/10.37394/23206.2021.20.62
+https://wseas.com/journals/articles.php?id=692
+Pencils of Spheres in the Minkowski-Lorentz Spaces,  Garnier, L., Bécar, J., Druoton, L., Fuchs, L., Morin, G., in Encyclopedia of Computer Graphics and Games Springer International Publishing AG, part of Springer Nature 2018 N. Lee (ed.),Novembre 21
+https://meteor.springer.com/project/dashboard.jsf?id=75&tab=MyContainers
+Inversion et Courbes rationnelles à poids complexes
+Jean-Paul BECAR, Laurent FUCHS, Lionel GARNIER,Journées du Groupe de Travail en Modélisation Géométrique 2021, 18-19 mars 2021 Palaiseau (France)
+Les points massiques pour la modélisation de l’écriture manuscrite , Jean-Paul BECAR  Laurent FUCHS , Lionel GARNIER,
+Journées du Groupe de Travail en Modélisation Géométrique 2020, Nancy,2, 3 Juillet 2020
+
+Mechanical and Geometric Performance of PLA-Based Polymer Composites Processed by the Fused Filament Fabrication Additive Manufacturing Technique, April 2020, Materials 13(1924), DOI: 10.3390/ma13081924
+
+Introduction à la modélisation de l'écriture manuscrite par des courbes Bézier Rationnelles massiques , L. Fuchs, L.. Garnier, JP Bécar, Journées Français d’informatique graphique et réalité virtuelle, 13 -15 novembre 2019 Marseille.
+
+
+ABOUT SERENDIPITY INSIDE PROJECTS OR  IMPROVE WHAT IS UNPREDICTABLE, Jean-Paul Bécar,  Jean Vareille,
+12th annual International Conference of Education, Research and Innovation
+Seville (Spain). 11th - 13th of November, 2019.
+
+
+De la sérendipité dans les projets pour cultiver l’imprévisible…Jean-Paul Bécar, Jean Vareille,
+CONGRES NATIONAL DE LA RECHERCHE EN IUT (CNRIUT’2019) : 6-7 juin 2019, TOULON
+
+Economie circulaire, développement durable et modélisation mathématique, Jean Vareille, Jean-Paul Bécar,
+CONGRES NATIONAL DE LA RECHERCHE EN IUT (CNRIUT’2019) : 6-7 juin 2019, TOULON
+
+Additive Manufacturing of PLA-Based Composites Using Fused Filament Fabrication: Effect of Graphene Nanoplatelet Reinforcement on Mechanical Properties, Dimensional Accuracy and Texture Miguel Ángel Caminero,  Jesús Miguel Chacón, Eustaquio García-Plaza,  Pedro José Núñez,  José María Reverte, Jean Paul Bécar, May 2019, Polymers 11(5):799DOI: 10.3390/polym11050799,  LicenseCC BYCourbe d’une fraction rationnelle et courbes de Bézier à points massiques, Jean-Paul BECAR, Laurent FUCHS, Lionel GARNIER, in proceedings  Journées du Groupe de Travail en Modélisation Géométrique 2019,  20-21 Mars 2019, Toulouse,Famille à un paramètre de coniques utilisant des courbes de Bézier à poids complexes, Jean-Paul BECAR, Laurent FUCHS, Lionel GARNIER, in proceedings  Journées du Groupe de Travail en Modélisation Géométrique 2019,20-21 Mars 2019, Toulouse,Theory of the Minkowski-Lorentz spacesL. Garnier, J. P. Bécar, L. Druoton and L. Fuchs and G. Morin,Springer International Publishing AG, part of Springer Nature 2018 N. Lee (ed.), Encyclopedia of Computer Graphics and Games,https://doi.org/10.1007/978-3-319-08234-9_111-1Modéliser un demi cercle et autres questions de poids nul, Jean-Paul BECAR, Laurent Fuchs et  Lionel GARNIER, Journées Françaises d’Informatique Graphique, Poitiers, 13 - 16 Novembre  2018Computer Vision viewing over Mathematics, Jean-Charles Canonne, Jean-Paul Bécar,  Laurent Vermeiren, Abdelmalik Taleb-Ahmed, Eric Cartignies, 13ème édition du colloque consacré à l'Enseignement des Technologies et des Sciences de l'Information et des Systèmes CETSIS 2018 - 13ème édition - Fès Maroc 29 - 31 Oct. 2018How robotics vision and computer vision improve interdisciplinarity Jean-Paul Bécar, Jean-Charles Canonne, Laurent Vermeiren, Abdelmalik Taleb, Edulearn 18 10th annual International Conference on Education and New Learning Technologies,Palma de Mallorca (Spain). 2nd - 4th of July, 2018.ERASMUS TALKING AND DOING, Jean-Paul Bécar,  Jean-Charles Canonne,  Marika SeppäläEdulearn 18 10th annual International Conference on Education and New Learning Technologies,Palma de Mallorca (Spain). 2nd - 4th of July, 2018.Handwritten characters strokes with mass cubics and their singularities, J.P. Bécar,  K. Sérier, L. Garnier, L. Fuchs, paper presentation in 9th International Conference on Curves and Surfaces, June 28 to July 4, 2018, Arcachon , France.Les imprimantes 3D participent à la créativité des étudiants,  Jean Vareille, Jean-Paul Bécar, Vincent Cayez, Yoann Notteau., CNRIUT18, Aix en Provence, 7-8 Juin 2018, https://hal.univ-brest.fr/hal-01882702Industrie 4.0, 3ème révolution industrielle, transition énergétique, etc. ?l’accélération des mutations technologiques induira-t-elle une  métamorphose de la pédagogie ? Jean Vareille, Jean-Paul Bécar, CNRIUT18, Aix en Provence, 7-8 Juin 2018.https://hal.univ-brest.fr/hal-01882697Points massiques, cubiques Bézier rationnelles et leur points singuliers,Jean-Paul Bécar, Karine Sérier,  Lionel Garnier, Laurent Fuchs, CNRIUT18, Aix en Provence, 7-8 Juin 2018.Usage des points massiques et des courbes de Bézier pour la modélisation des cubiques, Karine Sérier, Jean-Paul Bécar,Lionel Garnier, Actes des Journées du Groupe de Travail en Modélisation Géométrique, 21 - 22 mars 2018, Aix en Provence.Estimation géométrique des tangentes à partir de coniques et algèbre géom,étrique. Exemples sous GAviewer, Jean-Paul Bécar , Laurent Fuchs et Lionel Garnier. Actes des Journées du Groupe de Travail en Modélisation Géométrique, 21 - 22 mars 2018, Aix en Provence.Contribution au chapitre IV- Articuler l'approche projet et le pilotage institutionnel pp. 106-110 in    Le projet : les pratiques en IUT , Mailles-Viard Metz, S., L.  Hung, M., Pélissier, C. & Kennel, S. (2016). L'Harmattan, ISBN : 978-2-343-10803-2.
+Canal surfaces as Bézier curves using mass points, Garnier L.,  Bécar J.-P. , Druoton L.  in  Computer Aided Geometric Design 54 (2017) 15-34.
+Nouveaux modèles géométriques pour la C.A.O. et la synthèse d'images : courbes de Bézier, points massiques et surfaces canal  Lionel  Garnier,  Jean-Paul Bécar , Editions Universitaires Européennes, ISBN 978-3-639-54676-7, Saarbrucken 2017.
+Predictive models of the energy consumption in intelligent buildings, Fratu M.,     Bécar J.-P. ,   Canonne J.-C.,
+Bulletin of the  Transilvania University of Brasov, Vol. 9 (58)  No. 2- 2016, Series I: Engineering Sciences.
+A robotic experience with MOOC,
+Fratu M., Bécar J.-P. ,Canonne J.-C.,Fratu A., 8th International Conference of Education, Research and Innovation, ICERI2015, 16-18 November, 2015, Sevilla, Spain.
+Computer Aided Teachings  Systems, Bécar J.-P. ,  Canonne J.-C., Seppala M., Alain Mayeur A., EDULEARN16 Proceedings
+ISBN: 978-84-608-8860-4, EDULEARN, 8th annual International Conference on Education and New Learning Technologies, Barcelona (Spain). 4th - 6th of July, 2016.
+
+Are local teachers required within moocs sessions?,  Canonne J.-C.,  Bécar J.-P. , Fratu A.,  Fratu M.,  proceedings of
+10th International Technology, Education and Development Conference, Valencia, Spain. 7-9 March, 2016.
+ISBN: 978-84-608-5617-7 / ISSN: 2340-1079.
+Expériences de pédagogie par projet avec les MOOCs,Canonne J.-C.,   Bécar J.-P. , Vermeiren L.,Delporte B.,
+IUT de Valenciennes, revue des départements de génie électrique et informatique industrielle,  Numéro 87, Juin 2016,  pp 7-10.
+Espace de  Minkowski-Lorentz et des sphères : un état de l'art, Bécar J. P.,  Druoton L., Garnier L.,  Langevin R.,  Morin G., poster présenté à la matinée des chercheurs, UVHC, mercredi 18 mai 2016.
+
+Surface canal, squelette et espace des sphères, Bécar J.-P. , Chambon S.,  Durix B., Garnier L., Morin G., Roudet C.,
+Actes des Journées du Groupe de Travail en Modélisation géométrique, Journées du GTMG, les 23-24 mars 2016, ESIREM, Campus de Dijon.
+
+Espace de Minkowski-Lorentz et des sphères : un état de l'art,  Bécar J.-P. , Druoton L., Garnier L.,Langevin R., Morin G.,
+Actes des Journées du Groupe de Travail en Modélisation géométrique, Journées du GTMG,  23 - 24 mars 2016, ESIREM, Campus de Dijon.
+
+Mass points, Bézier curves and conics: a survey, Garnier  L.,  Bécar J.-P. , Proceedings of Automatic Deduction in Geometry ADG 2016, Strasbourg, Julien Narboux, Schreck Pascal, Ileana Streinu, https://hal.inria.fr/hal-01334334.
+The Minkowski-Lorentz space for Computer Aided Design purposes,   Bécar J.-P. , Garnier L.,  Druoton L.,  Langevin R., Fuchs L., Morin G., poster for third International Conference and Expo on Computer Graphics \& Animation, November 07-09, 2016 Las Vegas, USA.
+Mass points, Bézier curves and conics: a survey, Garnier L.,   Bécar J.-P. ,  29ème journées de l' association  fran\c{c aise d'informatique graphique,   Grenoble du 29 novembre au 2 décembre 2016, http://jfig2016.acroe-ica.org.
+Courbes de Bézier quadratiques et nombres complexes massiques,  Garnier L.,   Bécar J.-P. ,   Actes des Journées du Groupe de Travail en Modélisation Géométrique,22 - 23 mars 2017, Cachan.
+L'enseignement du management de projet en IUT : un impératif partenarial, Gramaccia G.,  Bécar J.-P. ,  Muller P.,  Payan S.,  poster présenté aux journées Pédagogie et Professionnalisation, IUT A de Lille,  29-31 Mars 2017.
+Les imprimantes 3D nous rendent-elles serviles ?,  Bécar J.-P. ,  Vareille J., congrès national de la recherche en IUT (cnriut'2017) : 4-5 mai 2017, Auxerre.
+Une introduction aux points massiques, Garnier L.,  Bécar J.-P. ,   Druoton L., Congrès national de la recherche en IUT (cnriut'2017) : 4-5 mai 2017, Auxerre.
+A method to connect mathematics and sciences using a computer algebra system,  Bécar J.-P. , Fabrice Robert F.,  Canonne J.-C., Vermeiren L.,Cartignies E., EDULEARN17 Proceedings ISBN: 978-84-608-8860-4,  9th annual International Conference on Education and New Learning Technologies, Barcelona (Spain). 3rd - 5th of July, 2017.
+Weaving maths and electronics in a hardware programming experimentation,  Bécar J.-P. ,  Robert F.,  Canonne J.-C., EDULEARN17 Proceedings ISBN: 978-84-608-8860-4, EDULEARN, 9th annual International Conference on Education and New Learning Technologies, Barcelona (Spain). 3rd - 5th of July, 2017.
+Usage des points massiques et des courbes de Bézier pour la modélisation des cubiques, Sérier K.   ,  Bécar J.-P. , Garnier L.,
+Journées Françaises d' Informatique Graphique, Rennes, 23 - 27 Octobre 2017.
+3D printing is boosting the students' creativity. Bécar J.-P. , Vareille J., Cayez V. , Notteau Y. , 10th International Conference of Education, Research and Innovation, ICERI2017, 16-18 November, 2017, Sevilla, Spain.
+Une application de l’espace des sphères : détermination des sphères de Dandelin, Lionel GARNIER , Jean-Paul BECAR , Laurent FUCHS , Géraldine MORIN, 28 èmes Journées de l’Association Française d’Informatique Graphique, Lyon, 24-27 Novembre 2015.
+ACTIVE TEACHING FOR VIRTUAL PROTOTYPING Aurel Fratu, Mariana Fratu, Jean-Paul Bécar, Jean-Charles Canonne, 8th International Conference of Education, Research and Innovation,ICERI15, Seville (Spain), 16-18 November, 2015.
+A ROBOTICS EXPERIENCE WITH MOOC  Jean-Charles Canonne, Jean-Paul Bécar, Aurel Fratu, Mariana Fratu,8th International Conference of Education, Research and Innovation,ICERI15, Seville (Spain), 16-18 November, 2015.
+Points massiques, hyperbole et hyperboloïde à une nappe, Jean-Paul BECAR , Lionel GARNIER , Lucie DRUOTON, Actes des Journées du Groupe de Travail en Modélisation Géométrique 2015, Poitiers
+Points massiques, espace des sphères et « hyperbole »Lionel GARNIER , Lucie DRUOTON, Jean-Paul BECAR, Actes des Journées du Groupe de Travail en Modélisation Géométrique 2015, Poitiers
+THREE EXPERIMENTS OF LEARNING BY EXAMPLES Jean-Paul Bécar  , Jean-Charles Canonne  , Eric Cartignies , Mariana Fratu , Aurel Fratu , Marcin Iwanowski , Witold Czajewski,9TH INTERNATIONAL TECHNOLOGY, EDUCATION AND
+DEVELOPMENT CONFERENCE, March 2nd-4th, 2015 Madrid, Spain
+Trois expériences d’apprentissage  par les problèmes, Fabrice Robert, Jean-Paul Bécar, Jean-Charles Canonne, Eric Cartignies,  Aurel Fratu, Mariana Fratu , D\'esir\'e Dauphin Rasolomampionona,  6ème Colloque ADIUT Pédagogie et Professionnalisation IUT du Limousin – 25, 26 & 27 Mars 2015
+TROIS EXPERIENCES D’APPRENTISSAGE  PAR LES PROBLEMES, Jean-Paul Bécar , Jean-Charles Canonne , Fabrice Robert , Eric Cartignies , Aurel Fratu , Mariana Fratu, CNRIUT2015,  12-13 Mars 2015 Epinal
+Apprentissage par exemple de la conception de prototypes virtuels,
+Jean-Paul Bécar, Mariana Fratu, Aurel Fratu, Fabrice Robert, CETSIS 2014, 27-29 Octobre 2014 Besançon
+EXAMPLE BASED LEARNING FOR VIRTUAL PROTOTYPING ENGINEERING
+Jean-Paul Bécar  , Mariana Fratu , Aurel Fratu , Jean-Charles Canonne, 6th International Conference on Education and New Learning Technologies Barcelona - 7th - 9th of July 2014.
+Points massiques, courbes de Bézier quadriques et coniques : un état de l’art
+Jean-Paul Bécar , Lionel Garnier, Actes du colloque Groupe de Travail en Modélisation Géométrique, Journées de Lyon, 25-27 Mars 2014
+Fratu A, Bécar J-P,  Robots Collision Avoidance Using Learning through Imitation,ISEEE-2013 4th International Symposium on Electrical and Electronics Engineering (ISEEE) October 11-13, 2013 Galati, Romania , IEEE Catalog Number CFP1393K-USB ISBN 978-1-4799-2441-7
+Xplore Digital Library:http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=6662537
+Do electric go-karts are getting better than gas-powered ones? Arnaud Sivert,  Franck  Betin,  Jean-Paul Bécar,actes du colloque EVER12, Monaco 22-25 mars 2012
+Animation 3D : mouvements de caméra réalistes pour la stop motion, Laura Saini, Nicolas Lissarrague, Gudrun Albrecht, Lucia Romani,Christoph Fünfzig, Jean-Paul Bécar,Université Paul Verlaine, Metz 12,13,14 Octobre 2011.
+Expériences d’initiation à la robotique en IUT GEII, Jean-Charles CANONNE , Laurent VERMEIREN , Eric CARTIGNIES, Fabrice ROBERT, Jean-Paul BECAR,  Actes du 9e Colloque pédagogique  Enseignement des Technologies et des Sciences de l'Information et des Systèmes CETSIS du  23 au 26 octobre 2011,Université du Québec à Trois-Rivières (Québec), Canada
+Des courbes et surfaces « Bézier », Une histoire de géométrie polaire brûlante d’actualité, Jean-Paul Bécar , Jean Vareille ,
+Actes du  17ème Colloque National de la Recherche en IUT, Cherbourg-Octeville, France, 8-10 Juin 2011.
+An Electrical Go-Kart For Project Based Learning Platform, Jean-Paul Bécar, Thierry Lequeu, Shane Colton, Actes du colloque   EVER 11 ( Ecological Vehicles and Renewable Energies) de Monaco 31 Mars au 3 Avril 2011
+An Electrical Bike For Project Based Learning Platform, Arnaud Sivert, Franck  Betin, Jean-Paul Bécar, Actes du colloque   EVER 11 ( Ecological Vehicles and Renewable Energies) de Monaco 31 Mars au 3 Avril 2011
+A Fuzzy Logic Application for Go-Kart : a Battery Charger, Arnaud Sivert, Franck  Betin, Jean-Paul Bécar, Actes du colloque   EVER 11 ( Ecological Vehicles and Renewable Energies) de Monaco 31 Mars au 3 Avril 2011
+L’effet catalyseur des échanges Erasmus, Jean-Paul Bécar , Laurent Vermeiren , Jean-Charles Canonne , Fabrice Robert, Géraldine Longé, Actes du 16ème Colloque National de la Recherche en IUT,  9, 10 et 11 Juin 2010 ,IUT d’Angers
+Prototype de traqueur solaire à deux axes, Fabrice Robert, Jean-Paul Bécar, Jean-Louis Alexief, Jean-Charles Canonne , Laurent Vermeiren, Actes du 8ème Colloque sur l'enseignement des Technologies et des Sciences de l'Information et des Systèmes, 8 - 10 mars 2010, Grenoble, France
+Dispositif expérimental d’analyse des performances de cellules photovoltaïques, Bécar J.P.,    Robert F,.,  Canonne J.C.,Vermeiren L. ,  Vol. 8 No. Hors Série 1 (2009)
+Special Edition: CETSIS 2009, ISSN (version électronique) : 1638-1963, Journal sur l'enseignement de électronique, l'électrotechnique et  l'automatique (http://www.j3ea.org/).Géométrie des points d'inflexion et des singularités d'unecubique rationnelle, Albrecht G. , Bécar J.-P, Xiang X.  , Revue Electronique Francophone d'Informatique Graphique,publiée par l'Association Française d'Informatique Graphique, Volume 2, Numéro 1, pp.33-46, 2008.A scientific advanced modelling project in a laboratory environnement, Vermeiren L., Bécar J.P., Canonne J.C, Longé G., Lagache G., Boidin L.,   IADAT Journal of Advanced Technology on Education-IJAT-e, Volume 3, Number 2, September 2007., pp 369-371, ISSN 1698-1073.On the Approximation Order of Tangent Estimators, Albrecht G.,  Bécar J.-P.,  Farin G., Hansford D. , exposé àSixth International Conference on Curves and Surfacesorganized by SMAI-AFA, Avignon - FRANCE, June 29 - July 5, 2006.New method to link maths and technology : an application to automation,  Bécar J.-P., , Canonne J.C., Vermeiren L., IADAT Journal of Advanced Technology onEducation-IJAT-e, Volume 2, Number 4, December 2006, pp 295-297. ISSN 1698-1073.Design of an embedded system on a robot teaching platform, Bécar J.-P. , Vermeiren L., 7th IFAC Symposium on Advances in Control Education, Madrid, June 2006.Détermination de tangentes par l'emploi de coniques d'approximation, Albrecht G.,  Bécar J.-P.,  Farin G., Hansford D. , Revue Internationale d'ingénierie numérique. Volume 1 N1/2005, pages 91-103.Massic vectors-based conics modelling, Bécar J.-P. , Fiorot J.-C.,  inCurves and  Surfaces with Applications in CAGD , A. Le M\'ehaut\'e, C. Rabut,and L.L. Schumaker (eds)Vanderbilt University Press, Nashville, 1997, 17-24.Article sur Gaspard Monge à l'occasion du bicentenaire dela révolution française, journal interne du Lycée Kasler,  Denain, 1989.

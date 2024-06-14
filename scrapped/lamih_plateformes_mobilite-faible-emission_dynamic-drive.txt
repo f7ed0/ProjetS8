@@ -1,0 +1,13 @@
+Dynamic-Drive a pour objectif d'étudier en profondeur la dynamique véhicule, notamment dans le cas des véhicules hybrides équipés d'une machine électrique au niveau du train arrière.
+Dans certains cas, la stratégie de pilotage du moteur thermique et de la machine électrique, est susceptible d'impacter le comportement du véhicule essentiellement en courbe sur chaussée glissante.
+Une Twingo GT a spécialement été instrumentée et modifiée pour le contrôle et la mesure des paramètres liés au comportement dynamique du véhicule (ESP). Ainsi, le système de correction de trajectoire électronique a été repensé de sorte à pouvoir être piloté via les lois de commande développées en laboratoire.
+Le calculateur moteur est également entièrement paramétrable et interfaçable avec Matlab/Simulink.
+Qui plus est, cette technologie est transposable sur notrebanc moteur dynamiqueéquipé de la même motorisation et de la même architecture de contrôle, que la Twingo instrumentée (les essais sur bancs peuvent ainsi être validés sur véhicule réel).
+Enfin, Dynamic-Drive permet également d'aborder les problématiques liées au contrôle de l'écoulement aérodynamique.
+Dynamique véhicule, correction trajectoire, ABS, ESP, ECU ouvert, pression freinage, écoulement aérodynamique, centrale inertielle, Correvit Kistler, GPS, Cartographie, anti patinage.
+Twingo II GT 1.2 TCE
+Renault
+GPS
+Racelogic
+Correvit
+Kistler

@@ -1,0 +1,81 @@
+.container-convs{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+
+.conv{
+    padding: 25px;
+    height: 30px;
+    overflow: hidden;
+    border: 0px solid var(--separator);
+    border-bottom-width: 1px;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.conv:hover{
+    background-color: var(--hover-conv) !important;
+    cursor: pointer;
+}
+
+.conv p{
+    font-size: 15px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.new_conv{
+    width: 100%;
+    padding: 40px 25px;
+    display: flex;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+    align-items: center;
+    justify-content: start;
+    border-radius: 0;
+    background-color: var(--newconv) !important;
+    color: white !important;
+
+}
+
+.logo_new_conv{
+    margin-right: 10px !important;
+    font-size: 22px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.activeConv{
+    background-color: var(--active-conv) !important;
+}
+
+.activeConv p{
+    color: white;
+}
+
+.tel{
+    display: none;
+}
+
+.notel{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+
+    .tel{
+        display: flex;
+    }
+
+    .notel{
+        display: none;
+    }
+
+}
