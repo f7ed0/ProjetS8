@@ -61,6 +61,7 @@ export class HeaderComponent {
   }
 
   logout() {
+    this.newconvService.setNewConv();
     this.authService.setLoggedIn(false);
     this.navigateToLogin();
   }

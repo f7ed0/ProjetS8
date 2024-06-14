@@ -8,13 +8,13 @@
 
         <mat-form-field class="full-width">
             <mat-label>User</mat-label>
-            <input matInput [formControl]="user_control" placeholder="username">
+            <input matInput [formControl]="user_control" placeholder="username" (keydown)="handleKeydown($event, 'password')">
         </mat-form-field>
 
         <mat-form-field class="full-width">
             <mat-label>Enter your password</mat-label>
-            <input matInput [formControl]="pass_control" [type]="hide ? 'password' : 'text'">
-            <button mat-icon-button matSuffix (click)="clickEvent($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <input matInput [formControl]="pass_control" [type]="hide ? 'password' : 'text'" (keydown)="handleKeydown($event, 'password')">
+            <button mat-icon-button matSuffix (click)="toggleVisibility()" (mousedown)="preventSubmit($event)" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>

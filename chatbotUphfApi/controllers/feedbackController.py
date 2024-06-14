@@ -18,15 +18,14 @@ def create_feedback(feedback: FeedbackBase, db=Depends(get_db), token: str = Dep
 
 @router.get("/getfeedback", response_model=List[Feedback])
 def read_feedbacks(db=Depends(get_db), token: str = Depends(oauth2_scheme)):
-    decode_access_token(token)
-    feedbacks = list(db.feedback.find())
+    feedbacks = list(db.feedback.find({"is_like": True}))
     for feedback in feedbacks:
         feedback["_id"] = str(feedback["_id"])
     return feedbacks
 
 @router.get("/feedback/{chat_id}", response_model=Feedback)
 def read_feedback(chat_id: str, db=Depends(get_db), token: str = Depends(oauth2_scheme)):
-    decode_access_token(token)
+
     feedback = db.feedback.find_one({"id": chat_id})
     if feedback:
         feedback["_id"] = str(feedback["_id"])
@@ -39,3 +38,28 @@ def update_feedback(feedback_id: str, feedback: FeedbackBase, db=Depends(get_db)
     db.feedback.update_one({"id": feedback_id}, {"$set": feedback_dict})
     feedback_dict["_id"] = feedback_id
     return feedback_dict
+
+@router.get("/feedbacklike",response_model=List[Feedback])
+def like_feedback(db = Depends(get_db),token:str = Depends(oauth2_scheme)):
+    decode_access_token(token)
+    feedbacks = list(db.feedback.find({"is_like": True}))
+    for feedback in feedbacks:
+        feedback["_id"] = str(feedback["_id"])
+    return feedbacks
+
+
+@router.get("/feedbackdislike",response_model=List[Feedback])
+def dislike_feedback(db = Depends(get_db),token:str = Depends(oauth2_scheme)):
+    decode_access_token(token)
+    feedbacks = list(db.feedback.find({"is_like": False,"is_suggestion": False} ))
+    for feedback in feedbacks:
+        feedback["_id"] = str(feedback["_id"])
+    return feedbacks
+
+@router.get("/feedbacksuggestion",response_model=List[Feedback])
+def suggestion_feedback(db = Depends(get_db),token:str = Depends(oauth2_scheme)):
+    decode_access_token(token)
+    feedbacks = list(db.feedback.find({"is_suggestion": True}))
+    for feedback in feedbacks:
+        feedback["_id"] = str(feedback["_id"])
+    return feedbacks

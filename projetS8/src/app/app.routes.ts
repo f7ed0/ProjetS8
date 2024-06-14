@@ -6,6 +6,7 @@ import { SuggComponent } from './sugg/sugg.component';
 import { authGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ResetComponent } from './reset/reset.component';
+import { RgpdComponent } from './rppd/rgpd.component';
 
 export const routes: Routes = [
     {path : "", component: LoginComponent},
@@ -14,6 +15,7 @@ export const routes: Routes = [
     {path : "chat/:chat_id", component: SuggComponent},
     {path: "feedback", component: SuggComponent, canActivate: [authGuard]},
     {path: "reset", component: ResetComponent, canActivate: [authGuard]},
+    {path : "rgpd", component: RgpdComponent}
 ];
 
 @NgModule({

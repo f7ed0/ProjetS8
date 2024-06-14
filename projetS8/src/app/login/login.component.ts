@@ -58,14 +58,27 @@ export class LoginComponent {
     acceptTerms: this.acceptTerms
   });
 
-  clickEvent(event: MouseEvent) {
-    this.hide = !this.hide;
+  preventSubmit(event: MouseEvent) {
+    event.stopPropagation();
     event.stopPropagation();
   }
 
   ngOnInit(): void {
     this.userService.setHome('false');
     this.userService.setChatId('');
+  }
+
+  toggleVisibility(){
+    this.hide = !this.hide;
+  }
+
+  handleKeydown(event: KeyboardEvent, field: string){
+    if(event.key === "Enter" ){
+      if(field === 'password'){
+        event.preventDefault();
+        this.onSubmit();
+      }
+    }
   }
 
   onSubmit() {

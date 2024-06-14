@@ -107,7 +107,7 @@ export class MainComponent implements AfterViewInit {
   toggleRGPD(){
     this.dialog.open(RGPDComponent, {
       width: '90%',
-      maxWidth: '800px'
+      maxWidth: '900px'
     });
   }
 

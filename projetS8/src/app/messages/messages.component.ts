@@ -186,7 +186,7 @@ export class MessagesComponent implements OnInit {
   copyToClipboard(botResponse : string, index : string,id:string): void {
     navigator.clipboard.writeText(botResponse).then(() => {
       this.checkAction(index);
-      this.openSnackBar('Copier dans le presse-papier !','mat_snack_green');
+      this.openSnackBar('Copié dans le presse-papier !','mat_snack_green');
     }, (err) => {
       console.error('Failed to copy bot response to clipboard', err);
     });

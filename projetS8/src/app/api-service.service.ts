@@ -99,4 +99,14 @@ export class ApiServiceService {
   getId(): string {
     return this.userService.getId();
   }
+
+  getFeedbackLike() : Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/v1/feedbacklike', { headers: this.getAuthHeaders() });
+  }
+  getFeedbackDislike() : Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/v1/feedbackdislike', { headers: this.getAuthHeaders() });
+  }
+  getFeedbackSuggestion() : Observable<any> {
+    return this.http.get('http://127.0.0.1:8000/api/v1/feedbacksuggestion', { headers: this.getAuthHeaders() });
+  }
 }
