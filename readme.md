@@ -49,7 +49,9 @@ Ce projet prends la forme d'une Proof of concept montrant la capacitée d'un sys
 Pour rappel, ceci est une Proof of Concept et **n'est pas concue pour être utilisé en production**. Ces instructions d'execution ne sont là uniquement pour permettre aux gens de la tester.
 
 - Installer les dépendances
-- Lancer la base MongoDB
+- Créer la base MongoDB
+- Créer le user **root** avec le mot de passe **insa**
+- Créer la table **chatbotUPHF**
 - lancer le back end : `python main.py`
 - lancer le front end : `ng serve --host=0.0.0.0`
 
